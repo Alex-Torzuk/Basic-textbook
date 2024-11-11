@@ -579,8 +579,117 @@
 //     console.log(elem)
 // }
 
-let obj = {x: 1, y: 2, x: 3};
+// let obj = {x: 1, y: 2, x: 3};
 
-for(let key in obj){
-    console.log(`${key} :  ${obj[key]}`)
-}
+// for(let key in obj){
+//     console.log(`${key} :  ${obj[key]}`)
+// }
+
+//Цикл while в JavaScript
+
+// let num = 11
+// while(num <= 33){
+//     console.log(num)
+//     num++
+// }
+
+// let num = 2
+// while(num <= 1000){
+//     console.log(num)
+//     num = num * 3
+    
+// }
+// let arr = [1, 2, 3, 4, 5];
+// for (let i = 1; i <= arr.length-1; i++) {
+// 	console.log(arr[i]);
+// }
+
+// let arr = ['a', 'b', 'c', 'd', 'e'];
+// for(let i = 1; i <= arr.length-2; i++){
+//     console.log(arr[i])
+// }
+
+// for(let i = arr.length -1; i > 0; i--){
+//     console.log(arr[i])
+// }
+
+// for (let i = arr.length - 1; i >= 0; i--) {
+// 	console.log(arr[i]);
+// }
+
+// let arr = ['a', 'b', 'c', 'd', 'e'];
+		
+// for (let i = 0; i <= arr.length-1; i++) {
+// 	console.log(arr[i]);
+// }
+
+// let arr = [2, 5, 9, 15, 1, 4];
+
+// for(let elem of arr){
+  
+//     if(elem > 3 && elem < 10){
+//         console.log(elem)
+//     }
+// }
+
+// let obj = {a: 1, b: 2, c: 3, d: 4, e: 5};
+// for(let elem in obj){
+//     if(obj[elem] % 2 === 1){
+//         console.log(obj[elem])
+//     }
+// }
+
+// let res = 0;
+
+// for (let i = 1; i <= 100; i++) {
+// 	res = res + i;
+// }
+
+// console.log(res); // искомая сумма
+
+//Найдите сумму четных чисел от 2 до 100.
+
+// let res = 1
+// for(let i = 1; i <= 99; i++){
+//     if(i % 2 === 1){
+//         res+= i
+//     }
+   
+// }
+// console.log(res)
+
+// let arr = [2, 5, 9, 3, 1, 4];
+// let res = 0
+// // for(let elem of arr){
+// //     res += elem
+// // }
+
+// for(let elem of arr){
+//     if(elem % 2 === 0){
+//         res+= elem
+//     }
+// }
+// console.log(res)
+
+// let str = ''
+// for(let i = 1; i <= 5; i++){
+//     str+= '-'
+// }
+// console.log(str)
+
+// let num = ''
+
+// // for(let i = 1; i <= 9; i++){
+// //     num += i
+// // }
+
+// for(let i = 9; i >= 1; i--){
+//     num+=i
+// }
+// console.log(num)
+
+// let str = ''
+// for(let i = 1; i <= 9; i++){
+//     str += '-' + i 
+// }
+// console.log(str)
