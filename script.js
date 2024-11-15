@@ -688,8 +688,145 @@
 // }
 // console.log(num)
 
-// let str = ''
+// let str1 = ''
 // for(let i = 1; i <= 9; i++){
-//     str += '-' + i 
+//     str1 += '-' + i 
+// }
+// console.log(str1)
+
+// for(let i = 10; i <= 1000; i++){
+//     let str = String(i)
+//     if(Number(str[0]) + Number(str[1]) === 5){
+//         console.log(str)
+//     }
+// }
+
+// let arr = [1, 2, 3, 4, 5, -1, 8, 9]
+
+// // for(let elem of arr){
+// //     if (elem === 0){
+// //         console.log('Yes')
+// //         break
+// //     }
+// // }
+// // let sum = 0
+// // for (let elem of arr){
+// //     sum+= elem
+// //     if(elem === -1){
+        
+// // break
+
+
+// //     }
+// //     console.log(sum)
+// // }
+// // for(let elem of arr){
+// //     if (elem === 3){
+// //         console.log('Yes')
+// //         break
+// //     }
+// // }
+
+// for(let i = 0; i <= arr.length; i++){
+//     if(arr[i] === 3){
+//         console.log(i)
+//         break
+//     }
+// }
+
+// let sum = 0
+
+// for(let i = 1; i < 100; i++){
+//     sum += i
+//     if(sum >= 100){
+//         break
+//     }
+    
+//     console.log(sum)
+   
+// }
+
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// for (let elem of arr) {
+// 	let result;
+	
+// 	if (elem % 2 === 0) {
+// 		result = elem * elem;
+// 	} else if (elem % 3 === 0) {
+// 		result = elem * elem * elem;
+// 	}
+	
+// 	console.log(result); // вынесли вывод за условие
+// }
+
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// for (let elem of arr) {
+// 	let result;
+	
+// 	if (elem % 2 == 0) {
+// 		result = elem * elem;
+// 	} else if (elem % 3 == 0) {
+// 		result = elem * elem * elem;
+// 	} else {
+// 		continue; // перейдем на новую итерацию цикла
+	
+// 	}
+// 	console.log(result)}
+
+// let arr = [1, 2, 3, 4, 5, 6]
+// for (let elem of arr){
+//     let res
+//     if(elem % 2 === 0){
+//        res = elem * elem
+//     }
+//     else{ 
+//         continue
+//     }
+//     console.log(res)
+// }
+
+// for (let i = 1; i <= 9; i++){
+//     for(let k = 1; k <= 3; k++){
+//         document.write(i)
+//     }
+// }
+
+// let result = '';
+
+// for (let i = 1; i <= 3; i++) {  // Внешний цикл для первой цифры
+//     for (let j = 1; j <= 3; j++) {  // Внутренний цикл для второй цифры
+//         result += `${i}${j} `;  // Форматируем и добавляем к результату
+//     }
+// }
+
+// console.log(result);
+
+// for(let i = 1; i <= 3; i++){
+//     for(k = 3; k <= 3; k++){
+//         console.log(`${i}${k}`)
+//     }
+// }
+
+// let arr = []
+// let str = ''
+// // for(let i = 1; i <= 10; i++){
+// //     arr.push(i)
+// // }
+
+// for(let i = 1; i <= 10; i++){
+//     str += 'x' 
+//     arr.push(str)
+
 // }
 // console.log(str)
+
+// let arr = [1, 2, 3, 4, 5]
+// let newArr = []
+// for(let num of arr){
+//     if(num % 2 === 0){
+//         newArr.push(num)
+//     }
+// }
+// console.log(newArr)
