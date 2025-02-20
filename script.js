@@ -2631,14 +2631,1333 @@
 
 
 
-function func(num){
-    let arr = []
-    for(let i = 1; i <= num; i++){
-        if(num % i === 0){
-          arr.push(i)
-        }
-    }
-    return arr
+// function func(num){
+//     let arr = []
+//     for(let i = 1; i <= num; i++){
+//         if(num % i === 0){
+//           arr.push(i)
+//         }
+//     }
+//     return arr
+// }
+
+// console.log(func(12))
+
+// function func(str){
+//     return str.split('')
+
+// }
+
+
+// console.log(func('World'))
+
+// function func(str){
+//     let arr = str.split('')
+//     let newStr = ''
+//     for(let i = arr.length-1; i >= 0; i--){
+//          newStr+= arr[i]
+//     }
+//     return newStr
+// }
+
+// console.log(func('Hello'))
+
+
+// function func(str){
+//     let newStr = str.split('').splice(0, 1).join('').toUpperCase()
+//    return newStr= newStr + str.split('').splice(1).join('')
+// }
+// console.log(func('hello'))
+
+// function func(str){
+//     let arr = str.split(' ')
+    
+//     for(let i = 0; i < arr.length; i++){
+//       arr[i] = arr[i].slice(0, 1).toUpperCase() + arr[i].slice(1)
+    
+//     }
+//     return arr
+// }
+
+// console.log(func('hello hello hello'))
+
+
+// let str = 'word1 word2 word3';
+
+// let words = str.split(' ')
+// console.log(words)
+// for(let i = 0; i < words.length; i ++){
+//     words[i] = words[i].slice(0, 1).toUpperCase() + words[i].slice(1)
+//     console.log(words[i])
+// }
+
+// let arr = []
+// function func(arr){
+
+//     for(let i = 1; i <= 10; i++){
+//        arr.push(i)
+//     }
+//     return arr
+
+// }
+
+// console.log(func(arr))
+
+
+// let arr = [1, 2, 3, 4, 5, 6]
+
+// function func(arr){
+//     let minArr = Math.min.apply(null, arr)
+//     let maxArr = Math.max.apply(null, arr)
+    
+//         function getRandomInt(min, max) {
+            
+//             return Math.floor(Math.random() * (max - min + 1)) + min;
+        
+//         }
+        
+//         return getRandomInt(minArr, maxArr)
+// }
+// console.log(func(arr))
+
+// function func(num){
+//         return num % 2 === 0
+    
+// }
+// console.log(func(4))
+
+
+// let num = 123222
+// let sum = 0
+// let arr = num.toString().split('')
+// let firstNum = arr.slice(0, 3)
+
+// let secondNum = arr.slice(3)
+// let a
+// let b
+// function func(num){
+//     for(let elem of num){
+//         sum += Number(elem)
+//     }
+//     return sum
+// }
+
+// console.log(func(firstNum))
+// console.log(func(secondNum))
+
+// function func() {
+// 	let num = 2;
+// }
+
+// let num = 1;
+// func();
+// console.log(num);
+
+// function func(arr) {
+// 	let newArr = arr;
+// 	newArr[0] = '!';
+// }
+
+// let arr = [1, 2, 3];
+// func(arr);
+// console.log(arr);
+
+// function func(){
+//     return 'Hello, Alex'
+// }
+
+// func = 123
+// console.log(func)
+
+
+// function func(){
+//     return 3
+// }
+// console.log(func())
+
+// let func2 = func()
+// console.log(func2)
+// let res = func() + func2
+// console.log(res)
+
+// let func1 = function(){
+//     return 1
+// }
+
+// let func2 = function(){
+//     return 2
+// }
+//  console.log(func1() + func2())
+
+// func()
+// let test = function func() {
+// 	console.log('!');
+// }
+
+// let arr = [
+// 	function() {console.log('1')},
+// 	function() {console.log('2')},
+// 	function() {console.log('3')},
+// ];
+
+// for (let func of arr) {
+// 	func(); // вызываем наши функции в цикле
+// }
+
+// let arr = [
+// 	function() {return 1},
+// 	function() {return 2},
+// 	function() {return 3},
+// ];
+
+// for(let elem of arr){
+//     console.log(elem())
+// }
+
+// let obj = {
+// 	func1: function() {return 1},
+// 	func2: function() {return 2},
+// 	func3: function() {return 3},
+// };
+// // console.log(obj.func1() + obj.func2() + obj.func3())
+
+// for(key in obj){
+//     console.log(obj[key]())
+// }
+
+
+// let obj = {
+// 	func1: function(arr) {
+//         let sum = 0
+//         for(let elem of arr){
+//             sum+= elem
+//         }
+//         return sum
+//     },
+// 	func2: function(arr) {
+//         let square
+//         for(let elem of arr){
+//             square = elem * elem
+//         }
+//         return square
+//     },
+// 	func3: function(arr) {
+//         let cube
+//         for(let elem of arr){
+//             cube = elem * elem * elem
+//         }
+//         return cube
+//     },
+// };
+
+// console.log(obj.func1([1, 2, 3, 4, 5]))
+// console.log(obj.func2([1, 2, 3, 4, 5]))
+// console.log(obj.func3([1, 2, 3, 4, 5]))
+
+
+// test(
+// 	function() {return 1;}, // первый параметр
+// 	function() {return 2;}  // второй параметр
+// );
+
+// function test(func1, func2) {
+// 	console.log(func1() + func2()); // выведет 'function() {return 1;}'
+	
+// }
+
+// function test(func1, func2, func3){
+//     console.log(func1() + func2() + func3())
+// }
+
+// test(
+//     function(){return 1},
+//     function(){return 2},
+//     function(){return 3}
+// )
+
+
+// function test(func1, func2, func3){
+//     console.log(func1() + func2() + func3())
+    
+// }
+
+// let func1 = function (){return 1}
+// let func2 = function (){return 2}
+// let func3 = function (){return 3}
+
+// test(func1, func2, func3)
+
+// Выведет 9:
+// test(function(num) {
+// 	return num ** num;
+// });
+
+// function test(func) {
+// 	console.log(func(3));
+// }
+
+// let func1 = function (){
+//     return 2
+// }
+
+// let func2 = function (){
+//     return 3
+// }
+
+// function test(func1, func2){
+//     console.log(func1() + func2())
+// }
+// test(func1, func2)
+
+// function test(num, func1, func2) {
+// 	return console.log(func1(num), func2(num));
+// }
+
+// function func1(num){
+//     return num * num
+// }
+// function func2(num){
+//     return num ** num
+// }
+// test(3, func1, func2)
+
+// function test(arr, func) {
+// 	for (let i = 0; i < arr.length; i++) {
+// 		arr[i] = func(arr[i]);
+// 	}
+	
+// 	return arr;
+// }
+
+// // Оформим код изящнее:
+// let result = test([1, 2, 3], function(num) {
+// 	return num ** num;
+// });
+
+// console.log(result); // выведет [1, 4, 9]
+
+// let test = function func() {
+// 	console.log('!'); // выводим '!'
+// 	func(); // вызываем сами себя
+// };
+
+// test();
+
+// function func(num1, num2){
+//     function square(num){
+//         return num * num
+//     }
+
+//     function cube(num){
+//         return num * num * num
+//     }
+//     return square(num1) + cube(num2)
+// }
+
+// console.log(func(2, 2))
+
+// let cube = 2 * 2 * 2
+// console.log(cube)
+
+// function test() {
+// 	let num = 1;
+	
+// 	function func() {
+// 		console.log(num);
+// 	}
+	
+// 	func();
+// }
+
+// test();
+
+// function func() {
+// 	return function() {
+// 		return '!';
+// 	};
+// }
+
+// // let result = func(); // в переменной result будет функция
+// console.log(func()()); // выведет 'function() {return '!';}'
+
+// function func(){
+//     return function(){
+//         return 1
+//     }
+// }
+
+
+// function func2(){
+//     return function(){
+//         return 2
+//     }
+// }
+// console.log(func()() + func2()())
+
+// function func(){
+//     return function(){
+//         return function(){
+//             return function(){
+//                 return function(){
+//                     return '!'
+//                 }
+//             }
+//         }
+//     }
+// }
+// console.log(func()()()()())
+
+// function func(num1){
+//     return function(num2){
+//         return function(num3){
+//             return num1 + num2 + num3
+//         }
+//     }
+// }
+// console.log(func(2)(3)(4))
+
+// let arr = []
+
+// function func(num1){
+//     return function(num2){
+//         return function(num3){
+//             return function(num4){
+//                 return function(num5){
+//                     return function(){
+//                         arr.push(num1, num2, num3, num4, num5)
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// func(2)(3)(4)(5)(6)()
+// console.log(arr)
+
+// function test() {
+// 	let num = 1;
+	
+// 	return function() {
+// 		console.log(num);
+// 		num++; // прибавляем единицу
+// 	}
+// }
+
+// let func = test();
+// func()
+// func()
+// func()
+
+
+
+// function createDecrementer() {
+//     let num = 10; // Переменная в замыкании
+    
+//     return function() {
+//         if (num > 0) {
+//             console.log(--num); // Уменьшаем число на 1 и выводим
+//         } else {
+//             console.log("Число уже равно 0");
+//         }
+//     };
+// }
+
+// const decrement = createDecrementer(); // Создаём замыкание
+
+// decrement(); // 9
+// decrement(); // 8
+// decrement();
+// decrement();
+// decrement();
+// decrement();
+// decrement();
+// decrement();
+// decrement();
+// decrement();
+// decrement();
+// decrement();
+// decrement();
+// decrement(); // 7
+// // ... вызываем дальше
+
+
+
+// function test(){
+//     let num = 10
+//     return function(){
+        
+//         if(num > 0){
+//             console.log(num--)
+            
+//         }else{
+//             console.log('отсчет окончен')
+//         }
+        
+//     }
+// }
+// let func = test()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+
+
+// (function(num1, num2) {
+// 	console.log(num1 + num2);
+// })(1, 2);
+
+// (function() {
+// 	// какой-то код
+//     return function(){
+//         return function(){
+//             return alert('Hello')
+//         }
+//     }
+// })()()();
+
+// (function(num) {
+// 	// какой-то код
+//      return function(num2){
+//         return alert(num + num2)
+//     }
+    
+// })(1)(2);
+
+// (function(num1) {
+// 	// какой-то код
+//     return function(num2){
+//         return function(num3){
+//             return alert(num1 + num2 + num3)
+//         }
+//     }
+
+// })(1)(2)(3);
+
+// let result = 1
+// +function() {
+// 	return 2;
+// }();
+
+// console.log(result)
+
+// let str = 'str'
+
+// (function() {
+// 	console.log(1);
+// })();
+
+// let func = function(){
+//     let num = 1
+//     return function(){
+//         console.log(num)
+//         num++
+//         if(num === 5){
+            
+//             console.log(num)
+//             num = 0
+//             num++
+//         }
+//     }
+// }()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// func()
+// let arr = [1, 2, 3, 4, 5]
+// function each(arr, callback) {
+// 	let result = [];
+	
+// 	for (let elem of arr) {
+// 		result.push( callback(elem) ); // вызываем функцию-коллбэк
+// 	}
+	
+// 	return result;
+// }
+// let result = each(arr, function(num){
+//     return num * 2
+// })
+
+// console.log(result)
+
+// let arr = ["apple", "banana", "cherry", "date"]
+// let arr = [1, 2 , 3, 4, 5]
+
+// function each(arr, callback){
+//     let result = []
+//     for(let elem of arr){
+//         result.push(callback(elem))
+//     }
+//     return result
+// }
+
+// // let result = each(arr, function(str){
+// //     // return str.split('').reverse().join('')
+// //     return str.toUpperCase()
+// // })
+
+// function cube(num) {
+// 	return num ** 3;
+// }
+
+// let result = each(arr, cube)
+
+
+// console.log(result)
+
+
+// let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+// let result = each(arr, (elem, index) => elem * index > 10)
+
+// let arr = [1, 2, 3, 4, 5];
+
+
+// let i = 1;
+
+// function func(){
+// 	console.log(i);
+// 	i++;
+	
+// 	if (i <= 10){
+// 		func(); // здесь функция вызывает сама себя
+// 	}
+// }
+// func();
+	
+
+// function func(arr) {
+// 	console.log(arr.shift(), arr);
+	
+// 	if (arr.length != 0) {
+// 		func(arr);
+// 	}
+// }
+
+// func([1, 2, 3]);
+
+// let arr = [1, 2, 3, 4, 5];
+
+// function func(arr){
+//     console.log(arr.shift(), arr);
+
+//     if(arr.length != 0){
+//         func(arr)
+//     }
+    
+// }
+// func(arr)
+// let i = 1
+// function func(num){
+//     console.log(num)
+//     num ++
+//     if(num <= 10){
+//         func(num)
+//     }
+// }
+// func(i)
+
+// function getSum(arr) {
+// 	let sum = arr.shift();
+	
+// 	if (arr.length !== 0) {
+// 		sum += getSum(arr);
+// 	}
+	
+// 	return sum;
+// }
+
+// console.log(getSum([1, 2, 3]));
+
+// let arr = [1, 2, 3, 4, 5];
+// function getSquare(arr){
+//     let sum = arr.shift()
+
+//     if(arr.length !== 0){
+//         sum *= getSquare(arr)
+//     }
+//     return sum
+// }
+// console.log(getSquare(arr))
+
+// function func(arr) {
+// 	for (let elem of arr) {
+// 		console.log(elem);
+// 	}
+// }
+
+// func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);
+
+// function func(arr) {
+// 	for (let elem of arr) {
+// 		if (typeof elem == 'object') {
+// 			// элемент - массив
+// 		} else {
+// 			// элемент - примитив
+// 			console.log(elem);
+// 		}
+// 	}
+// }
+
+// func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);
+
+// function func(arr) {
+// 	for (let elem of arr) {
+// 		if (typeof elem == 'object') {
+// 			func(elem);
+// 		} else {
+// 			console.log(elem);
+// 		}
+// 	}
+// }
+
+// func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);
+
+// function func(obj){
+//     for(let key in obj){
+//         if(typeof obj[key] === 'object'){
+//             func(obj[key])
+//         }else{
+//             console.log(obj[key])
+//         }
+//     }
+// }
+
+// func({a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}}
+// )
+
+// function func(arr){
+//     let newArr = []
+//     for(let elem of arr){
+//         if(typeof elem == 'object'){
+//             newArr.push(func(elem)) 
+            
+//         }else(console.log(elem))
+        
+//     }
+//     return newArr
+// }
+
+// func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]])
+
+// function func(obj){
+//     let sum = 0
+//     for(let key in obj){
+//         if(typeof obj[key] === 'object'){
+//             sum += func(obj[key])
+//         }else{
+//             sum += obj[key]
+//         }
+//     }
+//     return sum
+// }
+
+// console.log(func({a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}}))
+
+// function func(arr) {
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if (typeof arr[i] == 'object') {
+// 			arr[i] = func(arr[i]);
+// 		} else {
+// 			// arr[i] = arr[i] + '!';
+//             arr[i] = arr[i] * 2
+// 		}
+// 	}
+	
+// 	return arr;
+// }
+
+// console.log(func([1, [2, 7, 8], [3, 4, [5, 6]]]));
+
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8]
+// let newArr = []
+// let result = arr.map(function(elem){
+     
+//      return newArr.push(elem * elem)
+
+// })
+// console.log(newArr)
+
+// let arr = ['Hello', 'world']
+
+// let result = arr.map(function (elem){
+//     return elem.split('').reverse().join('')
+// })
+
+// console.log(result)
+
+// let arr = ['123', '456', '789'];
+// let res = arr.map((elem) =>{
+//    let newArr =  elem.split('').map(Number)
+//      return newArr
+
+     
+// })
+// console.log(res)
+
+// let arr = [1,2, 3, 4, 5, 6]
+// let res = arr.map((elem, index)=>{
+//     return elem * index
+// })
+
+// console.log(res)
+
+// let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+// let result = arr.map(function(elem) {
+// 	return elem
+// });
+
+// console.log(result);
+
+// let arr = [1, 2, 3, 4, 5];
+// let sum = 0;
+
+// arr.forEach(function(elem) {
+// 	sum += elem;
+// });
+
+// console.log(sum);
+
+
+// let arr = [1, 2, 3, 4, 5]
+// let sum 
+// let res = arr.forEach((elem)=>{
+//     return sum = elem * elem 
+// })
+// console.log(sum)
+
+// let arr = [1 ,2, 3, 4, 5, 6, 9, 12, 15]
+// let res = arr.filter((elem) => {
+//     return elem > 0 && elem < 10
+// })
+
+// console.log(res)
+
+// let arr = ['hello', 'everybody', 'wellcome']
+
+// let res = arr.filter((elem) => {
+//     return elem.length > 5
+// })
+
+// console.log(res)
+
+// let arr = [1, 2, 3, 4, 5];
+
+// let res = arr.filter((elem) => {
+//     return elem % 2 == 1 
+// })
+
+// console.log(res.length)
+
+// let arr = [1, 2, 3, 4, 5]
+// // let res = arr.every((elem) => {
+// //     return elem > 0
+// // })
+// // console.log(res)
+
+// let res = arr.some((elem) => {
+//     return elem > 0
+// })
+
+// console.log(res)
+
+
+// let arr = [1, 2, 3, 4, 5]
+
+// function func(num1, num2, num3, num4, num5) {
+// 	return num1 + num2 + num3 + num4 + num5;
+// }
+// console.log(func(...arr))
+
+// function func(n1, n2, n3, n4, n5, n6, n7, n8) {
+// 	return (n1 + n2 + n3 + n4) * (n5 + n6 + n7 + n8);
+// }
+
+// console.log( func(1, ...[2, 3, 4], 5, ...[6], ...[7, 8]) );
+
+
+// let arr1 = [1, 2, 3];
+// let arr2 = [...arr1];
+
+// console.log(arr2);
+
+// function func(a, b, ...rest) {
+// 	console.log(a);
+// 	console.log(b);
+//     console.log(rest)
+// }
+// func(1, 2, 3, 4, 5);
+
+
+// function func(...nums){
+//     let sum = 0
+//     for(let num of nums){
+//         sum+= num
+//     }
+//     return sum
+// }
+// console.log(func(1, 2, 3, 4, 5))
+
+// let result = unite([1, 2, 3], [4, 5, 6], [7, 8, 9]);
+// console.log(result); // выведет [ [1, 2, 3,] [4, 5, 6], [7, 8, 9] ]
+
+// let arr = ['John', 'Smit', 'development', 'programmer', 2000];
+
+// let [name, surname, department, position, salary] = arr
+
+// console.log(salary)
+
+// function func() {
+// 	return ['John', 'Smit', 'development', 'programmer', 2000];
+// }
+
+// let [name, surname, department, position, salary] = func();
+
+// console.log(name)
+
+
+// let arr = ['Alex', 'Torzuk', 'developer']
+// let [name, surname, department] = arr
+// console.log(name)
+// console.log(surname)
+// console.log(department)
+
+// let arr = ['John', 'Smit', 'development', 'programmer', 2000];
+// // let info = arr.slice(2); // все элементы со второго до конца массива
+// let [name, surname, ...job] = arr
+// console.log(name)
+// console.log(surname)
+// console.log(job)
+
+
+// let arr = ['John', 'Smit', 'development', 'programmer'];
+
+// let name       = arr[0];
+// let surname    = arr[1];
+// let department = arr[2];
+
+// let position;
+// if (arr[3] !== undefined) {
+// 	position = arr[3];
+// } else {
+// 	position = 'trainee';
+// }
+
+// let [name, surname, department, position = 'trainee'] = arr
+// console.log(name)
+// console.log(surname)
+// console.log(department)
+// console.log(position)
+
+
+
+// function yearF() {
+	
+//     return new Date().getFullYear();
+// }
+// function monthF() {
+	
+//     return new Date().getMonth();
+// }
+// function dayF() {
+	
+//     return new Date().getDate();
+// }
+
+// let arr = []
+
+// let [year = yearF(), month = monthF()+1, day = dayF()] = arr;
+
+// console.log(year)
+// console.log(month)
+// console.log(day)
+
+// let options = {
+// 	color: 'red',
+// 	width:  400,
+// 	height: 500,
+// };
+
+// let {color, width, height} = options
+// console.log(color)
+// console.log(width)
+// console.log(height)
+
+// let options = {
+// 	color: 'red',
+// 	width:  400,
+// 	height: 500,
+// };
+
+// let {color: c, width: w, height: h} = options
+// console.log(c)
+// console.log(w)
+// console.log(h)
+
+// let options = {
+// 	width:  400,
+// 	height: 500,
+// };
+
+// let {color = 'black', width, height} = options
+// console.log(color)
+// console.log(width)
+// console.log(height)
+
+// let options = {
+// 	width:  400,
+// 	height: 500,
+// };
+
+// let {color: c = 'black', width: w, height: h} = options
+// console.log(c)
+// console.log(w)
+// console.log(h)
+
+
+// function func([name, surname, department, position, salary]) {
+// 	console.log(name)
+//     console.log(surname)
+//     console.log(department)
+//     console.log(position)
+//     console.log(salary)
+
+// }
+
+// func( ['John', 'Smit', 'development', 'programmer', 2000] );
+
+// function func([name, surname, ...info]) {
+// 	console.log(name)
+//     console.log(surname)
+//     console.log(info)
+
+// }
+
+// func( ['John', 'Smit', 'development', 'programmer', 2000] );
+
+// function func([name, surname, department, position = 'джуниор']) {
+// 	console.log(name)
+//     console.log(surname)
+//     console.log(department)
+//     console.log(position)
+	
+	
+// }
+
+// func( ['John', 'Smit', 'development'] );
+
+// function func(department, [name, surname], [year, month, day]) {
+// 	console.log(department)
+//     console.log(name)
+//     console.log(surname)
+//     console.log(year)
+//     console.log(month)
+//     console.log(day)
+// }
+
+// func( 'development', ['John', 'Smit'], [2018, 12, 31] );
+
+// function func({color, width, height}) {
+// 	console.log(color)
+//     console.log(width)
+//     console.log(height)
+// }
+
+// func( {color: 'red', width: 400, height: 500} );
+
+// function func({color = 'black', width, height}) {
+// 	console.log(color)
+//     console.log(width)
+//     console.log(height)
+// }
+
+// func( {color: 'red', width: 400, height: 500} );
+
+// let date = new Date()
+// console.log(date)
+
+// let day = new Date()
+// console.log(day.getDate())
+// console.log(day.getMonth())
+// console.log(day.getFullYear())
+
+// let date = new Date()
+// function func(num){
+//     if (num >= 0 && num <= 9){
+//         return '0' + num
+//     }else{
+//         return num
+//     }
+// }
+// console.log(date.getHours() + ':' + 
+//     date.getMinutes() + ':' +
+//     date.getSeconds() + ' ' +
+//     func(date.getDate()) + '.' +
+//     func(date.getMonth()+1) + '.' +
+//     date.getFullYear()
+// )
+
+// let str = '2025-12-31';
+
+// let res = str.split('-').reverse().join('/')
+// console.log(res)
+
+// let day = new Date()
+// if(day.getDay() === 0 || day.getDay() === 6){
+//     console.log('Выходной день')
+// } else{
+//     console.log('Рабочий день')
+// }
+
+// let date = new Date()
+// let month = date.getMonth()
+// let months = [
+// 	'янв', 'фев', 'мар', 'апр', 'май', 'июн',
+// 	'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'
+// ];
+
+// console.log(months[month])
+
+// let date = new Date(1988, 7, 6); 
+// let day  = date.getDay();
+// let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+
+// console.log(days[day]);
+
+// let date = new Date(2015, 11, 4, 23, 59, 59);
+// console.log(date.getTime());
+
+
+// let date = new Date();
+// console.log(date.getTime());
+
+// let date = new Date(2025, 0, 0, 0, 0, 0);
+// console.log(date.getTime());
+
+
+// let now  = new Date();
+// let date = new Date(1988, 10, 13, 23, 59, 59);
+
+// let diff = now.getTime() - date.getTime();
+// console.log(diff / (1000 * 60 * 60 * 12 * 24));
+
+
+// let now  = new Date();
+// let date = new Date(2000, 8, 0, 12, 59, 59);
+
+// let diff = now - date; // вычитаем два объекта с датами друг от друга
+// console.log(diff / (1000 * 60 * 60 * 12 * 24 * 12));     // увидим разницу в миллисекундах
+
+
+
+// function func(year, month, day){
+//     let data = new Date(year, month, day)
+//     return data.getDate()
+// }
+// let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+// let newDay = func(2025, 4, 0)
+
+// console.log(days[newDay])
+
+// let year  = 2025;
+// let month = 0;
+// let day   = 31;
+
+// let date = new Date(year, month, day);
+
+// if (date.getFullYear() == year && date.getMonth() == month && date.getDate() == day) {
+// 	console.log('корректна');
+// } else {
+// 	console.log('некорректна');
+// }
+
+// let now  = new Date(); // получаем текущий момент
+// let date = new Date(now.getFullYear(), 11, 31); // получаем нашу дату
+// let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+// console.log(days[date.getDay()]);
+// console.log(date.getDay())
+
+// let now  = new Date();
+// let date = new Date(now.getFullYear(), now.getMonth(), 1);
+// console.log(date)
+
+// let now  = new Date();
+// let date = new Date(now.getFullYear() - 1, 11, 31);
+// console.log(date)
+
+// let date1 = new Date();
+// let date2 = new Date(2015, 4, 25, 12, 59, 59);
+
+// console.log(date1 / (60 * 60) - date2 / (60 * 60)); // разность в миллисекундах
+
+// let date1 = '2020-11-31';
+// let date2 = '2020-12-01';
+
+// let date1 = '09-21';
+// let date2 = '09-23';
+
+// console.log(date1 < date2)
+
+// let btn = document.querySelector('#btn')
+// let elem1 = document.querySelector('.elem1')
+// // let elem2 = document.querySelector('.elem2')
+// // let res = document.querySelector('.res')
+// btn.addEventListener('click', ()=>{
+//     // res.textContent = Number(elem1.textContent) + Number(elem2.textContent)
+//     // elem1.textContent = Number(elem1.textContent) + 1
+//     // elem1.textContent = elem1.textContent + '!!!'
+//     console.log(elem1.innerHTML)
+// })
+
+// let input = document.querySelector('#elem')
+// let a = document.querySelector('.a')
+// let img = document.querySelector('.img')
+// let p = document.querySelector('.p')
+// let btn = document.querySelector('#btn')
+// btn.addEventListener('click', ()=>{
+//  p.textContent = img.src
+// })
+
+
+// let input = document.querySelector('#elem')
+// let input2 = document.querySelector('#elem2')
+// let input3 = document.querySelector('#elem')
+// let input4 = document.querySelector('#elem2')
+// let input5 = document.querySelector('#elem')
+
+// let btn = document.querySelector('#btn')
+
+// let p = document.querySelector('p')
+
+// btn.addEventListener('click', ()=>{
+//    p.textContent = Number(input.value) + Number(input2.value) + Number(input3.value) + Number(input4.value) + Number(input5.value)
+// })
+
+// let elem = document.querySelector('#elem');
+// // elem.addEventListener('focus', function() {
+// // 	elem.value = elem.value ** 2
+// // });
+// elem.addEventListener('blur', function() {
+// 	elem.value = ''
+// });
+
+// let elem = document.querySelector('#elem');
+// console.log(elem.className); // выведет 'aaa bbb'
+// let elem = document.querySelector('#elem');
+// elem.addEventListener('focus', func);
+// function func() {
+// 	console.log(this); // содержит ссылку на наш элемент
+// }
+// elem.addEventListener('blur', func);
+// function func() {
+// 	console.log(this); // содержит ссылку на наш элемент
+// }
+
+
+
+
+// let p = document.querySelector('#p')
+// let btn1 = document.querySelector('#btn1')
+// let btn2 = document.querySelector('#btn2')
+// let btn3 = document.querySelector('#btn3')
+// btn1.addEventListener('click', ()=>{
+//     // p.style.textDecoration = 'line-through'
+//     p.classList.toggle('tex')
+// })
+// btn2.addEventListener('click', ()=>{
+//     // p.style.fontWeight = 'bold'
+//     p.classList.toggle('bold')
+// })
+// btn3.addEventListener('click', ()=>{
+//     // p.style.color = 'red'
+//     p.classList.toggle('red')
+// })
+
+// let elem = document.getElementById('elem')
+// elem.textContent += elem.dataset.text
+
+// let btn = document.querySelector('#btn')
+
+// btn.addEventListener('click', func)
+
+// function func(){
+//     let sum = 0
+//       btn.dataset.click = sum+= btn.dataset.click
+//         btn.dataset.click++
+//     console.log(btn.dataset.click)
+// }
+// btn.addEventListener('dblclick', ()=>{
+//     alert(btn.dataset.click)
+// })
+    
+
+// let elem = document.querySelector('#elem')
+
+
+
+// elem.addEventListener('blur', ()=>{
+//     if(elem.value.length <= elem.dataset.min ){
+//         alert('Слишком мало символов !!')
+//     } 
+//    if(elem.value.length > elem.dataset.max){
+//     alert('Слишком много символов !!')
+//    }
+// })
+
+
+// let elem = document.getElementById('elem')
+
+// elem.addEventListener('click', func)
+
+// function func(){
+//     elem.textContent += elem.dataset.productPrice * elem.dataset.productAmount
+// }
+
+// let inp1 = document.querySelector('#inp1')
+
+// inp1.addEventListener('blur', ()=>{
+//     let fio = inp1.value.trim()
+//     if(fio){
+//         fio = fio.split(' ').map(name =>{
+//             return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+//         }).join(' ')
+//         inp1.value = fio
+//     }
+    
+// })
+
+
+// let inp = document.getElementById('inp1')
+// inp.addEventListener('blur', ()=>{
+//     let date = inp.value
+//     inp.value = date.split('.').reverse().join('.')
+// })
+
+let elems = document.querySelectorAll('a')
+console.log(elems)
+for(let elem of elems){
+    elem.addEventListener('click', function(){
+        this.textContent = elem.href
+    })
 }
 
-console.log(func(12))
+
