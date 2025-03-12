@@ -3952,12 +3952,45 @@
 //     inp.value = date.split('.').reverse().join('.')
 // })
 
-let elems = document.querySelectorAll('a')
-console.log(elems)
-for(let elem of elems){
-    elem.addEventListener('click', function(){
-        this.textContent = elem.href
-    })
-}
+// let num = document.querySelector('input')
+// let btn1 = document.querySelector('#btn1')
+// let btn2 = document.querySelector('#btn2')
 
+// btn1.addEventListener('click', ()=>{
+    
+//     num.value++
+// })
 
+// btn2.addEventListener('click', ()=>{
+//     if(num.value != 0){
+//         num.value--
+//     }
+    
+// })
+
+// let inp = document.querySelector('input')
+// let elems = document.querySelectorAll('p')
+// for(let elem of elems){
+// elem.addEventListener('click', function(){
+//     inp.value++
+// })
+// }
+
+let elems = document.querySelectorAll('p')
+elems.forEach(elem => {
+    let text = elem.textContent
+    if(text.length > 10){
+        elem.textContent = text.substring(0,10) + '...'
+    }
+})
+
+// // Обходим каждый найденный <div>
+// divs.forEach(div => {
+//     // Получаем текст внутри <div>
+//     let text = div.textContent;
+  
+//     // Обрезаем текст до 10 символов и добавляем троеточие
+//     if (text.length > 10) {
+//       div.textContent = text.substring(0, 10) + '...';
+//     }
+//   });
