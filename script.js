@@ -3976,21 +3976,60 @@
 // })
 // }
 
-let elems = document.querySelectorAll('p')
-elems.forEach(elem => {
-    let text = elem.textContent
-    if(text.length > 10){
-        elem.textContent = text.substring(0,10) + '...'
+// let elems = document.querySelectorAll('p')
+
+// for(let elem of elems){
+//     let text = elem.textContent
+//     if (text.length > 10){
+//         elem.textContent = text.substring(0, 10) + '...'
+//     }
+// }
+
+// let inp = document.querySelector('input')
+// let btn = document.querySelector('button')
+
+// btn.addEventListener('click', ()=>{
+//     function generateRandomString(length) {
+//         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+//         let result = '';
+//         for (let i = 0; i < length; i++) {
+//             const randomIndex = Math.floor(Math.random() * characters.length);
+//             result += characters[randomIndex];
+//         }
+//         return result;
+//     }
+    
+//     const randomString = generateRandomString(8);
+//     inp.value = randomString
+// })
+// function shuffleString(str) {
+//     // Преобразуем строку в массив символов
+//     const characters = str.split('');
+//     // Перемешиваем массив
+//     for (let i = characters.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1)); // Случайный индекс
+//         [characters[i], characters[j]] = [characters[j], characters[i]]; // Меняем местами
+//     }
+//     // Возвращаем перемешанную строку
+//     return characters.join('');
+// }
+
+// // Обработчик события для кнопки
+// btn.addEventListener('click', () => {
+//     // Получаем значение из инпута
+//     const inputValue = inp.value;
+//     // Перемешиваем строку
+//     const shuffledString = shuffleString(inputValue);
+//     // Записываем результат обратно в инпут
+//     inp.value = shuffledString;
+// });
+
+
+let inp = document.querySelector('input')
+inp.addEventListener('change', ()=>{
+    if(inp.value.length <= 5){
+        inp.style.backgroundColor = 'green'
+    }else{
+        inp.style.backgroundColor = 'red'
     }
 })
-
-// // Обходим каждый найденный <div>
-// divs.forEach(div => {
-//     // Получаем текст внутри <div>
-//     let text = div.textContent;
-  
-//     // Обрезаем текст до 10 символов и добавляем троеточие
-//     if (text.length > 10) {
-//       div.textContent = text.substring(0, 10) + '...';
-//     }
-//   });
