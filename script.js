@@ -4025,11 +4025,37 @@
 // });
 
 
-let inp = document.querySelector('input')
-inp.addEventListener('change', ()=>{
-    if(inp.value.length <= 5){
-        inp.style.backgroundColor = 'green'
-    }else{
-        inp.style.backgroundColor = 'red'
-    }
+// const list = document.getElementById('elem');
+
+// list.addEventListener('click', function(event) {
+//   // Проверяем, что кликнули именно по <li>
+//   if (event.target.tagName === 'LI') {
+//     const li = event.target;
+    
+//     // Проверяем, нажата ли клавиша Ctrl
+//     if (event.ctrlKey) {
+//       li.textContent += '1';
+//     } 
+//     // Проверяем, нажата ли клавиша Shift
+//     else if (event.shiftKey) {
+//       li.textContent += '2';
+//     }
+//   }
+// });
+
+let div1 = document.querySelector('#div1')
+let div2 = document.querySelector('#div2')
+let div3 = document.querySelector('#div3')
+
+div1.addEventListener('click', ()=>{
+    alert('Зеленый')
 })
+div2.addEventListener('click', ()=>{
+    alert('Синий')
+})
+div3.addEventListener('click', ()=>{
+    alert('Красный')
+})
+
+
+

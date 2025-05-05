@@ -1,3 +1,17 @@
-a{
-    display: block;
+#div1{
+    border: 10px solid green;
+    width: 40px;
+    height: 40px;
+}
+
+#div2{
+    border: 10px solid blue;
+    width: 20px;
+    height: 20px;
+}
+
+#div3{
+    border: 10px solid red;
+    width: 0.5px;
+    height: 0.5px;
 }
