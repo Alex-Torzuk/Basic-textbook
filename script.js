@@ -4043,19 +4043,26 @@
 //   }
 // });
 
-let div1 = document.querySelector('#div1')
-let div2 = document.querySelector('#div2')
-let div3 = document.querySelector('#div3')
+// let div1 = document.querySelector('#div1')
+// let div2 = document.querySelector('#div2')
+// let div3 = document.querySelector('#div3')
 
-div1.addEventListener('click', ()=>{
-    alert('Зеленый')
+// div1.addEventListener('click', ()=>{
+//     alert('Зеленый')
+// })
+// div2.addEventListener('click', ()=>{
+//     alert('Синий')
+// })
+// div3.addEventListener('click', ()=>{
+//     alert('Красный')
+// })
+
+let btn = document.querySelector('#elem')
+btn.addEventListener('click', function(event){
+    console.log(event)
 })
-div2.addEventListener('click', ()=>{
-    alert('Синий')
-})
-div3.addEventListener('click', ()=>{
-    alert('Красный')
-})
+
+
 
 
 
