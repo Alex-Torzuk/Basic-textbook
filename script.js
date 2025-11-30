@@ -4057,10 +4057,6 @@
 //     alert('Красный')
 // })
 
-let btn = document.querySelector('#elem')
-btn.addEventListener('click', function(event){
-    console.log(event)
-})
 
 
 
