@@ -295,20 +295,258 @@
 
 // console.log(prod);
 
-function func() {
-    let sum = 0;
-    let i = 1;
+// function func() {
+//     let sum = 0;
+//     let i = 1;
 
-    while (true) { // бесконечный цикл
-        sum += i;
+//     while (true) { // бесконечный цикл
+//         sum += i;
+//         //1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, , 14
+//         if (sum >= 100) {
+//             return i; // цикл крутится пока не выйдет тут
 
-        if (sum >= 100) {
-            return i; // цикл крутится пока не выйдет тут
+//         }
+//         console.log(i)
+//         i++;
+//     }
+// }
 
-        }
-        console.log(i)
-        i++;
-    }
-}
+// console.log(func());
 
-console.log(func());
+// 
+
+//Сделайте функцию, которая параметром будет принимать массив с 
+// числами, и проверять, что все элементы в этом массиве являются четными числами.
+
+// function func(arr){
+    
+//     for(let i = 0; i <= arr.length-1; i++){
+//         if (arr[i] === arr[i]+1){
+//             return true
+//         }
+//     }
+//     return false
+// }
+// console.log(func([1, 2, 3, 4, 5, 6]))
+
+
+// let arr = [2, 3, 4, 5]
+
+// function each(arr, callback){
+//     let newArr = []
+//     for(let elem of arr){
+//         newArr.push(callback(elem))
+//     }
+//     return newArr
+// }
+
+// let res = each(arr, function (num){
+//     return num * 2
+// })
+// console.log(res)
+
+// let arr = ['hello world']
+// function each(arr, callback){
+//     let newArr = []
+//     for(let elem of arr){
+//         newArr.push(callback(elem))
+//     }
+//     return newArr
+// }
+
+// let result = each(arr, function(str){
+//     let newArr2 = str.split('')
+//     return newArr2.reverse()
+// })
+
+// console.log(result)
+
+// let arr = ['hello world', 'javascript is fun', 'test string']
+// function each(arr, callback){
+//     let newArr = []
+//     for(let elem of arr){
+//         newArr.push(callback(elem))
+//     }
+//     return newArr
+// }
+
+// let result = each(arr, function (str){
+    
+//     let words = str.split(' ')
+
+//     let newWords = []
+
+    
+//     for(let word of words){
+//     let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+//         newWords.push(capitalizedWord)
+//     }
+//     return newWords.join(' ')
+
+// })
+// console.log(result)
+
+
+
+// function cube(num) {
+// 	return num ** 3;
+// }
+// function each(arr, callback){
+//     let newArr = []
+// for(let elem of arr){
+//     newArr.push(callback(elem))
+// }
+//     return newArr
+// }
+
+// let result = each([1, 2, 3, 4, 5], cube);
+// console.log(result);
+
+
+
+// function func(arr) {
+// 	for (let elem of arr) {
+// 		if (Array.isArray(elem)) {
+// 			func(elem);
+// 		} else {
+// 			console.log(elem);
+// 		}
+// 	}
+// }
+
+// func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]]);
+
+
+// function func(obj){
+//     for(let key in obj){
+//         if(typeof obj[key] == 'object'){
+//             func(obj[key])
+//         }else{
+//             console.log(obj[key])
+//         }
+//     }
+// }
+
+// func({a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}})
+
+
+// function func(arr){
+//     let newArr = []
+//     for(let elem of arr){
+//         if(Array.isArray(elem)){
+//             func(elem)
+//         }else{
+//             console.log(elem)
+//         }
+//     }
+//     return newArr
+// }
+
+// func([1, [2, 7, 8], [3, 4, [5, [6, 7]]]])
+
+
+//// Проработать эту задачу, изучить рекруссию !!
+
+
+
+// function func(obj){
+//     for(let key in obj){
+//         if(typeof obj[key] == 'object'){
+//             func(obj[key])
+//         }else{
+//             console.log(obj[key])
+//         }
+//     }
+// }
+
+// func({a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}})
+
+// let arr = [1, [2, 7, 8], [3, 4, [5, [6, 7]]]]
+
+// let newArr = []
+
+// function func(arr){
+//     for(let elem of arr){
+//         if(typeof elem == 'object'){
+//             func(elem)
+//         }else{
+//             newArr.push(elem)
+//         }}
+//     }
+// func(arr)
+// console.log(newArr)
+
+
+// function func(obj){
+//     let sum = 0
+//     for(let key in obj){
+//         if(typeof obj[key] == 'object'){
+//             sum+= func(obj[key])
+//         }else{
+//             sum+= obj[key]
+//         }
+//     }
+//     return sum
+// }
+
+// console.log(func({a: 1, b: {c: 2, d: 3, e: 4}, f: {g: 5, j: 6, k: {l: 7, m: {n: 8, o: 9}}}}))
+
+
+// let srr = ''
+
+// function func(arr){
+//     for(let i = 0; i <= arr.length-1; i++){
+//         if(typeof arr[i] == 'object'){
+//             func(arr[i])
+//         }else{
+//           srr+= arr[i]
+//         }
+//     }
+// }
+
+// func(['a', ['b', 'c', 'd'], ['e', 'f', ['g', ['j', 'k']]]])
+// console.log(srr)
+
+
+// function func(arr) {
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if (typeof arr[i] == 'object') {
+// 			arr[i] = func(arr[i]);
+// 		} else {
+// 			arr[i] = arr[i] * arr[i]
+// 		}
+// 	}
+	
+// 	return arr;
+// }
+
+// console.log(func([1, [2, 7, 8], [3, 4, [5, 6]]]));
+
+// let arr = ['123', '456', '789']
+// let newArr = arr.map(function(elem){
+    
+//     return elem.split('').map(Number)
+    
+// })
+// console.log(newArr)
+
+//15.01.2026
+// **
+//  * Функция считает количество делений числа на 2 до тех пор, 
+//  * пока результат не станет меньше 10.
+//  * @param {number} num - Исходное число
+//  * @returns {number} Количество итераций
+//  */
+
+
+
+// function isPrime(num) {
+//     let a = String(num).split('')
+// 	for (let elem of a) {
+// 		if (elem % 2 !== 0) {
+// 			return false;
+// 		} 
+// 		}
+//         return true
+// 	}
+//     console.log(isPrime(3)); // должен вывести true
