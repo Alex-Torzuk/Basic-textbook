@@ -550,3 +550,5 @@
 //         return true
 // 	}
 //     console.log(isPrime(3)); // должен вывести true
+
+
