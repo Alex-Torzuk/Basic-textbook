@@ -2,5 +2,6 @@
 
 
 
-let time = 60*24*365
-console.log(time)
+let arr = ['a', 'b', 'c', 'd', 'e'];
+delete arr[0]
+console.log(arr.length)
