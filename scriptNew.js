@@ -2,6 +2,5 @@
 
 
 
-let arr = ['a', 'b', 'c', 'd', 'e'];
-delete arr[0]
-console.log(arr.length)
+let obj = {x: 1, y: 2, z: 3};
+console.log(Object.keys(obj).length);
