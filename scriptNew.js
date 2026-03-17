@@ -1,6 +1,10 @@
 'use strict'
 
-
-
-let obj = {x: 1, y: 2, z: 3};
-console.log(Object.keys(obj).length);
+let test1 = 3;
+let test2 = 2;
+		
+if (test1 !== test2) {
+	console.log('+++');
+} else {
+	console.log('---');
+}
