@@ -21,9 +21,19 @@
 
 // console.log(res);
 
-let user = confirm('Есть ли вам уже 18 лет')
-if(user){
-	alert('сообщение с текстом для взрослых')
-}else{
-	alert('доступ пользователю запрещен')
+let age = 19;
+let res;
+
+if (age >= 18) {
+	 res = 'OK'
+	
+	if (age <= 23) {
+		res = 'от 18 до 23';
+	} else {
+		res = 'больше 23';
+	}
+} else {
+	res = 'меньше 18';
 }
+
+console.log(res);
