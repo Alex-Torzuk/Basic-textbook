@@ -16,24 +16,12 @@
 
 
 
-// let num = 1;
-// let res = num >= 0 ? '1':'2'
+let str = 'abx'
 
-// console.log(res);
-
-let age = 19;
-let res;
-
-if (age >= 18) {
-	 res = 'OK'
-	
-	if (age <= 23) {
-		res = 'от 18 до 23';
-	} else {
-		res = 'больше 23';
-	}
-} else {
-	res = 'меньше 18';
+if(str[0] == 'a' || str[0] == 'b'){
+	console.log('Yes')
 }
 
-console.log(res);
+
+//Дана переменная, содержащая некоторую строку. 
+// Проверьте, что эта строка начинается на символ 'a' или символ 'b'.
