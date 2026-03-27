@@ -14,9 +14,13 @@
 // 	}
 // }
 
-
-let arr = [1, 2, 3, 4, 5, 6, 7, 8]
-for(let i = 0; i <= arr.length-1; i++){
-	arr[i]+= 10
+let obj = {a: 1, b: 2, c: 3, d: 4, e: 5};
+let newObj = {}
+for(let key in obj){
+	newObj[obj[key]] = key
 }
-console.log(arr)
+console.log(newObj)
+
+
+//Переберите этот объект циклом и создайте новый объект так, 
+// чтобы его ключами стали элементы старого объекта, а значениями - ключи старого объекта.
