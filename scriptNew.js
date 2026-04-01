@@ -16,15 +16,13 @@
 
 
 
-let arr = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+let arr = [];
 
-let sum = 0
-
-for(let i = 0; i < arr.length; i++){
-	for(let j = 0; j < arr[i].length; j++){
-		for(let k = 0; k < arr[i][j].length; k++){
-			sum+= arr[i][j][k]
-		}
+for (let i = 0; i < 3; i++) {
+	arr[i] = []
+	for (let j = 1; j <= 5; j++) {
+		arr[i].push(j);
 	}
 }
-console.log(sum)
+
+console.log(arr);
