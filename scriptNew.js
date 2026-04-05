@@ -17,39 +17,32 @@
 
 
 
-let employees = [
-	{
-		name: 'name1',
-		salary: 300,
-		age: 28,
+let students = {
+	'group1': {
+		'subgroup11': ['student111', 'student112', 'student113'],
+		'subgroup12': ['student121', 'student122', 'student123'],
 	},
-	{
-		name: 'name2',
-		salary: 400,
-		age: 29,
+	'group2': {
+		'subgroup21': ['student211', 'student212', 'student213'],
+		'subgroup22': ['student221', 'student222', 'student223'],
 	},
-	{
-		name: 'name3',
-		salary: 500,
-		age: 30,
+	'group3': {
+		'subgroup31': ['student311', 'student312', 'student313'],
+		'subgroup32': ['student321', 'student322', 'student323'],
 	},
-	{
-		name: 'name4',
-		salary: 600,
-		age: 31,
-	},
-	{
-		name: 'name5',
-		salary: 700,
-		age: 32,
-	},
-];
+};
 
-//Выведите на экран сумму зарплат тех работников, возраст которых равен или более 30 лет.
-let sum = 0
-for(let elem of employees){
-	if(elem.age >= 30){
-		sum+= elem.salary
-	}
-}
-console.log(sum)
+students.group1.subgroup11.push('student114')
+students.group1['subgroup13'] = []
+students['group4'] = {}
+students.group4['subgroup42'] = []
+students.group4.subgroup42.push('student411', 'student412')
+console.log(students)
+
+//Добавьте нового студента в подгруппу 'subgroup11'.
+
+
+//Добавьте в первую группу еще одну подгруппу.
+
+
+//Сделайте четвертую группу, в ней сделайте подгруппу и добавьте в нее двух новых студентов.
