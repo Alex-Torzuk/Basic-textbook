@@ -17,32 +17,13 @@
 
 
 
-let students = {
-	'group1': {
-		'subgroup11': ['student111', 'student112', 'student113'],
-		'subgroup12': ['student121', 'student122', 'student123'],
-	},
-	'group2': {
-		'subgroup21': ['student211', 'student212', 'student213'],
-		'subgroup22': ['student221', 'student222', 'student223'],
-	},
-	'group3': {
-		'subgroup31': ['student311', 'student312', 'student313'],
-		'subgroup32': ['student321', 'student322', 'student323'],
-	},
-};
+//Возведите 2 в 10 степень.
+console.log(Math.pow(2, 10))
+console.log(Math.sqrt(245))
 
-students.group1.subgroup11.push('student114')
-students.group1['subgroup13'] = []
-students['group4'] = {}
-students.group4['subgroup42'] = []
-students.group4.subgroup42.push('student411', 'student412')
-console.log(students)
-
-//Добавьте нового студента в подгруппу 'subgroup11'.
-
-
-//Добавьте в первую группу еще одну подгруппу.
-
-
-//Сделайте четвертую группу, в ней сделайте подгруппу и добавьте в нее двух новых студентов.
+let arr = [4, 2, 5, 19, 13, 0, 10]
+let sum = 0
+for(let elem of arr){
+	sum+= elem
+}
+console.log(Math.sqrt(sum))
