@@ -21,9 +21,9 @@
 console.log(Math.pow(2, 10))
 console.log(Math.sqrt(245))
 
-let arr = [4, 2, 5, 19, 13, 0, 10]
-let sum = 0
-for(let elem of arr){
-	sum+= elem
-}
-console.log(Math.sqrt(sum))
+
+
+
+
+//Найдите квадратный корень из 379. Результат округлите до целых, до десятых, до сотых.
+console.log(Math.round(Math.sqrt(379)).toFixed(3))
