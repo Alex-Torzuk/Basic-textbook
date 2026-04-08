@@ -27,3 +27,8 @@ console.log(Math.sqrt(245))
 
 //Найдите квадратный корень из 379. Результат округлите до целых, до десятых, до сотых.
 console.log(Math.round(Math.sqrt(379)).toFixed(3))
+
+//Дана строка 'js'. Сделайте из нее строку 'JS'.
+
+let str = 'js'
+console.log(str.toUpperCase())
