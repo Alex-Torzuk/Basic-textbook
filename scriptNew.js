@@ -25,10 +25,21 @@ console.log(Math.sqrt(245))
 
 
 
-//Найдите квадратный корень из 379. Результат округлите до целых, до десятых, до сотых.
-console.log(Math.round(Math.sqrt(379)).toFixed(3))
+//Дана строка 'i study javascript'. Вырежьте из нее слово 'study' и слово 'javascript' 
+// тремя разными способами (через substr, substring, slice).
 
-//Дана строка 'js'. Сделайте из нее строку 'JS'.
+let str = 'i study javascript'
+let a = str.slice(2, 7)
+let b = str.slice(8, 18)
+console.log(a)
+console.log(b)
 
-let str = 'js'
-console.log(str.toUpperCase())
+let c = str.substr(2, 5)
+let d = str.substr(8, 10)
+console.log(c)
+console.log(d)
+
+let e = str.substring(2, 7)
+let f = str.substring(8, 18)
+console.log(e)
+console.log(f)
