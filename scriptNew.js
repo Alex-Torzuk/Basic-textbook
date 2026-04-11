@@ -49,9 +49,17 @@
 
 // let str = 'http://'.includes('ht')
 // console.log(str)
-let str = 'http://'
+// let str = 'http://'
 // let res = str.startsWith('ht')
 // let res = str.endsWith('//')
 // let res = str.indexOf(':')
-let res = str.lastIndexOf('/')
+// let res = str.lastIndexOf('/')
+// console.log(res)
+
+
+//Дана строка '1-2-3-4-5'. Поменяйте все дефисы на точки.
+let str = '1-2-3-4-5'
+let res = str.replaceAll('-', '.')
+
+
 console.log(res)
