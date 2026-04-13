@@ -76,8 +76,20 @@
 // console.log(arr)
 
 
-let arr = [1, 2, 3, 4, 5];
+// let arr = [1, 2, 3, 4, 5];
 
-let str = arr.join('-')
-console.log(str)
+// let str = arr.join('-')
+// console.log(str)
 //С помощью метода join слейте его в строку '1-2-3-4-5'.
+
+// let arr = [1, 2, 3]
+// arr.unshift(4, 5, 6)
+// console.log(arr)
+
+
+
+
+let arr = [1, 2, 3, 4, 5]
+let newArr = arr.slice(3)
+console.log(newArr)
+
