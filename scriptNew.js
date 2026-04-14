@@ -89,7 +89,16 @@
 
 
 
-let arr = [1, 2, 3, 4, 5]
-let newArr = arr.slice(3)
-console.log(newArr)
+// let arr = [1, 2, 3, 4, 5]
+// let newArr = arr.slice(3)
+// console.log(newArr)
 
+
+let arr = [1, 2, 3, 4, 5]
+//С помощью метода splice преобразуйте массив в следующий:
+arr.splice(3, 0, 'a', 'b', 'c')
+console.log(arr)
+//[1, 4, 5]
+
+//[1, 2, 3, 'a', 'b', 'c', 4, 5]
+//[1, 'a', 'b', 2, 3, 4, 'c', 5, 'e'].  ------ решить эту задачу завтра
