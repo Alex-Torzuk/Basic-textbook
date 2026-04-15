@@ -94,11 +94,59 @@
 // console.log(newArr)
 
 
-let arr = [1, 2, 3, 4, 5]
-//С помощью метода splice преобразуйте массив в следующий:
-arr.splice(3, 0, 'a', 'b', 'c')
-console.log(arr)
+// let arr = [1, 2, 3, 4, 5]
+// //С помощью метода splice преобразуйте массив в следующий:
+// arr.splice(3, 0, 'a', 'b', 'c')
+// console.log(arr)
 //[1, 4, 5]
 
 //[1, 2, 3, 'a', 'b', 'c', 4, 5]
-//[1, 'a', 'b', 2, 3, 4, 'c', 5, 'e'].  ------ решить эту задачу завтра
+
+// let arr = [1, 2, 3, 4, 5]
+// arr.splice(1, 0, 'a', 'b')
+// arr.splice(6, 0, 'c')
+// arr.splice(8, 0, 'e')
+// console.log(arr)
+
+
+
+//[1, 'a', 'b', 2, 3, 4, 'c', 5, 'e']
+
+// let arr = [1, 2, 3, 4, 5]
+
+// console.log(arr.includes(3))
+// console.log(arr.indexOf(2))
+
+// let obj = {a: 1, b: 2, c: 3};
+// console.log(Object.keys(obj))
+
+//_______
+
+
+
+
+
+//Код должен найти сумму цифр числа:
+
+// let num = 12345;
+// let arr = String(num).split('')
+
+// let sum = 0;
+// for (let digit of arr) {
+// 	sum += +digit;
+// }
+
+// console.log(sum);
+
+
+//Код должен найти сумму цифр числа:
+
+let num = 12345;
+let arr = String(num).split('');
+
+let prod = 1;
+for (let digit of arr) {
+	prod *= +digit;
+}
+
+console.log(prod);
