@@ -141,12 +141,18 @@
 
 //Код должен найти сумму цифр числа:
 
-let num = 12345;
-let arr = String(num).split('');
+// let num = 12345;
+// let arr = String(num).split('');
 
-let prod = 1;
-for (let digit of arr) {
-	prod *= +digit;
+// let prod = 1;
+// for (let digit of arr) {
+// 	prod *= +digit;
+// }
+
+// console.log(prod);
+function func(num1 = 0, num2 = 0) {
+	console.log(num1 + num2);
 }
-
-console.log(prod);
+func(2, 3);
+func(3);
+func();
