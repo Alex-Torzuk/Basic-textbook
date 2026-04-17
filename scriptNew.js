@@ -150,9 +150,18 @@
 // }
 
 // console.log(prod);
-function func(num1 = 0, num2 = 0) {
-	console.log(num1 + num2);
+
+
+
+
+function func(num) {
+	let sum = 0;
+	
+	for (let i = 1; i <= num; i++) {
+		sum += i;
+		
+	}
+	return sum;
 }
-func(2, 3);
-func(3);
-func();
+
+console.log( func(5) );
