@@ -152,16 +152,23 @@
 // console.log(prod);
 
 
-
-
-function func(num) {
-	let sum = 0;
+let flag = false
 	
-	for (let i = 1; i <= num; i++) {
-		sum += i;
+let arr = [2, 3, 6, 8, 12]
+function func(arr){
+	for(let i = 0 ; i < arr.length-1; i++){
+		if(arr[i] === arr[i + 1]){
+			flag = true
+			break
+		}
 		
 	}
-	return sum;
+	return flag
 }
 
-console.log( func(5) );
+func(arr)
+if(flag){
+	console.log('+++')
+}else{
+	console.log('---')
+}
