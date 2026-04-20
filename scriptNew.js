@@ -203,11 +203,14 @@
 
 //Сделайте функцию, которая вернет текущий день недели словом.
 
-function getDayName(){
-	let days = ['воскресенье', 'понедельник', 'вторник', 
-        'среда', 'четверг', 'пятница', 'суббота']
-		let date = new Date()
-		let dayIndex = date.getDay()
-		return days[dayIndex]
-}
-console.log(getDayName())
+// function getDayName(){
+// 	let days = ['воскресенье', 'понедельник', 'вторник', 
+//         'среда', 'четверг', 'пятница', 'суббота']
+// 		let date = new Date()
+// 		let dayIndex = date.getDay()
+// 		return days[dayIndex]
+// }
+// console.log(getDayName())
+
+
+//Сделайте функцию, которая параметром будет получать дату, а возвращать день недели словом, соответствующий этой дате.
