@@ -152,16 +152,62 @@
 // console.log(prod);
 
 
-console.log(isPrime(12)); // должен вывести true
+//Сделайте функцию, которая параметром будет принимать число и возвращать массив его делителей.
 
-function isPrime(num) {
-	for (let i = 2; i < num; i++) {
-		if (num % i == 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+// function func(num){
+// 	let arr = []
+// 	for(let i = 1; i <=  num; i++){
+// 		if(num % i === 0){
+// 			 arr.push(i)
+// 	}
+	
+// 	}
+// 	return arr
+// }
+
+// console.log(func(10))
+
+//Сделайте функцию, которая параметром будет принимать два числа и возвращать массив их общих делителей.
+
+// function func(num1, num2){
+// 	let arr = []
+// 	for(let i = 1; i <= num1; i++){
+// 		if(num1 % i  === 0){
+// 			arr.push(i)
+// 		}
+// 	}
+// 	for(let k = 1; k <= num2; k++){
+// 		if(num2 % k === 0){
+// 			arr.push(k)
+// 		}
+// 	}
+// 	return arr
+// }
+// console.log(func(10, 20))
+
+
+
+
+//Сделайте функцию, которая параметром будет принимать число и возвращать сумму его цифр.
+
+// function func(num){
+// 	let sum = 0
+// 	let str = String(Math.abs(num))
+// 	for(let elem of str){
+// 		sum+= +elem
+// 	}
+// 	return sum
+// }
+
+// console.log(func(22))
+
+//Сделайте функцию, которая вернет текущий день недели словом.
+
+function getDayName(){
+	let days = ['воскресенье', 'понедельник', 'вторник', 
+        'среда', 'четверг', 'пятница', 'суббота']
+		let date = new Date()
+		let dayIndex = date.getDay()
+		return days[dayIndex]
 }
-
-
+console.log(getDayName())
