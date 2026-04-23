@@ -157,11 +157,14 @@
 
 
 
-function func(arr) {
-	let newArr = arr;
-	newArr[0] = '!';
+let func1 = function() {console.log('!')};
+let func2 = function() {
+	console.log('!')
+};
+function func3() {
+	console.log('!')
 }
 
-let arr = [1, 2, 3];
-func(arr);
-console.log(arr);
+func1()
+func2()
+func3()
