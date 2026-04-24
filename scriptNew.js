@@ -154,17 +154,32 @@
 
 
 
+let arr = [1, 2, 3, 4, 5]
 
-
-
-let func1 = function() {console.log('!')};
-let func2 = function() {
-	console.log('!')
-};
-function func3() {
-	console.log('!')
+let obj = {
+	sum: function(arr){
+		let res = 0
+		for(let elem of arr){
+			res+= elem
+		}
+		return res
+	},
+	square: function(arr){
+		let res = 0
+		for(let elem of arr){
+			res+= elem * elem
+		}
+		return res
+	},
+	cube: function(arr){
+		let res = 0
+		for(let elem of arr){
+			res+= elem * elem * elem
+		}
+		return res
+	}
 }
 
-func1()
-func2()
-func3()
+console.log(obj.sum(arr))
+console.log(obj.square(arr))
+console.log(obj.cube(arr))
