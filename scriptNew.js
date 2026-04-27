@@ -154,13 +154,32 @@
 
 
 
-function test(num) {
-	function func(localNum) {
-		num = 2;
-	}
+// function each(arr, callback) {
 	
-	func(num);
-	console.log(num);
-}
+// 	for(let elem of arr){
+// 	callback(elem)
+// 	}
+// }
+// each([1, 2, 3], function(elem){
+// 	console.log( elem * 2)
+// })
 
-test(1);
+
+
+// function map(arr, callback) {
+//     let result = []
+//     for (let elem of arr) {
+//         result.push(callback(elem))
+//     }
+//     return result
+// }
+
+// let result = map([1, 2, 3], function(elem) {
+//     return elem * 2
+// })
+// console.log(result) // [2, 4, 6]
+
+//                        №2
+//Дан массив со строками. С помощью созданной нами функции 
+// each переверните символы каждой строки в обратном порядке.
+
