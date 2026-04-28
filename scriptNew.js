@@ -183,3 +183,39 @@
 //Дан массив со строками. С помощью созданной нами функции 
 // each переверните символы каждой строки в обратном порядке.
 
+// function each(arr, callback) {
+//     for(let elem of arr){
+//         callback(elem)
+//     }
+// }
+// each(['abc', 'def'], function(elem){
+//     console.log(elem.split('').reverse().join('') )
+// })
+
+
+//Дан массив со строками. С помощью созданной нами функции 
+// each сделайте заглавным первый символ каждой строки.
+
+// function func(arr, callback) {
+//     for(let elem of arr){
+//         callback(elem)
+//     }               
+// }
+// func(['abc', 'def'], function(elem){
+//     console.log(elem[0].toUpperCase() + elem.slice(1) )
+//     })
+
+//С помощью следующей функции возведите все элементы массива в куб:
+
+function each(arr, callback) {
+    for(let elem of arr){
+        callback(elem)
+    }               
+}
+each([1, 2, 3], function(elem){
+    console.log(cube(elem))
+})
+
+function cube(num) {
+	return num ** 3;
+}    
