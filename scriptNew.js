@@ -207,15 +207,29 @@
 
 //С помощью следующей функции возведите все элементы массива в куб:
 
-function each(arr, callback) {
-    for(let elem of arr){
-        callback(elem)
-    }               
-}
-each([1, 2, 3], function(elem){
-    console.log(cube(elem))
-})
+// function each(arr, callback) {
+//     for(let elem of arr){
+//         callback(elem)
+//     }               
+// }
+// each([1, 2, 3], function(elem){
+//     console.log(cube(elem))
+// })
 
-function cube(num) {
-	return num ** 3;
-}    
+// function cube(num) {
+// 	return num ** 3;
+// }    
+
+function filter(arr, callback) {
+	let res = [];
+
+	for (let elem of arr) {
+		if ( callback(elem) === true ) {
+			res.push(elem);
+		}
+	}
+	
+	return res;
+}
+let result = filter([1, 2, 3, 4, 5], elem => elem > 0)
+console.log(result)
