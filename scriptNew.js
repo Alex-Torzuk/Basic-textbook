@@ -220,16 +220,29 @@
 // 	return num ** 3;
 // }    
 
-function filter(arr, callback) {
-	let res = [];
+// function filter(arr, callback) {
+// 	let res = [];
 
-	for (let elem of arr) {
-		if ( callback(elem) === true ) {
-			res.push(elem);
-		}
-	}
+// 	for (let elem of arr) {
+// 		if ( callback(elem) === true ) {
+// 			res.push(elem);
+// 		}
+// 	}
 	
-	return res;
+// 	return res;
+// }
+// let result = filter([1, 2, 3, 4, 5], elem => elem > 0)
+// console.log(result)
+
+
+function test() {
+	let num = 1;
+	
+	return function() {
+		return num;
+	}
 }
-let result = filter([1, 2, 3, 4, 5], elem => elem > 0)
-console.log(result)
+
+let num = 2;
+let func = test();
+console.log(func());
