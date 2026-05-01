@@ -235,14 +235,48 @@
 // console.log(result)
 
 
+// function test(){
+// 	let num = 10
+// 	return function(){
+// 		if (num >= 0) {
+// 			console.log(num)
+// 			num--
+// 		} else {
+// 			console.log('отсчет окончен')
+// 		}
+// 	}
+// }
+
+// let func1 = test()
+// func1()
+// func1()
+// func1()
+// func1()
+// func1()
+// func1()
+// func1()
+// func1()
+// func1()
+// func1()
+// func1()
+// func1()
+
 function test() {
-	let num = 1;
+	let counter = 0;
 	
 	return function() {
-		return num;
-	}
+		return function() {
+			console.log(counter);
+			counter++;
+		};
+	};
 }
 
-let num = 2;
 let func = test();
-console.log(func());
+
+let func1 = func();
+let func2 = func();
+func1();
+func2();
+func1();
+func2();
