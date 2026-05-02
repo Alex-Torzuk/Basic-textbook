@@ -261,22 +261,17 @@
 // func1()
 // func1()
 
-function test() {
-	let counter = 0;
-	
-	return function() {
-		return function() {
-			console.log(counter);
-			counter++;
-		};
-	};
+let arr = [1, [2, 7, 8], [3, 4], [5, [6, 7]]]
+function flatten(arr) {
+	let res = []
+	for(let i = 0; i < arr.length; i++){
+		if(Array.isArray(arr[i])){
+			res.push(flatten(arr[i]))
+		}		else{
+			res.push(arr[i]**2)
+		}	
+	}
+	return res
 }
 
-let func = test();
-
-let func1 = func();
-let func2 = func();
-func1();
-func2();
-func1();
-func2();
+console.log(flatten(arr))
