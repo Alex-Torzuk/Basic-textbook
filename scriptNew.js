@@ -261,17 +261,8 @@
 // func1()
 // func1()
 
-let arr = [1, [2, 7, 8], [3, 4], [5, [6, 7]]]
-function flatten(arr) {
-	let res = []
-	for(let i = 0; i < arr.length; i++){
-		if(Array.isArray(arr[i])){
-			res.push(flatten(arr[i]))
-		}		else{
-			res.push(arr[i]**2)
-		}	
-	}
-	return res
-}
-
-console.log(flatten(arr))
+let arr = [1, 2, 3, 4, 5]
+let res = arr.reduce(function(sum, elem){
+	return sum + elem
+}, 0)
+console.log(res)
