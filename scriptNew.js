@@ -261,10 +261,151 @@
 // func1()
 // func1()
 
-function merge(...arrs) {
+// let arr = ['John', 'Smit', 'development', 'programmer', 2000];
+
+// let name       = arr[0];
+// let surname    = arr[1];
+// let department = arr[2];
+// let position   = arr[3];
+// let salary     = arr[4];
+
+// let [name, surname, department, position, salary] = ['John', 'Smit', 'development', 'programmer', 2000];
+
+// console.log(name)
+// console.log(surname)
+
+// function func() {
+// 	return ['John', 'Smit', 'development', 'programmer', 2000];
+// }
+
+// let arr = func();
+
+// let [name, surname, department, position, salary] = func();
+
+// console.log(name, surname, department, position, salary)
+
+
+// let arr = ['John', 'Smit', 'development', 'programmer', 2000];
+// let [, , department, position] = arr;
+// console.log(department, position)
+
+// let arr = ['John', 'Smit', 'development', 'programmer', 2000];
+// let [name, surname, ...info] = arr;
+// console.log(name, surname)
+// console.log(info)
+
+
+// let arr = ['John', 'Smit', 'development'];
+
+// // let name       = arr[0];
+// // let surname    = arr[1];
+// // let department = arr[2];
+// let [name, surname, department, position = 'trainee'] = arr;	
+
+// console.log(name, surname, department, position)
+// console.log(position)
+
+// let arr = []
+// function funcDay() {
+// 	return (new Date).getDate();
+// }
+// function funcMonth() {
+// 	return (new Date).getMonth() + 1;
+// }	
+// function funcYear() {
+// 	return (new Date).getFullYear();
+// }
+// let [year = funcYear(), month = funcMonth(), day = funcDay()] = arr;
+// console.log(year, month, day)
+
+// let options = {
+// 	color: 'red',
+// 	width:  400,
+// 	height: 500,
+// };
+// let {color, width, height} = options;
+// console.log(color, width, height)
+
+// let options = {
+// 	color: 'red',
+// 	width:  400,
+// 	height: 500,
+// };
+// let {color:c, width:w, height:h} = options;
+// console.log(c, w, h)
+
+
+// let options = {
+// 	width:  400,
+// 	height: 500,
+// };
+// let {color: c = 'black', width:w, height:h} = options;
+// console.log(c, w, h)
+
+// function func([name, surname, department, position, salary]) {
+// 	console.log(name, surname, department, position, salary)
+// 	// let name       = employee[0];
+// 	// let surname    = employee[1];
+// 	// let department = employee[2];
+// 	// let position   = employee[3];
+// 	// let salary     = employee[4];
+// }
+
+// func( ['John', 'Smit', 'development', 'programmer', 2000] );
+
+// function func([name, surname, info]) {	
+// console.log(name)
+// console.log(surname)
+// console.log(info)
+// 	// let name     = employee[0];
+// 	// let surname  = employee[1];
+// 	// let info     = employee[2];
+// }
+
+// func( ['John', 'Smit', 'development', 'programmer', 2000] );
+
+// function func([name, surname, department, position = 'junior']) {
+// 	console.log(name)
+// 	console.log(surname)
+// 	console.log(department)
+// 	console.log(position)	
+// }
+
+// func( ['John', 'Smit', 'development'] );
+
+// function func(department, [name, surname], [year, month, day]) {
+// 	console.log(department)
+// 	console.log(name)
+// 	console.log(surname)
+// 	console.log(year)
+// 	console.log(month)
+// 	console.log(day)
 	
-	return [].concat(...arrs)
+// }
+
+// func( 'development', ['John', 'Smit'], [2018, 12, 31] );
+
+// function func({color, width, height}) {
+
+// 	console.log(color)
+// 	console.log(width)
+// 	console.log(height)
+// }
+
+// func( {color: 'red', width: 400, height: 500} );
+
+// function func({color = 'black', width, height}) {
+// 	console.log(color)
+// 	console.log(width)
+// 	console.log(height)
+// }
+
+// func( { width: 400, height: 500} );
+
+function func({color = 'black', width, height}) {
+    console.log(color)      // ← проверьте это
+    console.log(width)
+    console.log(height)
 }
 
-let result = merge([1, 2, 3], [4, 5, 6], [7, 8, 9]);
-console.log(result); // выведет [1, 2, 3, 4, 5, 6, 7, 8, 9]
+func({color: 'red', width: 400, height: 500})
