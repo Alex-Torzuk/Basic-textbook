@@ -402,10 +402,55 @@
 
 // func( { width: 400, height: 500} );
 
-function func({color = 'black', width, height}) {
-    console.log(color)      // ← проверьте это
-    console.log(width)
-    console.log(height)
-}
+// function func({color = 'black', width, height}) {
+//     console.log(color)      // ← проверьте это
+//     console.log(width)
+//     console.log(height)
+// }
 
-func({color: 'red', width: 400, height: 500})
+// func({color: 'red', width: 400, height: 500})
+
+// let date = new Date();
+
+// console.log(date.getFullYear()); // год
+// console.log(date.getMonth());    // месяц
+// console.log(date.getDate());     // день
+
+// console.log(date.getHours());    // часы
+// console.log(date.getMinutes());  // минуты
+// console.log(date.getSeconds());  // секунды
+
+
+// let date = new Date();
+// function addZero(num){
+//     if(num > 0 && num < 9){
+//         return '0' + num
+//     }else{
+//         return num
+//     }
+// }
+
+// console.log(addZero(date.getHours()) + ':' +
+// 	addZero(date.getMinutes()) + ':' +
+// 	addZero(date.getSeconds()) + ' ' +
+//     addZero(date.getDate()) + '.' +
+//     addZero(date.getMonth() + 1) + '.' +
+//     addZero(date.getFullYear()) 
+// );
+
+// let date = '2026-05-06'
+// let res = date.split('-').reverse().join('.')
+// console.log(res)
+
+
+// let date = new Date()
+// let day = date.getDay()
+// if(day === 0 || day === 6){
+//     console.log('выходной')
+// }else{
+//     console.log('рабочий день')
+// }
+
+let day = new Date().getDay() // 0 = воскресенье, 1 = понедельник, ... 6 = суббота
+let daysToSunday = (7 - day) % 7
+console.log(daysToSunday)
