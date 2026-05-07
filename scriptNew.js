@@ -451,6 +451,38 @@
 //     console.log('рабочий день')
 // }
 
-let day = new Date().getDay() // 0 = воскресенье, 1 = понедельник, ... 6 = суббота
-let daysToSunday = (7 - day) % 7
-console.log(daysToSunday)
+// let day = new Date().getDay() // 0 = воскресенье, 1 = понедельник, ... 6 = суббота
+// let daysToSunday = (7 - day) % 7
+// console.log(daysToSunday)
+
+// let date = new Date();
+// let day  = date.getDay();
+// let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+
+// console.log(days[day]);
+
+// let months = [
+// 	'янв', 'фев', 'мар', 'апр', 'май', 'июн',
+// 	'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'
+// ];
+// let month = new Date().getMonth();
+// console.log(months[month])
+
+// let date = new Date(1994, 4, 14).getDay()
+// let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+// console.log(days[date])
+
+// let date = new Date(2026, 4, 1, 23, 59, 59);
+// console.log(date.getTime());
+
+// let now = new Date();
+// let date = new Date(1994, 4, 14)
+// let diff = now.getTime() - date.getTime()
+// let days = (diff / (1000 * 60 * 60 * 24)).toFixed(0)
+// console.log(days)
+let now  = new Date(2010, 1, 15);
+let date = new Date(2000, 8, 1);
+
+let diff = now - date; // вычитаем два объекта с датами друг от друга
+let days = (diff/(1000 * 60 * 60 * 24 * 365))     
+console.log(diff); 
