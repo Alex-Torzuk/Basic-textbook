@@ -480,9 +480,28 @@
 // let diff = now.getTime() - date.getTime()
 // let days = (diff / (1000 * 60 * 60 * 24)).toFixed(0)
 // console.log(days)
-let now  = new Date(2010, 1, 15);
-let date = new Date(2000, 8, 1);
+// let now  = new Date(2010, 1, 15);
+// let date = new Date(2000, 8, 1);
 
-let diff = now - date; // вычитаем два объекта с датами друг от друга
-let days = (diff/(1000 * 60 * 60 * 24 * 365))     
-console.log(diff); 
+// let diff = now - date; // вычитаем два объекта с датами друг от друга
+// let days = (diff/(1000 * 60 * 60 * 24 * 365))     
+// console.log(diff); 
+// let date = new Date(2020, 3, 0);
+// console.log(date.getDate());
+// let arr = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+// function getDaysInMonth(month, year) {
+//     let date = new Date(year, month, 0);
+//     return arr[date.getDay()];
+// }
+// console.log(getDaysInMonth(5, 2025)) // 29
+
+
+function isLeapYear(year) {
+    let date = new Date(year, 2, 0)
+    if(date.getDate() === 29){
+        return console.log('високосный')
+    }else{
+        return console.log('невисокосный')
+    }
+}
+isLeapYear(2029)    
