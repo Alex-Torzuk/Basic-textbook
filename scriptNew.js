@@ -496,12 +496,46 @@
 // console.log(getDaysInMonth(5, 2025)) // 29
 
 
-function isLeapYear(year) {
-    let date = new Date(year, 2, 0)
-    if(date.getDate() === 29){
-        return console.log('високосный')
-    }else{
-        return console.log('невисокосный')
-    }
-}
-isLeapYear(2029)    
+// function isLeapYear(year) {
+//     let date = new Date(year, 2, 0)
+//     if(date.getDate() === 29){
+//         return console.log('високосный')
+//     }else{
+//         return console.log('невисокосный')
+//     }
+// }
+// isLeapYear(2029)    
+
+// let year  = 2025;
+// let month = 0;
+// let day   = 32;
+
+// let date = new Date(year, month, day);
+
+// if (date.getFullYear() == year && date.getMonth() == month && date.getDate() == day) {
+// 	console.log('true');
+// } else {
+// 	console.log('false');
+// }
+
+// function checkDate(year, month, day){
+//     let date = new Date(year, month-1 , day);
+//     if (date.getFullYear() == year && date.getMonth() == month - 1 && date.getDate() == day) {
+//         console.log('true');
+//     } else {
+//         console.log('false');
+//     }
+// }
+// checkDate(2025, 0, 32)
+
+// let now = new Date();
+
+// let date = new Date(now.getFullYear()-1, now.getMonth(), now.getDate());
+// let arr = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']; // получаем нашу дату
+// console.log(arr[date.getDay()]);
+
+let newD = new Date();
+let date1 = new Date(newD.getFullYear(), newD.getMonth(), 20);
+let date2 = new Date(newD.getFullYear(), newD.getMonth()+1, 10);
+
+console.log((date1 - date2) / (1000 * 60 * 60 * 24)); // разность в днях
