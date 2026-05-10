@@ -534,8 +534,26 @@
 // let arr = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']; // получаем нашу дату
 // console.log(arr[date.getDay()]);
 
-let newD = new Date();
-let date1 = new Date(newD.getFullYear(), newD.getMonth(), 20);
-let date2 = new Date(newD.getFullYear(), newD.getMonth()+1, 10);
+// let newD = new Date();
+// let date1 = new Date(newD.getFullYear(), newD.getMonth(), 20);
+// let date2 = new Date(newD.getFullYear(), newD.getMonth()+1, 10);
 
-console.log((date1 - date2) / (1000 * 60 * 60 * 24)); // разность в днях
+// console.log((date1 - date2) / (1000 * 60 * 60 * 24)); // разность в днях
+
+
+
+
+let now = new Date();
+// Создаем дату на завтра (то же год и месяц, но день + 1) в 00:00:00
+let endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+
+let diff = endOfDay - now; // Разница в миллисекундах
+let hoursLeft = diff / (1000 * 60 * 60);
+
+console.log(hoursLeft);
+
+let totalMinutes = Math.floor(diff / (1000 * 60));
+let h = Math.floor(totalMinutes / 60);
+let m = totalMinutes % 60;
+
+console.log(`До конца дня осталось: ${h} ч. ${m} мин.`);
