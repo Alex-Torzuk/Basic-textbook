@@ -543,17 +543,65 @@
 
 
 
+// let now = new Date();
+// // Создаем дату на завтра (то же год и месяц, но день + 1) в 00:00:00
+// let endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+
+// let diff = endOfDay - now; // Разница в миллисекундах
+// let hoursLeft = diff / (1000 * 60 * 60);
+
+// console.log(hoursLeft);
+
+// let totalMinutes = Math.floor(diff / (1000 * 60));
+// let h = Math.floor(totalMinutes / 60);
+// let m = totalMinutes % 60;
+
+// console.log(`До конца дня осталось: ${h} ч. ${m} мин.`);
+
+// let now = new Date();
+// let year = now.getFullYear();
+
+// for (let month = 0; month <= 11; month++) {
+//     // Ставим фиксированное число — 13
+//     let date = new Date(year, month, 13);
+    
+//     // Проверяем, пятница ли это (5)
+//     if (date.getDay() === 5) {
+//         console.log(`Пятница 13-е: ${year}-${month + 1}-13`);
+//     }
+// }
+
 let now = new Date();
-// Создаем дату на завтра (то же год и месяц, но день + 1) в 00:00:00
-let endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+let currentYear = now.getFullYear(); // 2024 (или текущий год на момент запуска)
+let count = 0;
 
-let diff = endOfDay - now; // Разница в миллисекундах
-let hoursLeft = diff / (1000 * 60 * 60);
+for (let year = 2000; year <= currentYear; year++) {
+    let date = new Date(year, 0, 1); // 0 — это январь
+    let day = date.getDay(); // Получаем день недели (0 - вс, 6 - сб)
+    
+    if (day === 0 || day === 6) {
+        count++;
+        console.log(year + ' год: 1 января — выходной (' + (day === 0 ? 'вс' : 'сб') + ')');
+    }
+}
 
-console.log(hoursLeft);
+console.log('---');
+console.log('Всего раз: ' + count);  
+  
 
-let totalMinutes = Math.floor(diff / (1000 * 60));
-let h = Math.floor(totalMinutes / 60);
-let m = totalMinutes % 60;
+//Рассмотрите промежуток от 2000 года до текущего года. 
+// Определите, сколько раз 1 января в этом промежутке 
+// попадало на выходной день, то есть на субботу или на воскресенье.
 
-console.log(`До конца дня осталось: ${h} ч. ${m} мин.`);
+// let birthYear = prompt('Введите ваш год рождения:'); // Просим пользователя ввести год
+// let now = new Date();
+// let currentYear = now.getFullYear(); // Получаем текущий год (например, 2026)
+
+// let age = currentYear - birthYear;
+
+// if (age >= 0) {
+//     alert('Вам ' + age + ' лет!');
+// } else {
+//     alert('Вы еще не родились? :)');
+// }
+
