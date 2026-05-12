@@ -571,22 +571,22 @@
 //     }
 // }
 
-let now = new Date();
-let currentYear = now.getFullYear(); // 2024 (или текущий год на момент запуска)
-let count = 0;
+// let now = new Date();
+// let currentYear = now.getFullYear(); // 2024 (или текущий год на момент запуска)
+// let count = 0;
 
-for (let year = 2000; year <= currentYear; year++) {
-    let date = new Date(year, 0, 1); // 0 — это январь
-    let day = date.getDay(); // Получаем день недели (0 - вс, 6 - сб)
+// for (let year = 2000; year <= currentYear; year++) {
+//     let date = new Date(year, 0, 1); // 0 — это январь
+//     let day = date.getDay(); // Получаем день недели (0 - вс, 6 - сб)
     
-    if (day === 0 || day === 6) {
-        count++;
-        console.log(year + ' год: 1 января — выходной (' + (day === 0 ? 'вс' : 'сб') + ')');
-    }
-}
+//     if (day === 0 || day === 6) {
+//         count++;
+//         console.log(year + ' год: 1 января — выходной (' + (day === 0 ? 'вс' : 'сб') + ')');
+//     }
+// }
 
-console.log('---');
-console.log('Всего раз: ' + count);  
+// console.log('---');
+// console.log('Всего раз: ' + count);  
   
 
 //Рассмотрите промежуток от 2000 года до текущего года. 
@@ -605,3 +605,71 @@ console.log('Всего раз: ' + count);
 //     alert('Вы еще не родились? :)');
 // }
 
+// let now = new Date(); // Время прямо сейчас
+// // 1 января следующего года (0 — это январь, 1 — первое число)
+// let newYear = new Date(now.getFullYear() + 1, 0, 1); 
+
+// let diffInMilliseconds = newYear - now; // Разница в миллисекундах
+// let diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24)); // Переводим в дни
+
+// console.log(diffInDays);
+// console.log(newYear)
+// console.log(now)
+
+
+// let now = new Date()
+// let threeMonthsAgo = new Date(now.getFullYear(), now.getMonth() - 3, now.getDate())
+// console.log(threeMonthsAgo.getFullYear())
+
+//Определите, какой день недели будет в последнем дне текущего месяца.
+// let now = new Date();
+// let lastDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+// let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+// console.log(days[lastDayOfMonth.getDay()]);
+
+
+//Напишите код, который будет определять, високосный ли текущий год.
+// let now = new Date();
+// let highYear = new Date(now.getFullYear(), 1, 29) // Февраль - это месяц 1
+// if(highYear.getDate() === 29){
+//     console.log('високосный')
+// }else{
+//     console.log('невисокосный')
+// }   
+
+// let currentYear = new Date().getFullYear();// Получаем текущий год
+
+
+// for (let year = currentYear+1; year < 3000; year++) {//
+//     let date = new Date(year, 1, 29); // Проверяем 29 февраля
+    
+//     if (date.getDate() === 29) {
+//         console.log(`Следующий  високосный год: ${year}`);
+//         break; // Нашли ближайший — останавливаем цикл!
+//     }
+// }
+
+// let date = '08-20';
+
+// if (date >= '01-01' && date <= '03-08') {
+// 	console.log('1 промежуток');
+// }
+
+// if (date >= '03-09' && date <= '06-17') {
+// 	console.log('2 промежуток');
+// }
+
+// if (date >= '06-18' && date <= '12-31') {
+// 	console.log('3 промежуток');
+// }
+// let date1 = new Date(2020, 1, 1);
+// console.log(date1.getDay())
+
+let now = new Date();   
+let number = new Date(now.getFullYear(), now.getMonth(), 15) // 15 число текущего месяца;
+
+if (now < number) {
+    console.log(' До 15 числа');
+} else {
+    console.log('После 15 числа');
+}
