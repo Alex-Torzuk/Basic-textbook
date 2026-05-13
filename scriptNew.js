@@ -665,11 +665,26 @@
 // let date1 = new Date(2020, 1, 1);
 // console.log(date1.getDay())
 
-let now = new Date();   
-let number = new Date(now.getFullYear(), now.getMonth(), 15) // 15 число текущего месяца;
+// let now = new Date();   
+// let number = new Date(now.getFullYear(), now.getMonth(), 15) // 15 число текущего месяца;
 
-if (now < number) {
-    console.log(' До 15 числа');
-} else {
-    console.log('После 15 числа');
-}
+// if (now < number) {
+//     console.log(' До 15 числа');
+// } else {
+//     console.log('После 15 числа');
+// }
+
+
+
+
+let link = document.getElementById('link')
+let btn = document.getElementById('btn')
+
+
+btn.addEventListener('click', function(){
+link.innerHTML+=  '(www.site.com) '
+})  
+
+
+///Завтра продолжить задачу № 5 
+
