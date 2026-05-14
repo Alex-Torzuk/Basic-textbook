@@ -677,14 +677,17 @@
 
 
 
-let link = document.getElementById('link')
-let btn = document.getElementById('btn')
 
 
-btn.addEventListener('click', function(){
-link.innerHTML+=  '(www.site.com) '
-})  
 
+let btn1 = document.querySelector('#btn1')
+let btn2 = document.querySelector('#btn2')
+let img1 = document.querySelector('.img1')
+let img2 = document.querySelector('.img2')
+btn1.addEventListener('click', function(){
+    img1.src = '/6676322191_w1280_h640_6676322191.webp'
+})
 
-///Завтра продолжить задачу № 5 
-
+btn2.addEventListener('click', function(){
+    img2.src = '/9910790.webp'
+})
