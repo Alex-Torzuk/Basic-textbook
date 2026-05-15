@@ -678,16 +678,23 @@
 
 
 
+//Даны два инпута и кнопка. По нажатию на кнопку 
+// запишите в первый инпут значение второго инпута, 
+// а во второй инпут - значение первого. Ваш код 
+// должен работать универсально, для любых значений инпутов.
 
-
-let btn1 = document.querySelector('#btn1')
-let btn2 = document.querySelector('#btn2')
-let img1 = document.querySelector('.img1')
-let img2 = document.querySelector('.img2')
-btn1.addEventListener('click', function(){
-    img1.src = '/6676322191_w1280_h640_6676322191.webp'
-})
-
-btn2.addEventListener('click', function(){
-    img2.src = '/9910790.webp'
+let input1 = document.querySelector('.input1')
+let input2 = document.querySelector('.input2')
+let input3 = document.querySelector('.input3')
+let input4 = document.querySelector('.input4')
+let input5 = document.querySelector('.input5')
+let text = document.querySelector('.text')
+let btn = document.querySelector('#btn')
+btn.addEventListener('click', function(){
+    let num1 = Number(input1.value)
+    let num2 = Number(input2.value)
+    let num3 = Number(input3.value)
+    let num4 = Number(input4.value)
+    let num5 = Number(input5.value)
+    text.textContent = (num1 + num2 + num3 + num4 + num5) / 5
 })
