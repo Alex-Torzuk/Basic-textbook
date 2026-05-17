@@ -676,10 +676,15 @@
 
 
 
+let inputs = document.querySelectorAll('input')
+let btn = document.querySelector('#btn')
+let text = document.querySelector('.text')
 
 
-let image = document.querySelector('#image');
-console.log(image.src);
-console.log(image.width);
-console.log(image.height);
-
+btn.addEventListener('click', function(){
+    let sum = 0
+    for(let input of inputs){
+        sum+= Number(input.value)
+    }
+    text.textContent = sum
+})
