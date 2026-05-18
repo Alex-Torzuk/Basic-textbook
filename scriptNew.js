@@ -676,15 +676,12 @@
 
 
 
-let inputs = document.querySelectorAll('input')
-let btn = document.querySelector('#btn')
-let text = document.querySelector('.text')
 
+let divs = document.querySelectorAll('div');
 
-btn.addEventListener('click', function(){
-    let sum = 0
-    for(let input of inputs){
-        sum+= Number(input.value)
-    }
-    text.textContent = sum
-})
+for (let div of divs) {
+	div.addEventListener('click', function(){
+        this.textContent++;
+    });
+}
+
