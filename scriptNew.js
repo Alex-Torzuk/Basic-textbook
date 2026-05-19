@@ -677,11 +677,16 @@
 
 
 
-let divs = document.querySelectorAll('div');
 
-for (let div of divs) {
-	div.addEventListener('click', function(){
-        this.textContent++;
-    });
+let lists = document.querySelectorAll('li')
+
+for(let list of lists){
+    list.addEventListener('click', function func(){
+        let num = Number(list.textContent++)
+        if(num >= 9){
+this.removeEventListener('click', func)
+        }
+        
+        
+    })
 }
-
