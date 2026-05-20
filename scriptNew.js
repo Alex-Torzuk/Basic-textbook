@@ -678,15 +678,8 @@
 
 
 
-let lists = document.querySelectorAll('li')
+let lists = document.querySelectorAll('ul')
 
 for(let list of lists){
-    list.addEventListener('click', function func(){
-        let num = Number(list.textContent++)
-        if(num >= 9){
-this.removeEventListener('click', func)
-        }
-        
-        
-    })
+console.log(list.textContent[0])
 }
