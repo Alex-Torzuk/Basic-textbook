@@ -678,8 +678,15 @@
 
 
 
-let lists = document.querySelectorAll('ul')
+let inp = document.querySelector('#inp')
 
-for(let list of lists){
-console.log(list.textContent[0])
-}
+inp.addEventListener('blur', function() {
+	let digits =inp.value.split('');
+	let sum = 0;
+	
+	for (let digit of digits) {
+		sum += Number(digit);
+	}
+	
+	console.log(sum);
+});
