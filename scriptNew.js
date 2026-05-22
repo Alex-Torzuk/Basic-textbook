@@ -674,19 +674,19 @@
 //     console.log('После 15 числа');
 // }
 
+let totalName = document.querySelector('.inpTotalName')
 
 
-
-
-let inp = document.querySelector('#inp')
-
-inp.addEventListener('blur', function() {
-	let digits =inp.value.split('');
-	let sum = 0;
+totalName.addEventListener('blur', function(){
 	
-	for (let digit of digits) {
-		sum += Number(digit);
-	}
-	
-	console.log(sum);
-});
+	let arr = totalName.value.split('.').reverse().join('-')
+	totalName.value = arr
+})
+
+
+// задача 9
+
+
+	//et numInps = inputs.value.split(',')
+	//arrUpper.push(elem[0].toUpperCase() + elem.slice(1))
+	//totalName.value = arrUpper.join(' ')
