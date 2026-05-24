@@ -674,18 +674,22 @@
 //     console.log('После 15 числа');
 // }
 
-let totalName = document.querySelector('.inpTotalName')
 
 
-totalName.addEventListener('blur', function(){
+// задача 9 Дан инпут. В него вводится слово. По нажатию на 
+// кнопку проверьте то, что это слово читается с начала и с 
+// конца одинаково (например, мадам) !!!
+
+
+
+let text1 = document.querySelectorAll('.text1')
+let text2 = document.querySelectorAll('.text2')
+let btn = document.querySelector('button')
+
+btn.addEventListener('click', function(){
+	// Решить задачу 11
 	
-	let arr = totalName.value.split('.').reverse().join('-')
-	totalName.value = arr
 })
-
-
-// задача 9
-
 
 	//et numInps = inputs.value.split(',')
 	//arrUpper.push(elem[0].toUpperCase() + elem.slice(1))
