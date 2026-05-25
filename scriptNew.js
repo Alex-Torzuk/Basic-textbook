@@ -682,12 +682,15 @@
 
 
 
-let text1 = document.querySelectorAll('.text1')
-let text2 = document.querySelectorAll('.text2')
+let links = document.querySelectorAll('a')
 let btn = document.querySelector('button')
-
 btn.addEventListener('click', function(){
-	// Решить задачу 11
+	let linksHref = links.forEach(function(link){
+		let hrefValue = link.getAttribute('href')
+		if(hrefValue && hrefValue.startsWith('http://')){
+			link.innerHTML+= ' &rarr;'
+		}
+	})
 	
 })
 
