@@ -682,17 +682,37 @@
 
 
 
-let links = document.querySelectorAll('a')
-let btn = document.querySelector('button')
-btn.addEventListener('click', function(){
-	let linksHref = links.forEach(function(link){
-		let hrefValue = link.getAttribute('href')
-		if(hrefValue && hrefValue.startsWith('http://')){
-			link.innerHTML+= ' &rarr;'
-		}
+// let links = document.querySelectorAll('a')
+// let btn = document.querySelector('button')
+// btn.addEventListener('click', function(){
+// 	let linksHref = links.forEach(function(link){
+// 		let hrefValue = link.getAttribute('href')
+// 		if(hrefValue && hrefValue.startsWith('http://')){
+// 			link.innerHTML+= ' &rarr;'
+// 		}
+// 	})
+	
+// })
+
+let inputValue = document.querySelector('input')
+let btnPlus = document.querySelector('.plus')
+let btnMinus = document.querySelector('.minus')
+
+btnPlus.addEventListener('click', function(){
+	inputValue.value = Number(inputValue.value)
+	inputValue.value++
+})
+
+btnMinus.addEventListener('click', function  func(){
+	inputValue.value = Number(inputValue.value)
+	if(inputValue.value > 0){
+		inputValue.value-- 
+	}
 	})
 	
-})
+
+
+
 
 	//et numInps = inputs.value.split(',')
 	//arrUpper.push(elem[0].toUpperCase() + elem.slice(1))
