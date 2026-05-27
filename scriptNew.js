@@ -694,23 +694,12 @@
 	
 // })
 
-let inputValue = document.querySelector('input')
-let btnPlus = document.querySelector('.plus')
-let btnMinus = document.querySelector('.minus')
-
-btnPlus.addEventListener('click', function(){
-	inputValue.value = Number(inputValue.value)
-	inputValue.value++
-})
-
-btnMinus.addEventListener('click', function  func(){
-	inputValue.value = Number(inputValue.value)
-	if(inputValue.value > 0){
-		inputValue.value-- 
+let texts = document.querySelectorAll('div')
+for(let text of texts){
+	if(text.textContent.length > 10){
+		text.textContent = text.textContent.slice(0, 10) + '...'
 	}
-	})
-	
-
+}
 
 
 
