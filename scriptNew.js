@@ -694,13 +694,8 @@
 	
 // })
 
-let texts = document.querySelectorAll('div')
-for(let text of texts){
-	if(text.textContent.length > 10){
-		text.textContent = text.textContent.slice(0, 10) + '...'
-	}
-}
-
+let inputs = document.querySelector('#elem')
+console.log(inputs.getAttribute('class'))
 
 
 	//et numInps = inputs.value.split(',')
