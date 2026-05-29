@@ -694,8 +694,8 @@
 	
 // })
 
-let inputs = document.querySelector('#elem')
-console.log(inputs.getAttribute('class'))
+// let inputs = document.querySelector('#elem')
+// console.log(inputs.getAttribute('class')) - получить значение атрибута class
 
 
 	//et numInps = inputs.value.split(',')
