@@ -701,3 +701,7 @@
 	//et numInps = inputs.value.split(',')
 	//arrUpper.push(elem[0].toUpperCase() + elem.slice(1))
 	//totalName.value = arrUpper.join(' ')
+
+	let input = document.querySelector('#elem')
+	input.setAttribute('value', 'Привет')
+	input.setAttribute('class', 'valid')
