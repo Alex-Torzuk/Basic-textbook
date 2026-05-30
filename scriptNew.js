@@ -703,5 +703,10 @@
 	//totalName.value = arrUpper.join(' ')
 
 	let input = document.querySelector('#elem')
-	input.setAttribute('value', 'Привет')
-	input.setAttribute('class', 'valid')
+	input.addEventListener('blur', function(){
+		if(input.value.length < Number(input.dataset.min) || input.value.length > Number(input.dataset.max)){
+			console.log('неверное количество символов')
+		}else{
+			console.log('верное количество символов')
+		}
+	})
