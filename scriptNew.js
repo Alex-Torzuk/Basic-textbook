@@ -701,12 +701,12 @@
 	//et numInps = inputs.value.split(',')
 	//arrUpper.push(elem[0].toUpperCase() + elem.slice(1))
 	//totalName.value = arrUpper.join(' ')
+	//input.dataset.min
 
-	let input = document.querySelector('#elem')
-	input.addEventListener('blur', function(){
-		if(input.value.length < Number(input.dataset.min) || input.value.length > Number(input.dataset.max)){
-			console.log('неверное количество символов')
-		}else{
-			console.log('верное количество символов')
-		}
+	let elem = document.querySelector('#elem')
+	elem.addEventListener('click', function(){
+	let price = elem.dataset.productPrice
+	let amount = elem.dataset.productAmount
+	console.log(price * amount)	
+
 	})
