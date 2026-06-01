@@ -703,10 +703,11 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-	let elem = document.querySelector('#elem')
-	elem.addEventListener('click', function(){
-	let price = elem.dataset.productPrice
-	let amount = elem.dataset.productAmount
-	console.log(price * amount)	
+	let texts = document.querySelectorAll('.text')
 
-	})
+// Используем обычный цикл, чтобы управлять индексом i
+for (let i = 0; i < texts.length; i++) {
+    // 1-й аргумент: имя атрибута 'data-num'
+    // 2-й аргумент: значение (i + 1, чтобы нумерация на экране шла с 1, а не с 0)
+    texts[i].setAttribute('data-num', i + 1)
+}
