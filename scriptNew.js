@@ -703,11 +703,8 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-	let texts = document.querySelectorAll('.text')
-
-// Используем обычный цикл, чтобы управлять индексом i
-for (let i = 0; i < texts.length; i++) {
-    // 1-й аргумент: имя атрибута 'data-num'
-    // 2-й аргумент: значение (i + 1, чтобы нумерация на экране шла с 1, а не с 0)
-    texts[i].setAttribute('data-num', i + 1)
-}
+let list = document.querySelector('ul')
+let btn = document.querySelector('button')
+btn.addEventListener('click', function(){
+	list.style.cssFloat = 'right'
+})
