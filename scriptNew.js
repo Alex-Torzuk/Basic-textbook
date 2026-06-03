@@ -703,8 +703,11 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let list = document.querySelector('ul')
-let btn = document.querySelector('button')
-btn.addEventListener('click', function(){
-	list.style.cssFloat = 'right'
-})
+let elems = document.querySelectorAll('p');
+
+for (let elem of elems) {
+	elem.addEventListener('click', function func() {
+		this.classList.toggle('colored');
+		this.removeEventListener('click', func);
+	});
+}
