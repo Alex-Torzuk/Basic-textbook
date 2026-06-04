@@ -703,11 +703,6 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let elems = document.querySelectorAll('p');
-
-for (let elem of elems) {
-	elem.addEventListener('click', function func() {
-		this.classList.toggle('colored');
-		this.removeEventListener('click', func);
-	});
-}
+let p = document.querySelector('#elem')
+let closest = p.closest('.www')
+console.log(closest)
