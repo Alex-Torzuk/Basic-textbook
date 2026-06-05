@@ -703,6 +703,13 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let p = document.querySelector('#elem')
-let closest = p.closest('.www')
-console.log(closest)
+let elem = document.querySelector('#elem')
+
+let beforeElem = elem.previousElementSibling
+let nextElem = elem.nextElementSibling
+
+let oldBefore = beforeElem.textContent
+beforeElem.textContent = nextElem.textContent
+
+// 3. Записываем в нижний сосед сохраненный старый текст верхнего (там будет 'text2')
+nextElem.textContent = oldBefore
