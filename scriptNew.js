@@ -703,9 +703,7 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let parent = document.querySelector('#parent');
-let elems1 = parent.querySelectorAll('.www');
-let elems2 = parent.querySelectorAll('.ggg');
-
-console.log(elems1)
-console.log(elems2)
+let elems = document.querySelector('#elem')
+for(let elem of elems.childNodes){
+console.log(elem.nodeValue)
+}
