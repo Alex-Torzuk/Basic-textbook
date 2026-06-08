@@ -703,7 +703,15 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let elems = document.querySelector('#elem')
-for(let elem of elems.childNodes){
-console.log(elem.nodeValue)
-}
+let inp = document.querySelector('input')
+let btn1 = document.querySelector('.btn1')
+
+
+btn1.addEventListener('click', function(){
+	if(inp.disabled === false){
+		console.log('input включен')
+	}else{
+		console.log('input включен')
+	}
+	
+})
