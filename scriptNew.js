@@ -704,14 +704,18 @@
 	//input.dataset.min
 
 let inp = document.querySelector('input')
+
 let btn1 = document.querySelector('.btn1')
 
 
+
 btn1.addEventListener('click', function(){
-	if(inp.disabled === false){
-		console.log('input включен')
+	if(inp.checked){
+		inp.checked = false
 	}else{
-		console.log('input включен')
+		inp.checked = true
 	}
 	
 })
+
+
