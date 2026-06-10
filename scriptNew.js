@@ -703,19 +703,13 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let inp = document.querySelector('input')
-
-let btn1 = document.querySelector('.btn1')
+let input = document.querySelector('#elem');
 
 
-
-btn1.addEventListener('click', function(){
-	if(inp.checked){
-		inp.checked = false
+input.addEventListener('change', function() {
+	if(input.value.length >= 5){
+		input.style.backgroundColor = 'green'
 	}else{
-		inp.checked = true
+		input.style.backgroundColor = 'red'
 	}
-	
-})
-
-
+});
