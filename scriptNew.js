@@ -703,13 +703,13 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let input = document.querySelector('#elem');
+let checkbox = document.querySelector('[type="checkbox"]');
+let button = document.querySelector('button');
 
-
-input.addEventListener('change', function() {
-	if(input.value.length >= 5){
-		input.style.backgroundColor = 'green'
-	}else{
-		input.style.backgroundColor = 'red'
+button.addEventListener('click', function() {
+	if (checkbox.checked) {
+		console.log('+++');
+	} else {
+		console.log('---');
 	}
 });
