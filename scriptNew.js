@@ -703,13 +703,9 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let checkbox = document.querySelector('[type="checkbox"]');
-let button = document.querySelector('button');
-
+let select = document.querySelector('#select');
+let button = document.querySelector('#button');
 button.addEventListener('click', function() {
-	if (checkbox.checked) {
-		console.log('+++');
-	} else {
-		console.log('---');
-	}
+	select.value = 'one';
+	
 });
