@@ -704,8 +704,14 @@
 	//input.dataset.min
 
 let select = document.querySelector('#select');
-let button = document.querySelector('#button');
-button.addEventListener('click', function() {
-	select.value = 'one';
-	
-});
+let btn = document.querySelector('button');
+btn.addEventListener('click', function(){
+	for(let option of select){
+		if(option.selected){
+			option.textContent+='!'
+		}else{
+			option.textContent+='?'
+		}
+	}
+})
+
