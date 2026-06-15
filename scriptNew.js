@@ -703,15 +703,12 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let select = document.querySelector('#select');
-let btn = document.querySelector('button');
-btn.addEventListener('click', function(){
-	for(let option of select){
-		if(option.selected){
-			option.textContent+='!'
-		}else{
-			option.textContent+='?'
-		}
+let list = document.querySelector('#elem')
+
+list.addEventListener('click', function(){
+	if(event.target.tagName === 'LI'){
+		event.target.textContent+= '!'
+	}else if(event.target.tagName === 'UL'){
+		console.log('кликнули по ul')
 	}
 })
-
