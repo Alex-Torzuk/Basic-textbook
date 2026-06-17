@@ -703,15 +703,11 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let elem = document.querySelector('#elem');
-let input1 = document.querySelector('#input1');
-let input2 = document.querySelector('#input2');
-let p = document.querySelector('p')
-
-
-
-elem.addEventListener('click', function(event) {
-	p.textContent = Number(input1.value) + Number(input2.value);
-	event.preventDefault();
-	
+let div = document.querySelector('div');
+div.addEventListener('click', function(event) {
+	if(event.target.tagName === 'LI'){
+		event.target.textContent+= '!!!'
+	}else if(event.target.tagName === 'DIV'){
+		console.log('кликнули по диву')
+	}
 });
