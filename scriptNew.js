@@ -703,11 +703,15 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let div = document.querySelector('div');
-div.addEventListener('click', function(event) {
-	if(event.target.tagName === 'LI'){
-		event.target.textContent+= '!!!'
-	}else if(event.target.tagName === 'DIV'){
-		console.log('кликнули по диву')
-	}
+let parent = document.querySelector('#parent');
+let button = document.querySelector('button');
+let block  = document.querySelector('#block');
+
+button.addEventListener('click', function(event) {
+	block.classList.add('active');
+	event.stopPropagation();
+});
+
+parent.addEventListener('click', function() {
+	block.classList.remove('active');
 });
