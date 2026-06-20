@@ -703,4 +703,30 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
+let elem = document.querySelector('#elem');
+elem.addEventListener('blur', func);
 
+function func() {
+	
+	//let el = this
+
+	
+	
+	let square = ()=> this.value * this.value
+		 
+		
+	
+	alert( square() )
+	//square()
+	
+	
+	
+	// function square(param) {
+	// 	return param * param;
+	// }
+}
+
+//let child = () => {
+//		console.log(this.value); // выведет 'text'
+//	}
+//	child();
