@@ -703,30 +703,14 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let elem = document.querySelector('#elem');
-elem.addEventListener('blur', func);
+let elem = document.getElementById('elem');
 
-function func() {
-	
-	//let el = this
-
-	
-	
-	let square = ()=> this.value * this.value
-		 
-		
-	
-	alert( square() )
-	//square()
-	
-	
-	
-	// function square(param) {
-	// 	return param * param;
-	// }
+function func(name, surname) {
+	console.log(this.value + ', ' + name + ' ' + surname);
 }
 
-//let child = () => {
-//		console.log(this.value); // выведет 'text'
-//	}
-//	child();
+// тут напишите конструкцию с bind()
+func = func.bind(elem)
+
+func('John', 'Smit'); // тут должно вывести 'hello, John Smit'
+func('Eric', 'Luis'); // тут должно вывести 'hello, Eric Luis'
