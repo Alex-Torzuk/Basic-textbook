@@ -703,14 +703,17 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-let elem = document.getElementById('elem');
+	let btn = document.querySelector('button')
+let i = 100
+btn.addEventListener('click', function func(){
+setInterval(function func(){
+	if(i >= 0){
+i--
+	console.log(i)
+	}
+	
+	
+}, 1000)
+btn.removeEventListener('click', func)
+})
 
-function func(name, surname) {
-	console.log(this.value + ', ' + name + ' ' + surname);
-}
-
-// тут напишите конструкцию с bind()
-func = func.bind(elem)
-
-func('John', 'Smit'); // тут должно вывести 'hello, John Smit'
-func('Eric', 'Luis'); // тут должно вывести 'hello, Eric Luis'
