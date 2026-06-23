@@ -703,10 +703,12 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-	let btn = document.querySelector('button')
+	let btn = document.querySelector('.startBtn')
+	let stopBtn = document.querySelector('.stopBtn')
 let i = 100
+let timerId
 btn.addEventListener('click', function func(){
-setInterval(function func(){
+timerId = setInterval(function func(){
 	if(i >= 0){
 i--
 	console.log(i)
@@ -715,5 +717,10 @@ i--
 	
 }, 1000)
 btn.removeEventListener('click', func)
-})
+stopBtn.addEventListener('click', function(){
+	clearInterval(timerId)
+		btn.addEventListener('click', func)
+	}
+)})
+
 
