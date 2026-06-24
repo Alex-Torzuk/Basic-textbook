@@ -703,24 +703,31 @@
 	//totalName.value = arrUpper.join(' ')
 	//input.dataset.min
 
-	let btn = document.querySelector('.startBtn')
-	let stopBtn = document.querySelector('.stopBtn')
-let i = 100
-let timerId
-btn.addEventListener('click', function func(){
-timerId = setInterval(function func(){
-	if(i >= 0){
-i--
-	console.log(i)
-	}
-	
-	
-}, 1000)
-btn.removeEventListener('click', func)
-stopBtn.addEventListener('click', function(){
-	clearInterval(timerId)
-		btn.addEventListener('click', func)
-	}
-)})
+// 	let elem = document.querySelector('#elem');
 
+// elem.addEventListener('click', function() {
+// 	let self = this
+// 	setInterval(function() {
+// 		self.value = Number(self.value) + 1;
+// 	}, 1000);
+// });
 
+let input = document.querySelector('input')
+let btn = document.querySelector('button')
+let p = document.querySelector('p')
+let timer = null
+btn.addEventListener('click', function(){
+
+	clearInterval(timer)
+	let count = Number(input.value)
+	p.textContent = count
+	timer = setInterval(function(){
+
+	count--
+	p.textContent = count
+		
+		if(p.textContent <= 0){
+			clearInterval(timer)
+		}
+	}, 1000)
+})
