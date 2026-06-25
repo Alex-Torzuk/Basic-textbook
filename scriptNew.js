@@ -712,22 +712,24 @@
 // 	}, 1000);
 // });
 
-let input = document.querySelector('input')
-let btn = document.querySelector('button')
-let p = document.querySelector('p')
-let timer = null
-btn.addEventListener('click', function(){
+// let input = document.querySelector('input')
+// let btn = document.querySelector('button')
+// let p = document.querySelector('p')
+// let timer = null
+// btn.addEventListener('click', function(){
 
-	clearInterval(timer)
-	let count = Number(input.value)
-	p.textContent = count
-	timer = setInterval(function(){
+// 	clearInterval(timer)
+// 	let count = Number(input.value)
+// 	p.textContent = count
+// 	timer = setInterval(function(){
 
-	count--
-	p.textContent = count
+// 	count--
+// 	p.textContent = count
 		
-		if(p.textContent <= 0){
-			clearInterval(timer)
-		}
-	}, 1000)
-})
+// 		if(p.textContent <= 0){
+// 			clearInterval(timer)
+// 		}
+// 	}, 1000)
+// })
+
+//Задача 6
