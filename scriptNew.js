@@ -733,28 +733,8 @@
 // })
 
 
-let clock = document.querySelector('#clock');
-
-function updateClock() {
-	// 1. Получаем текущую дату и время
-	let now = new Date();
-	
-	// 2. Извлекаем часы, минуты и секунды
-	let hours = now.getHours();
-	let minutes = now.getMinutes();
-	let seconds = now.getSeconds();
-	
-	// 3. Добавляем ведущий ноль, если число меньше 10 (чтобы было 09, а не 9)
-	if (hours < 10) hours = '0' + hours;
-	if (minutes < 10) minutes = '0' + minutes;
-	if (seconds < 10) seconds = '0' + seconds;
-	
-	// 4. Выводим результат на страницу
-	clock.textContent = `${hours}:${minutes}:${seconds}`;
+for (let i = 0; i >= 0; i++) { 
+	setTimeout(function() {
+		console.log(i);
+	}, i * 1000); // 0 * 1000 = 0сек, 1 * 1000 = 1сек, 2 * 1000 = 2сек...
 }
-
-// Запускаем функцию один раз сразу, чтобы часы не были пустые первую секунду
-updateClock();
-
-// Запускаем бесконечный повтор каждую секунду
-setInterval(updateClock, 1000);
