@@ -733,8 +733,10 @@
 // })
 
 
-for (let i = 0; i >= 0; i++) { 
-	setTimeout(function() {
-		console.log(i);
-	}, i * 1000); // 0 * 1000 = 0сек, 1 * 1000 = 1сек, 2 * 1000 = 2сек...
-}
+let elems = document.querySelector('#elem')
+let btn = document.querySelector('#button')
+btn.addEventListener('click', function(){
+let li = document.createElement('li')
+li.textContent = 'item'
+elems.appendChild(li)
+})
