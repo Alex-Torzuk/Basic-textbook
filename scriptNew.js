@@ -745,9 +745,13 @@
 // })
 
 
-let parents = document.querySelector('ul')
-for(let i = 1; i <=10; i++){
-	let li = document.createElement('li')
-	li.textContent = i
-	parents.appendChild(li)
-}
+let parent = document.querySelector('#parent')
+let btn = document.querySelector('#button')
+btn.addEventListener('click', function(){
+	let lastItem = parent.lastElementChild
+	if(lastItem){
+		lastItem.remove()
+	}else {
+		console.log('Элементов больше нет!');
+	}
+})
