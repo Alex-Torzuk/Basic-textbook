@@ -733,10 +733,21 @@
 // })
 
 
-let elems = document.querySelector('#elem')
-let btn = document.querySelector('#button')
-btn.addEventListener('click', function(){
-let li = document.createElement('li')
-li.textContent = 'item'
-elems.appendChild(li)
-})
+// let elems = document.querySelector('#elem')
+// let btn = document.querySelector('#button')
+// btn.addEventListener('click', function(){
+// let li = document.createElement('li')
+// li.textContent = 'item'
+// li.addEventListener('click', function(){
+// 	this.textContent+= '!'
+// })
+// elems.appendChild(li)
+// })
+
+
+let parents = document.querySelector('ul')
+for(let i = 1; i <=10; i++){
+	let li = document.createElement('li')
+	li.textContent = i
+	parents.appendChild(li)
+}
