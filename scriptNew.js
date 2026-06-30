@@ -745,13 +745,16 @@
 // })
 
 
-let parent = document.querySelector('#parent')
-let btn = document.querySelector('#button')
-btn.addEventListener('click', function(){
-	let lastItem = parent.lastElementChild
-	if(lastItem){
-		lastItem.remove()
-	}else {
-		console.log('Элементов больше нет!');
-	}
-})
+// let parent = document.querySelector('#parent')
+// let btn = document.querySelector('#button')
+// btn.addEventListener('click', function(){
+// 	let lastItem = parent.lastElementChild
+// 	if(lastItem){
+// 		lastItem.remove()
+// 	}else {
+// 		console.log('Элементов больше нет!');
+// 	}
+// })
+
+let elem = document.querySelector('#elem')
+elem.insertAdjacentHTML('beforebegin', '<div class="www"><p>text</p><p>text</p><input></div>')
