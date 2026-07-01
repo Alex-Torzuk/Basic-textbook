@@ -756,5 +756,29 @@
 // 	}
 // })
 
-let elem = document.querySelector('#elem')
-elem.insertAdjacentHTML('beforebegin', '<div class="www"><p>text</p><p>text</p><input></div>')
+// let elem = document.querySelector('#elem')
+// elem.insertAdjacentHTML('beforebegin', '<div class="www"><p>text</p><p>text</p><input></div>')
+
+// let input = document.querySelector('input')
+// let btn = document.querySelector('button')
+// btn.addEventListener('click', function(){
+// 	let clone = input.cloneNode(true)
+// 	document.body.append(clone)
+
+// })
+
+let elem1 = document.querySelector('#elem1');
+let elem2 = document.querySelector('#elem2');
+
+if(elem1.contains(elem2)){
+	console.log('Да, элемент elem1 содержит элемент elem2');
+} else {
+	console.log('Нет, элемент elem1 не содержит элемент elem2');
+}
+
+// let elem = document.querySelector('p')
+// if (elem.matches('p')) {
+// 	console.log('Да, это абзац!');
+// }
+
+
