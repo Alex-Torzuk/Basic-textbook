@@ -767,18 +767,39 @@
 
 // })
 
-let elem1 = document.querySelector('#elem1');
-let elem2 = document.querySelector('#elem2');
 
-if(elem1.contains(elem2)){
-	console.log('Да, элемент elem1 содержит элемент elem2');
-} else {
-	console.log('Нет, элемент elem1 не содержит элемент elem2');
-}
 
 // let elem = document.querySelector('p')
 // if (elem.matches('p')) {
 // 	console.log('Да, это абзац!');
 // }
 
+// let parent = document.querySelector('#parent');
 
+// let arr = [1, 2, 3, 4, 5];
+
+// for (let elem of arr) {
+// 	let p = document.createElement('p');
+// 	p.textContent = elem;
+	
+// 	p.addEventListener('click', function() {
+// 		this.textContent = Number(this.textContent) + 1;
+// 	})
+	
+// 	parent.appendChild(p);
+// }
+
+let ul = document.querySelector('#elem');
+let arr = [1, 2, 3, 4, 5];
+
+for (let elem of arr) {
+	let li = document.createElement('li');
+	li.textContent = elem;
+	
+	li.addEventListener('click', function func() {
+		this.textContent = Number(this.textContent) + 1;
+		this.removeEventListener('click', func);
+	})
+	
+	ul.appendChild(li);
+}
