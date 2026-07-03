@@ -788,18 +788,20 @@
 	
 // 	parent.appendChild(p);
 // }
+//______________________
+// изучить как работаут table, tr, td, th, thead, tbody, tfoot
+//______________________
 
-let ul = document.querySelector('#elem');
-let arr = [1, 2, 3, 4, 5];
+let table = document.querySelector('#table');
 
-for (let elem of arr) {
-	let li = document.createElement('li');
-	li.textContent = elem;
+for (let i = 0; i < 3; i++) {
+	let tr = document.createElement('tr');
 	
-	li.addEventListener('click', function func() {
-		this.textContent = Number(this.textContent) + 1;
-		this.removeEventListener('click', func);
-	})
+	for (let j = 0; j < 3; j++) {
+		let td = document.createElement('td');
+		tr.appendChild(td);
+	}
 	
-	ul.appendChild(li);
+	table.appendChild(tr);
 }
+
