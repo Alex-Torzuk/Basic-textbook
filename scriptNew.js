@@ -792,16 +792,13 @@
 // изучить как работаут table, tr, td, th, thead, tbody, tfoot
 //______________________
 
-let table = document.querySelector('#table');
-
-for (let i = 0; i < 3; i++) {
-	let tr = document.createElement('tr');
-	
-	for (let j = 0; j < 3; j++) {
-		let td = document.createElement('td');
-		tr.appendChild(td);
+let table = document.querySelector('#table')
+for(let i = 1; i <= 5; i++){
+	let tr = document.createElement('tr')
+	for(let l = 1; l <= 5; l++){
+		let td = document.createElement('td')
+		td.textContent = 'x'
+		tr.appendChild(td)
 	}
-	
-	table.appendChild(tr);
+	table.appendChild(tr)
 }
-
