@@ -793,11 +793,20 @@
 //______________________
 
 let table = document.querySelector('#table')
-for(let i = 1; i <= 5; i++){
+let k = 1
+for(let i = 1; i <= 10; i++){
 	let tr = document.createElement('tr')
-	for(let l = 1; l <= 5; l++){
+	for(let l = 1; l <= 10; l++){
 		let td = document.createElement('td')
-		td.textContent = 'x'
+		
+	
+		if(k % 2 === 0){
+			td.textContent = k
+		}
+			k++
+			if(k >= 50){
+				break
+			}
 		tr.appendChild(td)
 	}
 	table.appendChild(tr)
