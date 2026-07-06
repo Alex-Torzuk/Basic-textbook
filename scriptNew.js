@@ -792,22 +792,33 @@
 // изучить как работаут table, tr, td, th, thead, tbody, tfoot
 //______________________
 
-let table = document.querySelector('#table')
-let k = 1
-for(let i = 1; i <= 10; i++){
-	let tr = document.createElement('tr')
-	for(let l = 1; l <= 10; l++){
-		let td = document.createElement('td')
-		
+let employees = [
+	{name: 'employee1', age: 30, salary: 400},
+	{name: 'employee2', age: 31, salary: 500},
+	{name: 'employee3', age: 32, salary: 600},
+];
+let table = document.getElementById('table');
+
+for (let employee of employees) {
+	let tr = document.createElement('tr');
 	
-		if(k % 2 === 0){
-			td.textContent = k
-		}
-			k++
-			if(k >= 50){
-				break
-			}
-		tr.appendChild(td)
-	}
-	table.appendChild(tr)
+	let td1 = document.createElement('td');
+	td1.textContent = employee.name;
+	tr.appendChild(td1);
+	
+	let td2 = document.createElement('td');
+	td2.textContent = employee.age;
+	tr.appendChild(td2);
+	td2.addEventListener('click', function() {
+		this.textContent = Number(this.textContent) + 1;
+	})
+	
+	let td3 = document.createElement('td');
+	td3.textContent = employee.salary;
+	tr.appendChild(td3);
+	td3.addEventListener('click', function() {
+		this.textContent = Number(Math.round(this.textContent * 1.1));
+	})
+	//Math.round(currentSalary * 1.1)
+	table.appendChild(tr);
 }
