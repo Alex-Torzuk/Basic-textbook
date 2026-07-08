@@ -792,14 +792,39 @@
 // изучить как работаут table, tr, td, th, thead, tbody, tfoot
 //______________________
 
-let table = document.querySelector('#table')
-let btn = document.querySelector('#btn')
-let tr = document.createElement('tr')
-btn.addEventListener('click', function(){
-	let tds = document.querySelectorAll('#table td');
+// let elem   = document.querySelector('#elem');
+// let remove = document.querySelector('#remove');
 
-for (let td of tds) {
-	td.textContent = Number(td.textContent) * 2;
-}
+// remove.addEventListener('click', function() {
+// 	elem.remove();
+// });
+
+// let elems = document.querySelectorAll('#parent p');
+
+// for (let elem of elems) {
+// 	let remove = document.createElement('a');
+// 	remove.href = '';
+// 	remove.textContent = 'remove';
+// 	elem.appendChild(remove);
 	
-})
+// 	remove.addEventListener('click', function(event) {
+// 		elem.remove();
+// 		event.preventDefault();
+// 	});
+// }
+
+
+
+let elem = document.querySelector('#elem');
+
+elem.addEventListener('click', function() {
+	let input = document.createElement('input');
+	input.value = elem.textContent;
+	
+	input.addEventListener('blur', function() {
+		elem.textContent = this.value;
+		this.remove(); // удалим инпут
+	});
+	
+	elem.parentElement.appendChild(input);
+});
