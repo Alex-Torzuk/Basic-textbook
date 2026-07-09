@@ -815,16 +815,39 @@
 
 
 
-let elem = document.querySelector('#elem');
+// let elem = document.querySelector('#elem');
 
-elem.addEventListener('click', function() {
-	let input = document.createElement('input');
-	input.value = elem.textContent;
+// elem.addEventListener('click', function func() {
+// 	let input = document.createElement('input');
+// 	input.value = elem.textContent;
 	
+// 	elem.textContent = '';
+// 	elem.appendChild(input);
+	
+// 	input.addEventListener('blur', function() {
+// 		elem.textContent = this.value;
+// 		elem.addEventListener('click', func); // повесим событие обратно
+// 	});
+	
+// 	elem.removeEventListener('click', func);
+// });
+
+let parent = document.querySelectorAll('#parent p');
+
+parent.forEach(function(span) {
+span.innerHTML = `<span>${span.textContent}</span>`
+
+span.addEventListener('click', function() {
+	let input = document.createElement('input')
+	input.value = this.textContent
+	this.textContent = ''
+	this.appendChild(input)
+	input.focus()
+
 	input.addEventListener('blur', function() {
-		elem.textContent = this.value;
-		this.remove(); // удалим инпут
-	});
-	
-	elem.parentElement.appendChild(input);
-});
+		this.parentNode.textContent = this.value
+	})
+})
+})
+
+
