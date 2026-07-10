@@ -832,22 +832,57 @@
 // 	elem.removeEventListener('click', func);
 // });
 
-let parent = document.querySelectorAll('#parent p');
+// let parent = document.querySelectorAll('#parent p');
 
-parent.forEach(function(span) {
-span.innerHTML = `<span>${span.textContent}</span>`
+// parent.forEach(function(span) {
+// span.innerHTML = `<span>${span.textContent}</span>`
 
-span.addEventListener('click', function() {
-	let input = document.createElement('input')
-	input.value = this.textContent
-	this.textContent = ''
-	this.appendChild(input)
-	input.focus()
+// span.addEventListener('click', function() {
+// 	let input = document.createElement('input')
+// 	input.value = this.textContent
+// 	this.textContent = ''
+// 	this.appendChild(input)
+// 	input.focus()
 
-	input.addEventListener('blur', function() {
-		this.parentNode.textContent = this.value
-	})
-})
-})
+// 	input.addEventListener('blur', function() {
+// 		this.parentNode.textContent = this.value
+// 	})
+// })
+// })
 
 
+// let texts = document.querySelectorAll('p')
+// 	for(let p of texts){
+// 		p.innerHTML = '<span> ' + p.textContent + ' </span>'
+// 		let link = document.createElement('a')
+// 		link.href = ''
+// 		link.textContent = 'line'
+// 		p.appendChild(link)
+// 		link.addEventListener('click', function(event){
+// 			let span = this.previousElementSibling
+// 			span.style.textDecoration = 'line-through'
+// 			event.preventDefault()
+// 			if('click'){
+// 				link.remove()
+// 			}
+// 		})	
+// 	}
+
+
+	let table = document.querySelectorAll('table tr td')
+	for(let td of table){
+		let link = document.createElement('a')
+		link.href = ''
+		link.textContent = 'X'
+		td.appendChild(link)
+		link.addEventListener('click', function(event){
+			//td.style.color = 'green'
+			if(td.style.color === 'green'){
+				td.style.color ='red'
+			}else{
+				td.style.color = 'green'
+			}
+			event.preventDefault()
+			
+		})
+	}
