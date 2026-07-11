@@ -869,20 +869,13 @@
 // 	}
 
 
-	let table = document.querySelectorAll('table tr td')
-	for(let td of table){
-		let link = document.createElement('a')
-		link.href = ''
-		link.textContent = 'X'
-		td.appendChild(link)
-		link.addEventListener('click', function(event){
-			//td.style.color = 'green'
-			if(td.style.color === 'green'){
-				td.style.color ='red'
-			}else{
-				td.style.color = 'green'
-			}
-			event.preventDefault()
-			
-		})
-	}
+let elem = document.querySelector('#elem');
+//let show = document.querySelector('#hide');
+let hide = document.querySelector('#hide');
+
+hide.addEventListener('click', function() {
+	 elem.classList.toggle('hidden');
+});
+// hide.addEventListener('click', function() {
+// 	elem.classList.remove('hidden');
+// });
