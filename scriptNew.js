@@ -869,13 +869,101 @@
 // 	}
 
 
-let elem = document.querySelector('#elem');
-//let show = document.querySelector('#hide');
-let hide = document.querySelector('#hide');
+// let elem = document.querySelector('#elem');
+// //let show = document.querySelector('#hide');
+// let hide = document.querySelector('#hide');
 
-hide.addEventListener('click', function() {
-	 elem.classList.toggle('hidden');
-});
 // hide.addEventListener('click', function() {
-// 	elem.classList.remove('hidden');
+// 	 elem.classList.toggle('hidden');
 // });
+// // hide.addEventListener('click', function() {
+// // 	elem.classList.remove('hidden');
+// // });
+
+
+
+
+
+
+
+// 1. Исправлена опечатка 'let' и добавлен базовый чек на существование ul
+let list = document.querySelectorAll('ul');
+let arr = ['item1', 'item2', 'item3', 'item4', 'item5'];
+
+let underInput = document.createElement('input');
+underInput.type = 'text';
+underInput.placeholder = 'Введите текст';
+document.body.appendChild(underInput);
+
+// Функция для создания полноценного LI со всей логикой внутри
+function createListItem(text) {
+    let li = document.createElement('li');
+    
+    // 1. Создаем текст внутри span
+    let span = document.createElement('span');
+    span.textContent = text;
+    li.appendChild(span);
+    
+    // 2. Создаем ссылку удаления
+    let link = document.createElement('a');
+    link.href = '#';
+    link.textContent = ' remove';
+    link.style.marginLeft = '10px'; // Небольшой отступ для красоты
+    li.appendChild(link);
+    
+    // Логика удаления
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        //нужно перечеркнуть span, а не удалять li
+		span.style.textDecoration = 'line-through';
+		link.remove(); // Убираем ссылку после нажатия
+    });
+    
+    // Навешиваем редактирование ТОЛЬКО на span, чтобы не трогать ссылку
+    initEditElement(span);
+    
+    return li;
+}
+
+underInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter' && this.value.trim() !== '') {
+        // Используем единую функцию создания для новых элементов
+        let newLi = createListItem(this.value);
+        list[0].appendChild(newLi);
+        this.value = '';
+    }
+});
+
+function initEditElement(span) {
+    span.addEventListener('click', function handler() {
+        let input = document.createElement('input');
+        input.value = this.textContent;
+        this.textContent = '';
+        this.appendChild(input);
+        input.focus();
+
+        input.addEventListener('blur', function() {
+            // Возвращаем текст обратно в span
+            span.textContent = this.value;
+            span.addEventListener('click', handler); 
+        });
+
+        input.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                this.blur(); 
+            }
+        });
+
+        span.removeEventListener('click', handler);
+    });
+}
+
+// Заполнение начального списка через нашу функцию
+for (let i = 0; i < arr.length; i++) {
+    let li = createListItem(arr[i]);
+    list[0].appendChild(li);
+}
+
+
+//Массив объектов и таблица
+
