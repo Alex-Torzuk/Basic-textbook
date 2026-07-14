@@ -965,8 +965,6 @@
 // }
 
 
-// //Массив объектов и таблица
-
 let employees = [
 	{name: 'employee1', age: 30, salary: 400},
 	{name: 'employee2', age: 31, salary: 500},
@@ -975,25 +973,129 @@ let employees = [
 
 let table = document.querySelector('table');
 
-// Создаем заголовок таблицы
+// 1. Создаем заголовок таблицы
 let thead = document.createElement('thead');
 let headerRow = document.createElement('tr');
-['Name', 'Age', 'Salary'].forEach(text => {
+['Name', 'Age', 'Salary', 'Actions'].forEach(text => {
     let th = document.createElement('th');
     th.textContent = text;
     headerRow.appendChild(th);
 });
 thead.appendChild(headerRow);
 table.appendChild(thead);   
-// Создаем тело таблицы
+
+// 2. Создаем тело таблицы
 let tbody = document.createElement('tbody');
-employees.forEach(employee => {
+table.appendChild(tbody);
+
+// Функция для создания ОДНОЙ строки таблицы со всей логикой
+function createRow(name, age, salary) {
     let row = document.createElement('tr');
-    Object.values(employee).forEach(value => {
+    
+    // Массив с данными для удобного перебора
+    let data = [name, age, salary];
+    
+    // Создаем ячейки с данными и включаем редактирование
+    data.forEach(value => {
         let td = document.createElement('td');
         td.textContent = value;
+        initEditCell(td); // Подключаем редактирование по клику
         row.appendChild(td);
     });
+    
+    // Создаем ячейку для кнопки удаления
+    let deleteTd = document.createElement('td');
+    let deleteLink = document.createElement('a');
+    deleteLink.href = '#';
+    deleteLink.textContent = 'Delete';
+    
+    deleteLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        row.remove();
+    });
+    
+    deleteTd.appendChild(deleteLink);
+    row.appendChild(deleteTd);
+    
+    return row;
+}
+
+// Заполняем таблицу начальными данными
+employees.forEach(employee => {
+    let row = createRow(employee.name, employee.age, employee.salary);
     tbody.appendChild(row);
 });
-table.appendChild(tbody);
+
+// 3. Создаем форму добавления под таблицей
+let formContainer = document.createElement('div');
+formContainer.style.marginTop = '20px';
+
+let nameInput = document.createElement('input');
+nameInput.placeholder = 'Name';
+
+let ageInput = document.createElement('input');
+ageInput.placeholder = 'Age';
+ageInput.type = 'number';
+
+let salaryInput = document.createElement('input');
+salaryInput.placeholder = 'Salary';
+salaryInput.type = 'number';
+
+let addButton = document.createElement('button');
+addButton.textContent = 'Add Employee';
+
+// Собираем элементы формы вместе
+formContainer.appendChild(nameInput);
+formContainer.appendChild(ageInput);
+formContainer.appendChild(salaryInput);
+formContainer.appendChild(addButton);
+document.body.appendChild(formContainer);
+
+// Логика добавления нового работника
+addButton.addEventListener('click', function() {
+    let name = nameInput.value.trim();
+    let age = ageInput.value.trim();
+    let salary = salaryInput.value.trim();
+    
+    // Простая валидация: проверяем, что все поля заполнены
+    if (name === '' || age === '' || salary === '') {
+        alert('Пожалуйста, заполните все поля!');
+        return;
+    }
+    
+    // Создаем новую строку и добавляем ее в тело таблицы
+    let newRow = createRow(name, age, salary);
+    tbody.appendChild(newRow);
+    
+    // Очищаем поля ввода для следующего добавления
+    nameInput.value = '';
+    ageInput.value = '';
+    salaryInput.value = '';
+});
+
+// Функция для редактирования ячеек
+function initEditCell(td) {
+    td.addEventListener('click', function handler() {
+        let input = document.createElement('input');
+        input.style.width = '100%';
+        input.style.boxSizing = 'border-box';
+        
+        input.value = this.textContent;
+        this.textContent = '';
+        this.appendChild(input);
+        input.focus();
+
+        input.addEventListener('blur', function() {
+            td.textContent = this.value;
+            td.addEventListener('click', handler); 
+        });
+
+        input.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                this.blur(); 
+            }
+        });
+
+        td.removeEventListener('click', handler);
+    });
+}
