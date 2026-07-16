@@ -1101,28 +1101,135 @@
 // }
 
 
-let employees = [
-	{name: 'employee1', age: 30, salary: 400},
-	{name: 'employee2', age: 31, salary: 500},
-	{name: 'employee3', age: 32, salary: 600},
-];
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
 
-let ul = document.querySelector('ul');
-let li;
+// let ul = document.querySelector('ul');
 
-
-for(let elem of employees){
-     li = document.createElement('li');
-    li.textContent = elem.name + ', ' + elem.age + ', ' + elem.salary + ' ';
-            
-    ul.appendChild(li);
-        
-}
-for(let elem of ul.children){
+// // Функция-конструктор для создания одного полноценного LI со всей логикой
+// function createListItem(name, age, salary) {
+//     let li = document.createElement('li');
+//     let data = [name, age, salary];
     
-   
-}
+//     // Создаем отдельные спаны для каждого свойства
+//     data.forEach((value, index) => {
+//         let span = document.createElement('span');
+//         span.textContent = value;
+        
+//         initEditSpan(span); // Включаем редактирование
+//         li.appendChild(span);
+        
+//         // Разделитель между спанами
+//         if (index < data.length - 1) {
+//             let textNode = document.createTextNode(', ');
+//             li.appendChild(textNode);
+//         }
+//     });
+    
+//     // Создаем ссылку на удаление
+//     let deleteLink = document.createElement('a');
+//     deleteLink.href = '#';
+//     deleteLink.textContent = ' remove';
+//     deleteLink.style.marginLeft = '15px';
+    
+//     deleteLink.addEventListener('click', function(event) {
+//         event.preventDefault();
+//         li.remove();
+//     });
+    
+//     li.appendChild(deleteLink);
+//     return li;
+// }
+
+// // Заполняем список начальными данными
+// for (let elem of employees) {
+//     let li = createListItem(elem.name, elem.age, elem.salary);
+//     ul.appendChild(li);
+// }
+
+// // --- СОЗДАНИЕ ФОРМЫ ПОД СПИСКОМ ---
+
+// let formContainer = document.createElement('div');
+// formContainer.style.marginTop = '20px';
+
+// let nameInput = document.createElement('input');
+// nameInput.placeholder = 'Name';
+
+// let ageInput = document.createElement('input');
+// ageInput.placeholder = 'Age';
+// ageInput.type = 'number';
+
+// let salaryInput = document.createElement('input');
+// salaryInput.placeholder = 'Salary';
+// salaryInput.type = 'number';
+
+// let addButton = document.createElement('button');
+// addButton.textContent = 'Add Employee';
+
+// // Собираем форму в документ
+// formContainer.appendChild(nameInput);
+// formContainer.appendChild(ageInput);
+// formContainer.appendChild(salaryInput);
+// formContainer.appendChild(addButton);
+// document.body.appendChild(formContainer);
+
+// // Логика кнопки добавления
+// addButton.addEventListener('click', function() {
+//     let name = nameInput.value.trim();
+//     let age = ageInput.value.trim();
+//     let salary = salaryInput.value.trim();
+    
+//     // Проверка заполненности полей
+//     if (name === '' || age === '' || salary === '') {
+//         alert('Пожалуйста, заполните все поля!');
+//         return;
+//     }
+    
+//     // Создаем новый LI и крепим в UL
+//     let newLi = createListItem(name, age, salary);
+//     ul.appendChild(newLi);
+    
+//     // Очищаем форму
+//     nameInput.value = '';
+//     ageInput.value = '';
+//     salaryInput.value = '';
+// });
+
+// // Функция редактирования конкретного span (осталась без изменений)
+// function initEditSpan(span) {
+//     span.addEventListener('click', function handler() {
+//         let input = document.createElement('input');
+//         input.value = this.textContent;
+//         this.textContent = '';
+//         this.appendChild(input);
+//         input.focus();
+
+//         input.addEventListener('blur', function() {
+//             span.textContent = this.value;
+//             span.addEventListener('click', handler); 
+//         });
+
+//         input.addEventListener('keypress', function(event) {
+//             if (event.key === 'Enter') {
+//                 this.blur(); 
+//             }
+//         });
+
+//         span.removeEventListener('click', handler);
+//     });
+// }
 
 
-
-
+//С чего начать прямо сейчас?Попробуйте сделать перерыв 
+// от этой большой таблицы. Откройте чистый файл и 
+// попробуйте самостоятельно с нуля по памяти или по 
+// своему плану написать самую первую задачу:Создать 
+// один инпут.
+// По нажатию Enter создавать простой <li> внутри <ul>.
+// Как только у вас это получится без подглядывания — вы 
+// почувствуете уверенность, и мы сможем пойти дальше. 
+// Хотите, мы прямо сейчас разберем пошаговый алгоритм для 
+// тренировки какого-нибудь маленького кусочка?
