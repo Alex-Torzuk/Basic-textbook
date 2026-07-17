@@ -1233,3 +1233,79 @@
 // почувствуете уверенность, и мы сможем пойти дальше. 
 // Хотите, мы прямо сейчас разберем пошаговый алгоритм для 
 // тренировки какого-нибудь маленького кусочка?
+
+// Находим наши главные элементы на странице
+let list = document.querySelector('#test-list');
+let mainInput = document.querySelector('#main-input');
+let addBtn = document.querySelector('#add-btn');
+
+// Наш главный инструмент — конструктор элементов списка
+function createItem(text){
+	let li = document.createElement('li');
+
+	// 1. Создаем span для текста
+	let span = document.createElement('span');
+	span.textContent = text;
+	li.appendChild(span);
+	
+	// 2.Включаем редактирование для этого span
+	initEdit(span); 
+
+	 // 3. Создаем кнопку удаления
+	let deleteLink = document.createElement('a');
+	deleteLink.href = '#';
+	deleteLink.textContent = ' remove';
+	deleteLink.style.color = 'red';
+	deleteLink.style.marginLeft = '10px';
+
+	deleteLink.addEventListener('click', function(event){
+		event.preventDefault();
+		li.remove();// Удалит именно этот li
+	});
+	li.appendChild(deleteLink);
+	return li; // Возвращаем полностью готовый элемент
+}
+
+// Вспомогательная функция редактирования (наш прошлый код)
+function initEdit(span){
+	span.addEventListener('click', function handler() {
+        let input = document.createElement('input');
+        input.value = this.textContent;
+        this.textContent = '';
+        this.appendChild(input);
+        input.focus();
+        
+        this.removeEventListener('click', handler);
+
+        input.addEventListener('blur', function() {
+            span.textContent = this.value; 
+            span.addEventListener('click', handler);
+        })
+		input.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                this.blur(); 
+            }
+        });
+	});
+}
+// Оживляем кнопку добавления
+addBtn.addEventListener('click', function() {
+    let text = mainInput.value.trim(); // Берем текст и чистим от пробелов
+    
+    // Проверяем, чтобы пользователь не добавлял пустые строки
+    if (text === '') {
+        alert('Введите хоть что-нибудь!');
+        return;
+    }
+    
+    // Вызываем наш конструктор и получаем готовый LI
+    let newLi = createItem(text);
+    
+    // Добавляем его в наш список на странице
+    list.appendChild(newLi);
+    
+    // Очищаем инпут для следующего ввода
+    mainInput.value = '';
+});
+
+
