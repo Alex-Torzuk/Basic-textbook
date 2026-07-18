@@ -1235,77 +1235,98 @@
 // тренировки какого-нибудь маленького кусочка?
 
 // Находим наши главные элементы на странице
-let list = document.querySelector('#test-list');
-let mainInput = document.querySelector('#main-input');
-let addBtn = document.querySelector('#add-btn');
 
-// Наш главный инструмент — конструктор элементов списка
-function createItem(text){
-	let li = document.createElement('li');
+// let table = document.querySelector('table');
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
 
-	// 1. Создаем span для текста
-	let span = document.createElement('span');
-	span.textContent = text;
-	li.appendChild(span);
-	
-	// 2.Включаем редактирование для этого span
-	initEdit(span); 
 
-	 // 3. Создаем кнопку удаления
-	let deleteLink = document.createElement('a');
-	deleteLink.href = '#';
-	deleteLink.textContent = ' remove';
-	deleteLink.style.color = 'red';
-	deleteLink.style.marginLeft = '10px';
+// let thead = document.createElement('thead');
+// let tbody = document.createElement('tbody');
+// let tr = document.createElement('tr');
+// for(let key in employees[0]){
+//     let th = document.createElement('th');
+//     th.textContent = key;
+//     tr.appendChild(th);
+// }
+// let actionTh = document.createElement('th');
+// actionTh.textContent = 'Actions';
+// tr.appendChild(actionTh);
 
-	deleteLink.addEventListener('click', function(event){
-		event.preventDefault();
-		li.remove();// Удалит именно этот li
-	});
-	li.appendChild(deleteLink);
-	return li; // Возвращаем полностью готовый элемент
-}
+// thead.appendChild(tr);
 
-// Вспомогательная функция редактирования (наш прошлый код)
-function initEdit(span){
-	span.addEventListener('click', function handler() {
-        let input = document.createElement('input');
-        input.value = this.textContent;
-        this.textContent = '';
-        this.appendChild(input);
-        input.focus();
+
+// table.appendChild(thead);
+// table.appendChild(tbody);
+// for(let value of employees){
+    
+//     let tr = document.createElement('tr');
+//     let td = document.createElement('td');
+    
+//     td.textContent = value.name;
+//     initEdit(td)
+//     tr.appendChild(td);
+//     td = document.createElement('td');
+//     td.textContent = value.age;
+//     initEdit(td)
+//     tr.appendChild(td);
+//     td = document.createElement('td');
+//     td.textContent = value.salary;
+//     initEdit(td)
+//     tr.appendChild(td);
+//     tbody.appendChild(tr)
+//     // 1. Создаем ячейку для кнопки удаления
+//     let deleteTd = document.createElement('td');
+    
+//     // 2. Создаем саму ссылку (ваш код)
+//     let deletetr = document.createElement('a');
+//     deletetr.href = '#';
+//     deletetr.textContent = 'remove';
+    
+//     deletetr.addEventListener('click', function(event){
+//         event.preventDefault();
+//         tr.remove();
+//     });
+    
+//     // 3. Кладем ссылку ВНУТРЬ ячейки td
+//     deleteTd.appendChild(deletetr);
+    
+//     // 4. И уже ячейку td добавляем в строку tr
+//     tr.appendChild(deleteTd);
+    
+//     // Добавление строки в tbody (перенесите в самый конец итерации цикла)
+//     tbody.appendChild(tr);
+// }
+
+// function initEdit(td){
+//     td.addEventListener('click', function handler(){
+//         let input = document.createElement('input');
+//         input.value = this.textContent;
+//         this.textContent = '';
+//         this.appendChild(input);
+//         input.focus();
         
-        this.removeEventListener('click', handler);
+//         // Отключаем клик по ячейке во время редактирования
+//         td.removeEventListener('click', handler);
 
-        input.addEventListener('blur', function() {
-            span.textContent = this.value; 
-            span.addEventListener('click', handler);
-        })
-		input.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                this.blur(); 
-            }
-        });
-	});
-}
-// Оживляем кнопку добавления
-addBtn.addEventListener('click', function() {
-    let text = mainInput.value.trim(); // Берем текст и чистим от пробелов
-    
-    // Проверяем, чтобы пользователь не добавлял пустые строки
-    if (text === '') {
-        alert('Введите хоть что-нибудь!');
-        return;
-    }
-    
-    // Вызываем наш конструктор и получаем готовый LI
-    let newLi = createItem(text);
-    
-    // Добавляем его в наш список на странице
-    list.appendChild(newLi);
-    
-    // Очищаем инпут для следующего ввода
-    mainInput.value = '';
-});
+//         input.addEventListener('blur', function() {
+//             td.textContent = this.value;
+//             td.addEventListener('click', handler); // Возвращаем клик при потере фокуса
+//         });
+
+//         input.addEventListener('keypress', function(event) {
+//             if (event.key === 'Enter') {
+//                 this.blur(); 
+//             }
+//         }); // Вот так правильно закрывается keypress
+//     }); // Вот так правильно закрывается handler (клик)
+// } // Вот так закрывается сама функция initEdit
+
+
+
+
 
 
