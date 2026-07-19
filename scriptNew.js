@@ -1269,6 +1269,7 @@
 //     td.textContent = value.name;
 //     initEdit(td)
 //     tr.appendChild(td);
+
 //     td = document.createElement('td');
 //     td.textContent = value.age;
 //     initEdit(td)
@@ -1326,7 +1327,47 @@
 // } // Вот так закрывается сама функция initEdit
 
 
+let employees = [
+	{name: 'employee1', age: 30, salary: 400},
+	{name: 'employee2', age: 31, salary: 500},
+	{name: 'employee3', age: 32, salary: 600},
+];
 
+let table = document.querySelector('table')
+let tbody = document.createElement('tbody')
+let thead = document.createElement('thead')
+let tr = document.createElement('tr')
+
+for(let key in employees[0]){
+	let th = document.createElement('th')
+	th.textContent = key
+	tr.appendChild(th)
+}
+
+let actionTh = document.createElement('th')
+actionTh.textContent = 'Action'
+tr.appendChild(actionTh)
+thead.appendChild(tr)
+table.appendChild(thead)
+table.appendChild(tbody)
+
+for(let emploe of employees){
+	let tr = document.createElement('tr')
+	let td = document.createElement('td')
+	td.textContent = emploe.name
+	tr.appendChild(td)
+
+	td = document.createElement('td');
+	td.textContent = emploe.age
+	tr.appendChild(td)
+	
+	td = document.createElement('td');
+	td.textContent = emploe.salary
+	tr.appendChild(td)
+
+	tbody.appendChild(tr)
+
+}
 
 
 
