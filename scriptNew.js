@@ -1355,18 +1355,52 @@ for(let emploe of employees){
 	let tr = document.createElement('tr')
 	let td = document.createElement('td')
 	td.textContent = emploe.name
+	initEdit(td)
 	tr.appendChild(td)
 
 	td = document.createElement('td');
 	td.textContent = emploe.age
+	initEdit(td)
 	tr.appendChild(td)
 	
 	td = document.createElement('td');
 	td.textContent = emploe.salary
+	initEdit(td)
 	tr.appendChild(td)
+	td = document.createElement('td')
+	let remove = document.createElement('a')
+	remove.href = '#'
+	remove.textContent = 'Remove'
+	remove.addEventListener('click', function(event){
+		event.preventDefault()
+		tr.remove()
 
+	})
+	td.appendChild(remove)
+	tr.appendChild(td)
 	tbody.appendChild(tr)
 
+}
+
+function initEdit(td){
+	td.addEventListener('click', function handler(){
+		let input = document.createElement('input')
+		input.value = this.textContent
+		this.textContent = ''
+		this.appendChild(input);
+		input.focus()
+
+		td.removeEventListener('click', handler);
+
+		input.addEventListener('blur', function(){
+			td.textContent = this.value
+			td.addEventListener('click', handler)
+		})
+		 input.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+               this.blur(); 
+          }})
+	})
 }
 
 
