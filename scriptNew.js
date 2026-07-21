@@ -1327,81 +1327,93 @@
 // } // Вот так закрывается сама функция initEdit
 
 
-let employees = [
-	{name: 'employee1', age: 30, salary: 400},
-	{name: 'employee2', age: 31, salary: 500},
-	{name: 'employee3', age: 32, salary: 600},
-];
+// let employees = [
+// 	{name: 'employee1', age: 30, salary: 400},
+// 	{name: 'employee2', age: 31, salary: 500},
+// 	{name: 'employee3', age: 32, salary: 600},
+// ];
 
-let table = document.querySelector('table')
-let tbody = document.createElement('tbody')
-let thead = document.createElement('thead')
-let tr = document.createElement('tr')
+// let table = document.querySelector('table')
+// let tbody = document.createElement('tbody')
+// let thead = document.createElement('thead')
+// let tr = document.createElement('tr')
 
-for(let key in employees[0]){
-	let th = document.createElement('th')
-	th.textContent = key
-	tr.appendChild(th)
-}
+// for(let key in employees[0]){
+// 	let th = document.createElement('th')
+// 	th.textContent = key
+// 	tr.appendChild(th)
+// }
 
-let actionTh = document.createElement('th')
-actionTh.textContent = 'Action'
-tr.appendChild(actionTh)
-thead.appendChild(tr)
-table.appendChild(thead)
-table.appendChild(tbody)
+// let actionTh = document.createElement('th')
+// actionTh.textContent = 'Action'
+// tr.appendChild(actionTh)
+// thead.appendChild(tr)
+// table.appendChild(thead)
+// table.appendChild(tbody)
 
-for(let emploe of employees){
-	let tr = document.createElement('tr')
-	let td = document.createElement('td')
-	td.textContent = emploe.name
-	initEdit(td)
-	tr.appendChild(td)
+// for(let emploe of employees){
+// 	let tr = document.createElement('tr')
+// 	let td = document.createElement('td')
+// 	td.textContent = emploe.name
+// 	initEdit(td)
+// 	tr.appendChild(td)
 
-	td = document.createElement('td');
-	td.textContent = emploe.age
-	initEdit(td)
-	tr.appendChild(td)
+// 	td = document.createElement('td');
+// 	td.textContent = emploe.age
+// 	initEdit(td)
+// 	tr.appendChild(td)
 	
-	td = document.createElement('td');
-	td.textContent = emploe.salary
-	initEdit(td)
-	tr.appendChild(td)
-	td = document.createElement('td')
-	let remove = document.createElement('a')
-	remove.href = '#'
-	remove.textContent = 'Remove'
-	remove.addEventListener('click', function(event){
-		event.preventDefault()
-		tr.remove()
+// 	td = document.createElement('td');
+// 	td.textContent = emploe.salary
+// 	initEdit(td)
+// 	tr.appendChild(td)
+// 	td = document.createElement('td')
+// 	let remove = document.createElement('a')
+// 	remove.href = '#'
+// 	remove.textContent = 'Remove'
+// 	remove.addEventListener('click', function(event){
+// 		event.preventDefault()
+// 		tr.remove()
 
-	})
-	td.appendChild(remove)
-	tr.appendChild(td)
-	tbody.appendChild(tr)
+// 	})
+// 	td.appendChild(remove)
+// 	tr.appendChild(td)
+// 	tbody.appendChild(tr)
 
+// }
+
+// function initEdit(td){
+// 	td.addEventListener('click', function handler(){
+// 		let input = document.createElement('input')
+// 		input.value = this.textContent
+// 		this.textContent = ''
+// 		this.appendChild(input);
+// 		input.focus()
+
+// 		td.removeEventListener('click', handler);
+
+// 		input.addEventListener('blur', function(){
+// 			td.textContent = this.value
+// 			td.addEventListener('click', handler)
+// 		})
+// 		 input.addEventListener('keypress', function(event) {
+//             if (event.key === 'Enter') {
+//                this.blur(); 
+//           }})
+// 	})
+// }
+
+
+
+function forEach(selector, func) {
+	let elems = document.querySelectorAll(selector);
+	
+	for (let elem of elems) {
+		
+		func(elem);
+	}
 }
 
-function initEdit(td){
-	td.addEventListener('click', function handler(){
-		let input = document.createElement('input')
-		input.value = this.textContent
-		this.textContent = ''
-		this.appendChild(input);
-		input.focus()
-
-		td.removeEventListener('click', handler);
-
-		input.addEventListener('blur', function(){
-			td.textContent = this.value
-			td.addEventListener('click', handler)
-		})
-		 input.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-               this.blur(); 
-          }})
-	})
-}
-
-
-
+forEach('.elem', function(elem) {
+	elem.textContent = elem.textContent+= '!'
+});
