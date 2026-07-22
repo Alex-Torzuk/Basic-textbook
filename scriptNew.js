@@ -1403,17 +1403,14 @@
 // 	})
 // }
 
-
-
 function forEach(selector, func) {
 	let elems = document.querySelectorAll(selector);
 	
-	for (let elem of elems) {
-		
-		func(elem);
+	for (let i = 0; i < elems.length; i++) {
+		func(elems[i], i);
 	}
 }
 
-forEach('.elem', function(elem) {
-	elem.textContent = elem.textContent+= '!'
+forEach('.elem', function(elem, index) {
+	elem.textContent = elem.textContent + index;
 });
