@@ -1403,14 +1403,13 @@
 // 	})
 // }
 
-function forEach(selector, func) {
-	let elems = document.querySelectorAll(selector);
-	
-	for (let i = 0; i < elems.length; i++) {
-		func(elems[i], i);
-	}
+function setText(elem, text){
+	elem.value =  text;
 }
 
-forEach('.elem', function(elem, index) {
-	elem.textContent = elem.textContent + index;
-});
+let elem1 = document.querySelector('input');
+
+setText(elem1 , ' Hello Alex');
+
+
+
