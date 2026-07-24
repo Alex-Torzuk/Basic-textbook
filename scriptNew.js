@@ -1402,14 +1402,17 @@
 //           }})
 // 	})
 // }
+let ul = document.querySelector('ul')
+let arr = ['Hello', 'world']
 
-function setText(elem, text){
-	elem.value =  text;
+function appendText(arr, ul){
+	for(let elem of arr){
+		let li = document.createElement('li')
+		li.textContent = elem
+		ul.appendChild(li)
+
+	}
+		
+	
 }
-
-let elem1 = document.querySelector('input');
-
-setText(elem1 , ' Hello Alex');
-
-
-
+appendText(arr, ul)
