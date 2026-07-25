@@ -1402,17 +1402,32 @@
 //           }})
 // 	})
 // }
-let ul = document.querySelector('ul')
-let arr = ['Hello', 'world']
 
-function appendText(arr, ul){
-	for(let elem of arr){
-		let li = document.createElement('li')
-		li.textContent = elem
-		ul.appendChild(li)
+let div1 = document.querySelector('#elem1');
+let div2 = document.querySelector('#elem2');
 
-	}
-		
+function createTable(rows, cols, parent) {
+	let table = document.createElement('table');
 	
+	// тут создадим таблицу с rows рядами и cols колонками
+	for (let i = 1; i <= rows; i++) {
+		let tr = document.createElement('tr')
+		
+		for (let j = 1; j <= cols; j++) {
+		let td = document.createElement('td')
+		
+		// td.textContent = `${i}-${j}`
+
+		tr.appendChild(td);
+		}
+		table.appendChild(tr)
+	}
+	
+	parent.appendChild(table);
 }
-appendText(arr, ul)
+
+
+createTable(3, 4, div1);
+
+
+createTable(5, 6, div2);
