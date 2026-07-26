@@ -1404,9 +1404,12 @@
 // }
 
 let div1 = document.querySelector('#elem1');
-let div2 = document.querySelector('#elem2');
+
+let elems = document.querySelector('#elem')
+
 
 function createTable(rows, cols, parent) {
+	
 	let table = document.createElement('table');
 	
 	// тут создадим таблицу с rows рядами и cols колонками
@@ -1424,10 +1427,11 @@ function createTable(rows, cols, parent) {
 	}
 	
 	parent.appendChild(table);
+	elems.appendChild(parent)
 }
 
 
 createTable(3, 4, div1);
 
 
-createTable(5, 6, div2);
+//проработать эту тему еще раз !!
