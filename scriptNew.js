@@ -1403,35 +1403,50 @@
 // 	})
 // }
 
-let div1 = document.querySelector('#elem1');
+// let div1 = document.querySelector('#elem1');
+// let p = document.querySelector('#elem')
 
-let elems = document.querySelector('#elem')
-
-
-function createTable(rows, cols, parent) {
+// function createTable(rows, cols) {
 	
-	let table = document.createElement('table');
+// 	let table = document.createElement('table');
 	
-	// тут создадим таблицу с rows рядами и cols колонками
-	for (let i = 1; i <= rows; i++) {
+// 	// тут создадим таблицу с rows рядами и cols колонками
+// 	for (let i = 1; i <= rows; i++) {
+// 		let tr = document.createElement('tr')
+		
+// 		for (let j = 1; j <= cols; j++) {
+// 		let td = document.createElement('td')
+		
+// 		// td.textContent = `${i}-${j}`
+
+// 		tr.appendChild(td);
+// 		}
+// 		table.appendChild(tr)
+// 	}
+// 	return table;
+// }
+
+// let tableee = createTable(3, 4);
+// p.appendChild(tableee)
+
+let div = document.querySelector('#elem');
+let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+function createTableByArr(arr){
+	let table = document.createElement('table')
+	for(let elems of arr){
 		let tr = document.createElement('tr')
-		
-		for (let j = 1; j <= cols; j++) {
-		let td = document.createElement('td')
-		
-		// td.textContent = `${i}-${j}`
-
-		tr.appendChild(td);
+		for(let elem of elems){
+			let td = document.createElement('td')
+			td.textContent = elem
+			tr.appendChild(td)
 		}
 		table.appendChild(tr)
 	}
-	
-	parent.appendChild(table);
-	elems.appendChild(parent)
+	return table
 }
 
+let table = createTableByArr(arr);
 
-createTable(3, 4, div1);
+div.appendChild(table);
 
-
-//проработать эту тему еще раз !!
