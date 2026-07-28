@@ -1429,24 +1429,35 @@
 // let tableee = createTable(3, 4);
 // p.appendChild(tableee)
 
-let div = document.querySelector('#elem');
-let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+// ;(function() {
+// 	let elem = document.querySelector('#div1'); // первый див
+	
+// 	function func(num) {
+// 		return num * num; // возведем в квадрат
+// 	}
+	
+// 	elem.addEventListener('click', function() {
+// 		this.textContent = func(elem.textContent);
+// 	});
+// })();
 
-function createTableByArr(arr){
-	let table = document.createElement('table')
-	for(let elems of arr){
-		let tr = document.createElement('tr')
-		for(let elem of elems){
-			let td = document.createElement('td')
-			td.textContent = elem
-			tr.appendChild(td)
-		}
-		table.appendChild(tr)
+
+
+//Дана кнопка и три инпута, в которые вводятся числа. 
+// По нажатию на кнопку выведите в консоль сумму введенных чисел. 
+// Реализуйте задачу с помощью модуля.
+
+;(function(in1, in2, in3, btnn){
+	let inp1 = document.querySelector(in1)
+	let inp2 = document.querySelector(in2)
+	let inp3 = document.querySelector(in3)
+	let btn = document.querySelector(btnn)
+
+	function plus(num1, num2, num3){
+		return Number(num1) + Number(num2) + Number(num3)
 	}
-	return table
-}
 
-let table = createTableByArr(arr);
-
-div.appendChild(table);
-
+	btn.addEventListener('click', function(){
+		console.log(plus(inp1.value, inp2.value, inp3.value))
+	})
+})('.inp1', '.inp2', '.inp3', '.btn')
