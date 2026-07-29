@@ -1443,21 +1443,56 @@
 
 
 
-//Дана кнопка и три инпута, в которые вводятся числа. 
-// По нажатию на кнопку выведите в консоль сумму введенных чисел. 
-// Реализуйте задачу с помощью модуля.
 
-;(function(in1, in2, in3, btnn){
-	let inp1 = document.querySelector(in1)
-	let inp2 = document.querySelector(in2)
-	let inp3 = document.querySelector(in3)
-	let btn = document.querySelector(btnn)
 
-	function plus(num1, num2, num3){
-		return Number(num1) + Number(num2) + Number(num3)
+// ;(function() {
+// 	let module = {};
+	
+// 	module.func1 = function() {
+// 		alert('module funcion');
+// 	}
+// 	module.func2 = function() {
+// 		alert('module funcion');
+// 	}
+// 	module.func3 = function() {
+// 		alert('module funcion');
+// 	}
+	
+// 	window.module = module;
+// })();
+// console.log(module)
+;(function(){
+function avg1(arr) {
+	return sum(arr, 1) / arr.length;
+}
+
+function avg2(arr) {
+	return sum(arr, 2) / arr.length;
+}
+
+function avg3(arr) {
+	return sum(arr, 3) / arr.length;
+}
+
+// вспомогательная функция
+function sum(arr, pow) {
+	let res = 0;
+	
+	for (let elem of arr) {
+		res += elem ** pow;
 	}
+	
+	return res;
+}
+window.math = {avg1, avg2, avg3, sum}
+})()
+console.log(math)
 
-	btn.addEventListener('click', function(){
-		console.log(plus(inp1.value, inp2.value, inp3.value))
-	})
-})('.inp1', '.inp2', '.inp3', '.btn')
+const employees = [
+  { name: 'Ivan', department: 'IT' },
+  { name: 'Anna', department: 'HR' },
+  { name: 'Petr', department: 'IT' }
+];
+
+// Группировка сотрудников по отделам
+const grouped = _.groupBy(employees, 'department');
