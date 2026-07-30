@@ -1461,38 +1461,49 @@
 // 	window.module = module;
 // })();
 // console.log(module)
-;(function(){
-function avg1(arr) {
-	return sum(arr, 1) / arr.length;
-}
+// ;(function(){
+// function avg1(arr) {
+// 	return sum(arr, 1) / arr.length;
+// }
 
-function avg2(arr) {
-	return sum(arr, 2) / arr.length;
-}
+// function avg2(arr) {
+// 	return sum(arr, 2) / arr.length;
+// }
 
-function avg3(arr) {
-	return sum(arr, 3) / arr.length;
-}
+// function avg3(arr) {
+// 	return sum(arr, 3) / arr.length;
+// }
 
-// вспомогательная функция
-function sum(arr, pow) {
-	let res = 0;
+// // вспомогательная функция
+// function sum(arr, pow) {
+// 	let res = 0;
 	
-	for (let elem of arr) {
-		res += elem ** pow;
-	}
+// 	for (let elem of arr) {
+// 		res += elem ** pow;
+// 	}
 	
-	return res;
-}
-window.math = {avg1, avg2, avg3, sum}
-})()
-console.log(math)
+// 	return res;
+// }
+// window.math = {avg1, avg2, avg3, sum}
+// })()
+// console.log(math)
 
-const employees = [
-  { name: 'Ivan', department: 'IT' },
-  { name: 'Anna', department: 'HR' },
-  { name: 'Petr', department: 'IT' }
-];
+// const employees = [
+//   { name: 'Ivan', department: 'IT' },
+//   { name: 'Anna', department: 'HR' },
+//   { name: 'Petr', department: 'IT' }
+// ];
 
-// Группировка сотрудников по отделам
-const grouped = _.groupBy(employees, 'department');
+// // Группировка сотрудников по отделам
+// const grouped = _.groupBy(employees, 'department');
+
+let div = document.querySelector('#elem')
+let btn = document.querySelector('button')
+btn.addEventListener('click', function func(){
+	let width = parseInt(div.style.width)
+	let height = parseInt(div.style.height)
+	div.style.width = (width + 30) + 'px'
+	div.style.height = (height + 30) + 'px'
+	btn.removeEventListener('click', func)
+
+})
