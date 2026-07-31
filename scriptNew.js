@@ -1498,12 +1498,9 @@
 // const grouped = _.groupBy(employees, 'department');
 
 let div = document.querySelector('#elem')
-let btn = document.querySelector('button')
-btn.addEventListener('click', function func(){
-	let width = parseInt(div.style.width)
-	let height = parseInt(div.style.height)
-	div.style.width = (width + 30) + 'px'
-	div.style.height = (height + 30) + 'px'
-	btn.removeEventListener('click', func)
-
-})
+div.style.cssText = `
+width = '100px'
+height = '100px'
+margin = '10px auto'
+color = 'red'
+`
