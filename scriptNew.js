@@ -1498,9 +1498,6 @@
 // const grouped = _.groupBy(employees, 'department');
 
 let div = document.querySelector('#elem')
-div.style.cssText = `
-width = '100px'
-height = '100px'
-margin = '10px auto'
-color = 'red'
-`
+let style = getComputedStyle(div)
+
+console.log(style.fontSize) // 16px
