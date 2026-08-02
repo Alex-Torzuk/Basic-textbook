@@ -1497,7 +1497,19 @@
 // // Группировка сотрудников по отделам
 // const grouped = _.groupBy(employees, 'department');
 
-let div = document.querySelector('#elem')
-let style = getComputedStyle(div)
+let input = document.querySelector('#input');
 
-console.log(style.fontSize) // 16px
+
+input.addEventListener('blur', function() {
+    
+    let text = this.value;
+
+    
+    if (text <= 10) {
+        this.dataset.type = 'success'
+    } if(text > 10 && text <= 20){
+		this.dataset.type = 'warning'
+	} if(text > 20){
+		this.dataset.type = 'error'
+	}
+});

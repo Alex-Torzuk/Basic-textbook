@@ -1,4 +1,12 @@
 
-#elem {
-	font-size: 1em;
+[data-type="success"] {
+	color: green;
+}
+
+[data-type="warning"] {
+	color: orange;
+}
+
+[data-type="error"] {
+	color: red;
 }
