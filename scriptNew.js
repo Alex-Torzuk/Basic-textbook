@@ -1497,19 +1497,17 @@
 // // Группировка сотрудников по отделам
 // const grouped = _.groupBy(employees, 'department');
 
-let input = document.querySelector('#input');
-
-
-input.addEventListener('blur', function() {
-    
-    let text = this.value;
-
-    
-    if (text <= 10) {
-        this.dataset.type = 'success'
-    } if(text > 10 && text <= 20){
-		this.dataset.type = 'warning'
-	} if(text > 20){
-		this.dataset.type = 'error'
-	}
-});
+let elem = document.querySelector('#elem');
+let btn = document.querySelector('#btn');
+btn.addEventListener('click', function(){
+	// console.log(elem.clientWidth);  // ширина
+	// console.log(elem.clientHeight); // высота
+	// console.log(elem.offsetWidth - elem.clientWidth);  // ширина
+// console.log(elem.offsetHeight); // высота
+// console.log(elem.scrollWidth);  // ширина
+// console.log(elem.offsetHeight - elem.scrollHeight); // высота
+// console.log(elem.scrollTop);  // сверху
+// console.log(elem.scrollLeft); // слева
+// console.log(elem.scrollHeight - elem.scrollTop); // высота
+console.log((elem.offsetHeight + elem.offsetTop) - elem.scrollHeight); // высота
+})
