@@ -1497,9 +1497,7 @@
 // // Группировка сотрудников по отделам
 // const grouped = _.groupBy(employees, 'department');
 
-let elem = document.querySelector('#elem');
-let btn = document.querySelector('#btn');
-btn.addEventListener('click', function(){
+
 	// console.log(elem.clientWidth);  // ширина
 	// console.log(elem.clientHeight); // высота
 	// console.log(elem.offsetWidth - elem.clientWidth);  // ширина
@@ -1509,5 +1507,65 @@ btn.addEventListener('click', function(){
 // console.log(elem.scrollTop);  // сверху
 // console.log(elem.scrollLeft); // слева
 // console.log(elem.scrollHeight - elem.scrollTop); // высота
-console.log((elem.offsetHeight + elem.offsetTop) - elem.scrollHeight); // высота
-})
+//console.log((elem.offsetHeight + elem.offsetTop) - elem.scrollHeight); // высота
+
+// const button = document.getElementById('scrollBtn');
+// const box = document.getElementById('myBox');
+
+// Вешаем обработчик клика на кнопку
+// button.addEventListener('click', () => {
+//   box.scrollTo({
+//     top: 0,      // Прокрутка по вертикали
+//     left: 50,      // Прокрутка по горизонтали
+//     behavior: 'smooth' // Плавная анимация (уберите эту строку, если нужна мгновенная прокрутка)
+//   });
+// //box.scrollTop = box.scrollHeight - box.clientHeight
+// });
+
+
+// button.addEventListener('click', () => {
+//   // Вычисляем максимальную возможную прокрутку
+//   const isEnd = box.scrollHeight - box.scrollTop === box.clientHeight;
+
+//   if (isEnd) {
+//     console.log('Элемент прокручен до самого конца!');
+//   } else {
+//     console.log('Элемент еще НЕ прокручен до конца.');
+//   }
+// });
+
+// button.addEventListener('click', () => {
+//   // Устанавливаем высоту элемента равной полной высоте его контента
+//   box.style.height = box.scrollHeight + 'px';
+// });
+
+const button = document.getElementById('myButton'); // замените на ID вашей кнопки
+
+button.addEventListener('click', () => {
+  // 1. Создаем временный элемент-контейнер
+  const div = document.createElement('div');
+  
+  // 2. Делаем так, чтобы у него принудительно появилась полоса прокрутки
+  div.style.overflowY = 'scroll';
+  div.style.width = '50px';
+  div.style.height = '50px';
+  
+  // Прижимаем к краю, чтобы элемент не прыгал на экране
+  div.style.position = 'absolute';
+  div.style.visibility = 'hidden';
+
+  // 3. Добавляем его в документ, чтобы браузер его просчитал
+  document.body.appendChild(div);
+
+  // 4. Вычисляем ширину скроллбара:
+  // offsetWidth — ширина всего элемента со скроллбаром (50px)
+  // clientWidth — внутренняя ширина без учета скроллбара
+  const scrollbarWidth = div.offsetWidth - div.clientWidth;
+
+  // 5. Удаляем временный элемент со страницы
+  div.remove();
+
+  // Выводим результат
+  console.log(`Ширина полосы прокрутки в вашем браузере: ${scrollbarWidth}px`);
+  alert(`Ширина полосы прокрутки: ${scrollbarWidth}px`);
+});
