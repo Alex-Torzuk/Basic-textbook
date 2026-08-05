@@ -8,7 +8,27 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <button id="myButton">Получить ширину скроллбара</button>
+    <!-- Элемент с прокруткой -->
+    <div
+      id="scrollBox"
+      style="
+        height: 150px;
+        overflow-y: scroll;
+        border: 1px solid black;
+        padding: 10px;
+      "
+    >
+      <p>Строка текста</p>
+      <p>Строка текста</p>
+      <p>Строка текста</p>
+      <p>Строка текста</p>
+      <p>Строка текста</p>
+      <p>Строка текста</p>
+    </div>
+
+    <!-- Кнопка для расчета -->
+    <button id="calcBtn" style="margin-top: 10px">Узнать скрытую высоту</button>
+
     <script src="scriptNew.js?v=1" width="200"></script>
   </body>
 </html>

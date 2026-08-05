@@ -1539,33 +1539,35 @@
 //   box.style.height = box.scrollHeight + 'px';
 // });
 
-const button = document.getElementById('myButton'); // замените на ID вашей кнопки
+// let btn = document.querySelector('#btn')
+// btn.addEventListener('click', () => {
+// //   let w = document.documentElement.clientWidth;  // ширина
+// // let h = document.documentElement.clientHeight; // высота
 
-button.addEventListener('click', () => {
-  // 1. Создаем временный элемент-контейнер
-  const div = document.createElement('div');
-  
-  // 2. Делаем так, чтобы у него принудительно появилась полоса прокрутки
-  div.style.overflowY = 'scroll';
-  div.style.width = '50px';
-  div.style.height = '50px';
-  
-  // Прижимаем к краю, чтобы элемент не прыгал на экране
-  div.style.position = 'absolute';
-  div.style.visibility = 'hidden';
+// // let h = window.innerHeight; // высота
+// // let w = window.innerWidth;  // ширина
+// // console.log( w);
+// let scrollHeight = Math.max(
+// 	document.body.scrollHeight, document.documentElement.scrollHeight,
+// 	document.body.offsetHeight, document.documentElement.offsetHeight,
+// 	document.body.clientHeight, document.documentElement.clientHeight
+// );
 
-  // 3. Добавляем его в документ, чтобы браузер его просчитал
-  document.body.appendChild(div);
 
-  // 4. Вычисляем ширину скроллбара:
-  // offsetWidth — ширина всего элемента со скроллбаром (50px)
-  // clientWidth — внутренняя ширина без учета скроллбара
-  const scrollbarWidth = div.offsetWidth - div.clientWidth;
+// let scrollWidth = Math.max(
+// 	document.body.scrollWidth, document.documentElement.scrollWidth,
+// 	document.body.offsetWidth, document.documentElement.offsetWidth,
+// 	document.body.clientWidth, document.documentElement.clientWidth
+// );
 
-  // 5. Удаляем временный элемент со страницы
-  div.remove();
+// console.log(scrollWidth);
+// })
 
-  // Выводим результат
-  console.log(`Ширина полосы прокрутки в вашем браузере: ${scrollbarWidth}px`);
-  alert(`Ширина полосы прокрутки: ${scrollbarWidth}px`);
-});
+document.getElementById('calcBtn').addEventListener('click', () => {
+    const box = document.getElementById('scrollBox');
+    
+    // Вычисляем общую высоту скрытых сверху и снизу частей
+    const hiddenHeight = box.scrollHeight - box.clientHeight;
+    
+    alert(`Высота скрытой под прокруткой части: ${hiddenHeight}px`);
+  });
