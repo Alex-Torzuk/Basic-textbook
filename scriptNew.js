@@ -1563,11 +1563,23 @@
 // console.log(scrollWidth);
 // })
 
-document.getElementById('calcBtn').addEventListener('click', () => {
-    const box = document.getElementById('scrollBox');
-    
-    // Вычисляем общую высоту скрытых сверху и снизу частей
-    const hiddenHeight = box.scrollHeight - box.clientHeight;
-    
-    alert(`Высота скрытой под прокруткой части: ${hiddenHeight}px`);
-  });
+const target = document.getElementById('targetElement');
+const container = document.getElementById('scrollContainer');
+container.style.overflowY = 'scroll';
+container.style.top = '0'; // Добавляем вертикальную прокрутку, если нужно
+
+window.addEventListener('scroll', function(){
+	const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  // Высота видимого экрана
+  const windowHeight = window.innerHeight;
+  // Полная высота всей страницы
+  const documentHeight = document.documentElement.scrollHeight;
+
+  // Проверяем, долистал ли пользователь до самого низа сайта
+  if (Math.ceil(scrollTop + windowHeight) >= documentHeight - 1) {
+    console.log('Вы прокрутили всю страницу до самого конца!');
+  }
+})
+
+
+

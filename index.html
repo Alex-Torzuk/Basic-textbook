@@ -8,26 +8,24 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- Элемент с прокруткой -->
+    <!-- Искусственный отступ, чтобы страница могла скроллиться -->
     <div
-      id="scrollBox"
-      style="
-        height: 150px;
-        overflow-y: scroll;
-        border: 1px solid black;
-        padding: 10px;
-      "
+      id="scrollContainer"
+      style="height: 1000px; background: #f0f0f0; margin: 20px 0"
     >
-      <p>Строка текста</p>
-      <p>Строка текста</p>
-      <p>Строка текста</p>
-      <p>Строка текста</p>
-      <p>Строка текста</p>
-      <p>Строка текста</p>
+      Листайте вниз или нажмите на кнопку...
     </div>
 
-    <!-- Кнопка для расчета -->
-    <button id="calcBtn" style="margin-top: 10px">Узнать скрытую высоту</button>
+    <!-- Наш целевой элемент -->
+    <div
+      id="targetElement"
+      style="padding: 20px; background: lightcoral; font-weight: bold"
+    >
+      Я — целевой элемент!
+    </div>
+
+    <!-- Отступ снизу, чтобы элемент не обязательно прижимался к самому низу экрана -->
+    <div style="height: 500px"></div>
 
     <script src="scriptNew.js?v=1" width="200"></script>
   </body>
