@@ -1563,23 +1563,17 @@
 // console.log(scrollWidth);
 // })
 
-const target = document.getElementById('targetElement');
-const container = document.getElementById('scrollContainer');
-container.style.overflowY = 'scroll';
-container.style.top = '0'; // Добавляем вертикальную прокрутку, если нужно
-
-window.addEventListener('scroll', function(){
-	const scrollTop = window.scrollY || document.documentElement.scrollTop;
-  // Высота видимого экрана
-  const windowHeight = window.innerHeight;
-  // Полная высота всей страницы
-  const documentHeight = document.documentElement.scrollHeight;
-
-  // Проверяем, долистал ли пользователь до самого низа сайта
-  if (Math.ceil(scrollTop + windowHeight) >= documentHeight - 1) {
-    console.log('Вы прокрутили всю страницу до самого конца!');
-  }
-})
-
-
-
+let map = new Map;
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+let arr3 = [5, 6];
+let obj1 = {a: 1};
+let obj2 = {b: 2};
+let obj3 = {c: 3};
+map.set(obj1, arr1);
+map.set(obj2, arr2);
+map.set(obj3, arr3);
+console.log(map.get(obj1));
+console.log(map.get(obj2));
+console.log(map.get(obj3));
+console.log(map.size);
