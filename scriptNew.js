@@ -1563,17 +1563,79 @@
 // console.log(scrollWidth);
 // })
 
-let map = new Map;
-let arr1 = [1, 2];
-let arr2 = [3, 4];
-let arr3 = [5, 6];
-let obj1 = {a: 1};
-let obj2 = {b: 2};
-let obj3 = {c: 3};
-map.set(obj1, arr1);
-map.set(obj2, arr2);
-map.set(obj3, arr3);
-console.log(map.get(obj1));
-console.log(map.get(obj2));
-console.log(map.get(obj3));
-console.log(map.size);
+// let map = new Map;
+// let arr1 = [1, 2];
+// let arr2 = [3, 4];
+// let arr3 = [5, 6];
+// let obj1 = {a: 1};
+// let obj2 = {b: 2};
+// let obj3 = {c: 3};
+// map.set(obj1, arr1);
+// map.set(obj2, arr2);
+// map.set(obj3, arr3);
+// for (let key of map) {
+// 	console.log(key);
+// }
+// console.log(map.entries())
+
+// let keysMap = map.keys();
+// for (let key of keysMap) {
+// 	console.log(key);
+// }
+// let valuesMap = map.values();
+// for (let value of valuesMap) {
+// 	console.log(value);
+// }
+// console.log(map.get(obj1));
+// console.log(map.get(obj2));
+// console.log(map.get(obj3));
+// console.log(map.size);
+
+// let inputs = document.querySelectorAll('input');
+// let map = new Map;
+
+// let i = 1;
+
+// for (let elem of inputs) {
+// 	map.set(elem, i++);
+// }
+
+// for (let elem of inputs) {
+// 	elem.addEventListener('click', function() {
+// 		this.value += map.get(this);
+// 	});
+// }
+
+// 1. Создаем коллекцию Map для хранения истории чисел каждого инпута
+const inputsHistory = new Map();
+
+// 2. Находим все инпуты на странице
+const inputs = document.querySelectorAll('.number-input');
+
+inputs.forEach(input => {
+  // Навешиваем событие нажатия клавиши (Enter)
+  input.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      const value = Number(this.value);
+// Если инпут пустой, ничего не делаем
+      if (this.value.trim() === '') return;
+
+      // Если у этого инпута еще нет истории в Map, создаем пустой массив
+      if (!inputsHistory.has(this)) {
+        inputsHistory.set(this, []);
+      }
+	  // Добавляем текущее число в массив истории этого инпута
+      inputsHistory.get(this).push(value);
+
+      // Очищаем поле ввода для следующего числа
+      this.value = '';
+    }
+  });
+  // Навешиваем событие потери фокуса (blur)
+  input.addEventListener('blur', function() {
+    // Получаем массив чисел для текущего инпута (или пустой массив, если ничего не вводили)
+    const history = inputsHistory.get(this) || [];
+    
+    console.log('История введенных чисел для этого инпута:', history);
+  });
+});
