@@ -1606,36 +1606,10 @@
 // 	});
 // }
 
-// 1. Создаем коллекцию Map для хранения истории чисел каждого инпута
-const inputsHistory = new Map();
+let set = new Set([1, 2, 3]);
 
-// 2. Находим все инпуты на странице
-const inputs = document.querySelectorAll('.number-input');
 
-inputs.forEach(input => {
-  // Навешиваем событие нажатия клавиши (Enter)
-  input.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-      const value = Number(this.value);
-// Если инпут пустой, ничего не делаем
-      if (this.value.trim() === '') return;
 
-      // Если у этого инпута еще нет истории в Map, создаем пустой массив
-      if (!inputsHistory.has(this)) {
-        inputsHistory.set(this, []);
-      }
-	  // Добавляем текущее число в массив истории этого инпута
-      inputsHistory.get(this).push(value);
 
-      // Очищаем поле ввода для следующего числа
-      this.value = '';
-    }
-  });
-  // Навешиваем событие потери фокуса (blur)
-  input.addEventListener('blur', function() {
-    // Получаем массив чисел для текущего инпута (или пустой массив, если ничего не вводили)
-    const history = inputsHistory.get(this) || [];
-    
-    console.log('История введенных чисел для этого инпута:', history);
-  });
-});
+
+console.log(set.has( 4))
