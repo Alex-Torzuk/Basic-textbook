@@ -1606,7 +1606,12 @@
 // 	});
 // }
 
-let elems = document.querySelectorAll('p');
-let arr = Array.from(elems).slice(1, -1)
-console.log(arr)
+let parent = document.querySelector('#parent');
+let elems = parent.childNodes; // Получаем все дочерние узлы, включая текстовые
+let p = document.createElement('p');
+p.textContent = '6'
+parent.appendChild(p);
 
+for (let elem of elems) {
+	console.log(elem.textContent);
+}
