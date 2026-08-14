@@ -1606,12 +1606,93 @@
 // 	});
 // }
 
-let parent = document.querySelector('#parent');
-let elems = parent.childNodes; // Получаем все дочерние узлы, включая текстовые
-let p = document.createElement('p');
-p.textContent = '6'
-parent.appendChild(p);
+// let obj = {a: 1, b: 2, c: 3};
 
-for (let elem of elems) {
-	console.log(elem.textContent);
-}
+// let sym = Symbol();
+
+// obj[sym] = function() {
+// 	console.log(this); // {a: 1, b: 2, c: 3}
+// };
+
+// obj[sym] = function() {
+// 	let sum = 0;
+	
+// 	for (let key in this) {
+// 		sum += this[key];
+// 	}
+	
+// 	return sum;
+// };
+
+// let sum = obj[sym]();
+
+// console.log(sum); // выведет 6
+
+// let arr = [1, 2, 3];
+// arr.push(4, 5);
+// let sym = Symbol()
+// arr[sym] = function() {
+// 	console.log(this); // [1, 2, 3]
+// }
+// arr[sym] = function() {
+// 	let sum = 0;
+	
+// 	for (let elem of this) {
+// 		sum += elem;
+// 	}
+	
+// 	return sum;
+// }
+// let sum = arr[sym]();
+// console.log(sum); // выведет 6
+
+//усть у вас есть несколько объектов. 
+// Добавьте каждому из них ключ в виде символа с именем 'sum'. 
+// Сделайте в этом ключе функцию, которая будет возвращать 
+// сумму элементов объекта.
+// let obj1 = {a: 1, b: 2, c: 3};
+// let obj2 = {x: 10, y: 20, z: 30};
+
+// let sumSymbol = Symbol('sum');
+
+// obj1[sumSymbol] = function() {
+// 	let sum = 0;
+// 	for (let key in this) {
+// 		if (typeof this[key] === 'number') {
+// 			sum += this[key];
+// 		}
+// 	}
+// 	return sum;
+// };
+
+// obj2[sumSymbol] = function() {
+// 	let sum = 0;
+// 	for (let key in this) {
+// 		if (typeof this[key] === 'number') {
+// 			sum += this[key];
+// 		}
+// 	}
+// 	return sum;
+// };
+
+// // Проверка
+// console.log(obj1[sumSymbol]()); // выведет 6
+// console.log(obj2[sumSymbol]()); // выведет 60
+
+// let sym1 = Symbol.for('test1');
+// let sym2 = Symbol.for('test2');
+// let key = Symbol.keyFor(sym1);
+// console.log(key); // выведет 'test1'
+// let key2 = Symbol.keyFor(sym2);
+// console.log(key2); // выведет 'test2'
+
+let arr = [1, 2, 3];
+let func = arr[Symbol.iterator];
+console.log(func);
+//Сделайте коллекцию Map. Проверьте, есть ли у нее ключ Symbol.iterator.
+let map = new Map();
+console.log(map.has(Symbol.iterator)); // выведет false
+
+//Сделайте коллекцию Set. Проверьте, есть ли у нее ключ Symbol.iterator.
+let set = new Set();
+console.log(set.has(Symbol.iterator)); // выведет false
