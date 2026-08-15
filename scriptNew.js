@@ -1686,13 +1686,19 @@
 // let key2 = Symbol.keyFor(sym2);
 // console.log(key2); // выведет 'test2'
 
-let arr = [1, 2, 3];
-let func = arr[Symbol.iterator];
-console.log(func);
-//Сделайте коллекцию Map. Проверьте, есть ли у нее ключ Symbol.iterator.
-let map = new Map();
-console.log(map.has(Symbol.iterator)); // выведет false
+// let arr = [1, 2, 3];
+// let func = arr[Symbol.iterator];
+// console.log(func);
+// //Сделайте коллекцию Map. Проверьте, есть ли у нее ключ Symbol.iterator.
+// let map = new Map();
+// console.log(map.has(Symbol.iterator)); // выведет false
 
-//Сделайте коллекцию Set. Проверьте, есть ли у нее ключ Symbol.iterator.
-let set = new Set();
-console.log(set.has(Symbol.iterator)); // выведет false
+// //Сделайте коллекцию Set. Проверьте, есть ли у нее ключ Symbol.iterator.
+// let set = new Set();
+// console.log(set.has(Symbol.iterator)); // выведет false
+
+let arr = '[1, 2, 3, "a", "b", "c"]';
+
+let obj = '{"a": 1, "b": 2, "c": "eee", "d": true}';
+
+let obj = '{ "a": ["a", "b", "c",], "b": "111", "c": "eee"}';
