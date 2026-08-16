@@ -1697,8 +1697,85 @@
 // let set = new Set();
 // console.log(set.has(Symbol.iterator)); // выведет false
 
-let arr = '[1, 2, 3, "a", "b", "c"]';
+// let arr = '[1, 2, 3, "a", "b", "c"]';
 
-let obj = '{"a": 1, "b": 2, "c": "eee", "d": true}';
+// let obj = '{"a": 1, "b": 2, "c": "eee", "d": true}';
 
-let obj = '{ "a": ["a", "b", "c",], "b": "111", "c": "eee"}';
+// let obj = '{ "a": ["a", "b", "c",], "b": "111", "c": "eee"}';
+
+// let json = '[1, 2, 3, 4, 5, "a", "b"]';
+// let arr = JSON.parse(json);
+// console.log(arr); // выведет [1, 2, 3, 4, 5, "a", "b"]
+
+// let json = '[1,2,3,4,5]'
+// let arr = JSON.parse(json)
+// let sum = 0
+// for(let elem of arr){
+// 	sum+= elem
+// }
+// console.log(sum)
+
+// let json = `{
+// 	"data1": [1,2,3],
+// 	"data2": [4,5,6],
+// 	"data3": [7,8,9]
+// }`;
+// let sum = 0
+// let obj = JSON.parse(json);
+// for(let key in obj){
+// 	for(let elem of obj[key]){
+// 		sum += elem
+// 	}	
+// }
+// console.log(sum)
+
+// let json = '["user1","user2","user3","user4","user5"]';
+//  let ul = document.querySelector('ul');
+//  let arr = JSON.parse(json);
+//  for(let elem of arr){
+// 	let li = document.createElement('li')
+// 	li.textContent = elem
+// 	ul.appendChild(li)
+//  }
+
+let json = `[
+	{
+		"name": "user1",
+		"age": 25,
+		"salary": 1000
+	},
+	{
+		"name": "user2",
+		"age": 26,
+		"salary": 2000
+	},
+	{
+		"name": "user3",
+		"age": 27,
+		"salary": 3000
+	}
+]`; 
+let arr = JSON.parse(json);
+let table = document.querySelector('table');
+let thead = document.createElement('thead');
+let tbody = document.createElement('tbody');
+let tr = document.createElement('tr');
+
+for(let key in arr[0]){
+	let th = document.createElement('th');
+	th.textContent = key;
+	tr.appendChild(th);
+}
+thead.appendChild(tr);
+table.appendChild(thead);
+table.appendChild(tbody);
+
+for(let obj of arr){
+	let tr = document.createElement('tr');
+	for(let key in obj){
+		let td = document.createElement('td');
+		td.textContent = obj[key];
+		tr.appendChild(td);
+	}
+	tbody.appendChild(tr);
+}
