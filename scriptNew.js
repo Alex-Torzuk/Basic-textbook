@@ -1738,6 +1738,89 @@
 // 	ul.appendChild(li)
 //  }
 
+// let json = `[
+// 	{
+// 		"name": "user1",
+// 		"age": 25,
+// 		"salary": 1000
+// 	},
+// 	{
+// 		"name": "user2",
+// 		"age": 26,
+// 		"salary": 2000
+// 	},
+// 	{
+// 		"name": "user3",
+// 		"age": 27,
+// 		"salary": 3000
+// 	}
+// ]`; 
+// let arr = JSON.parse(json);
+// let table = document.querySelector('table');
+// let thead = document.createElement('thead');
+// let tbody = document.createElement('tbody');
+// let tr = document.createElement('tr');
+
+// for(let key in arr[0]){
+// 	let th = document.createElement('th');
+// 	th.textContent = key;
+// 	tr.appendChild(th);
+// }
+// thead.appendChild(tr);
+// table.appendChild(thead);
+// table.appendChild(tbody);
+
+// for(let obj of arr){
+// 	let tr = document.createElement('tr');
+// 	for(let key in obj){
+// 		let td = document.createElement('td');
+// 		td.textContent = obj[key];
+// 		tr.appendChild(td);
+// 	}
+// 	tbody.appendChild(tr);
+// }
+
+// let arr = [1, 2, 3, 4, 5, 'a', 'b'];
+// let json = JSON.stringify(arr);
+// console.log(json)
+
+// let ul = document.querySelectorAll('ul li');
+// let arr = [];
+
+// 	for(let elem of ul){
+// 		arr.push(elem.textContent)
+// 	}
+	
+// let json = JSON.stringify(arr);
+// console.log(json)
+
+// let table = document.querySelector('table');
+// for(let elem of table.rows){
+// 	let obj = {}
+// 	for(let i = 0; i < elem.cells.length; i++){
+// 		let td = elem.cells[i]
+// 		obj[td.cellIndex] = td.textContent
+// 	}
+// 	let json = JSON.stringify(obj)
+// 	console.log(json)
+// }
+
+// let json = '["user1","user2","user3","user4","user5"]';
+
+// let arr = JSON.parse(json);
+// arr.push('user6');
+// let newJson = JSON.stringify(arr);
+// console.log(newJson);
+
+// let json = '["user1","user2","user3","user4","user5"]';
+// let arr = JSON.parse(json);
+// for(let i = 0; i < arr.length; i++){
+// 	arr[1] = 'user' + '_updated';
+
+// }
+// let newJson = JSON.stringify(arr);
+// console.log(newJson);
+
 let json = `[
 	{
 		"name": "user1",
@@ -1754,28 +1837,16 @@ let json = `[
 		"age": 27,
 		"salary": 3000
 	}
-]`; 
+]`;
+
+
+
 let arr = JSON.parse(json);
-let table = document.querySelector('table');
-let thead = document.createElement('thead');
-let tbody = document.createElement('tbody');
-let tr = document.createElement('tr');
+arr.push({
+	"name": "user4", 
+	"age": 28, 
+	"salary": 4000
+});
 
-for(let key in arr[0]){
-	let th = document.createElement('th');
-	th.textContent = key;
-	tr.appendChild(th);
-}
-thead.appendChild(tr);
-table.appendChild(thead);
-table.appendChild(tbody);
-
-for(let obj of arr){
-	let tr = document.createElement('tr');
-	for(let key in obj){
-		let td = document.createElement('td');
-		td.textContent = obj[key];
-		tr.appendChild(td);
-	}
-	tbody.appendChild(tr);
-}
+// Проверяем результат
+console.log(arr);
