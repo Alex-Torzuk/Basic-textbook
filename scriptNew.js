@@ -1821,32 +1821,133 @@
 // let newJson = JSON.stringify(arr);
 // console.log(newJson);
 
-let json = `[
-	{
-		"name": "user1",
-		"age": 25,
-		"salary": 1000
-	},
-	{
-		"name": "user2",
-		"age": 26,
-		"salary": 2000
-	},
-	{
-		"name": "user3",
-		"age": 27,
-		"salary": 3000
+// let json = `[
+// 	{
+// 		"name": "user1",
+// 		"age": 25,
+// 		"salary": 1000
+// 	},
+// 	{
+// 		"name": "user2",
+// 		"age": 26,
+// 		"salary": 2000
+// 	},
+// 	{
+// 		"name": "user3",
+// 		"age": 27,
+// 		"salary": 3000
+// 	}
+// ]`;
+
+
+
+// let arr = JSON.parse(json);
+// arr.push({
+// 	"name": "user4", 
+// 	"age": 28, 
+// 	"salary": 4000
+// });
+
+// // Проверяем результат
+// console.log(arr);
+
+// let arr = [1, 2, 3];
+// let func = arr[Symbol.iterator];
+// console.log(func); // функция
+
+// let map = new Map();
+// map.set('a', 1);
+// map.set('b', 2);
+// map.set('c', 3);
+
+// let iterator = map[Symbol.iterator]();
+// console.log(iterator.next()); // { value: ['a', 1], done: false }
+// console.log(iterator.next()); // { value: ['b', 2], done: false }
+// console.log(iterator.next()); // { value: ['c', 3], done: false }
+// console.log(iterator.next()); // { value: undefined, done: true }
+
+// let json = '["user1","user2","user3","user4","user5"]'
+// let arr = JSON.parse(json);
+// let iterator = arr[Symbol.iterator]();
+// console.log(iterator.next()); // { value: 'user1', done: false }
+// console.log(iterator.next()); // { value: 'user2', done: false }
+// console.log(iterator.next()); // { value: 'user3', done: false }
+// console.log(iterator.next()); // { value: 'user4', done: false }
+// console.log(iterator.next()); // { value: 'user5', done: false }
+// console.log(iterator.next()); // { value: undefined, done: true }
+
+// let elems = document.querySelectorAll('p')
+// let iterator = elems[Symbol.iterator]();
+// console.log(iterator.next()); // { value: <p>...</p>, done: false }
+// console.log(iterator.next()); // { value: <p>...</p>, done: false }
+// console.log(iterator.next()); // { value: <p>...</p>, done: false }
+// console.log(iterator.next()); // { value: <p>...</p>, done: false }
+// console.log(iterator.next()); // { value: undefined, done: true }
+
+// function *func() {
+// 	yield 5;
+// 	yield 4;
+// 	yield 3;
+// 	yield 2;
+// 	yield 1;
+// }
+// let iter = func();
+// console.log(iter.next()); // { value: 5, done: false }
+// console.log(iter.next()); // { value: 4, done: false }
+// console.log(iter.next()); // { value: 3, done: false }
+// console.log(iter.next()); // { value: 2, done: false }
+// console.log(iter.next()); // { value: 1, done: false }
+// console.log(iter.next()); // { value: undefined, done: true }
+
+// function *func() {
+// 	for (let i = 10; i >= 0; i--) {
+// 		yield i;
+// 	}
+// }
+// let iter = func();
+// console.log(iter.next()); // { value: 10, done: false }
+// console.log(iter.next()); // { value: 9, done: false }
+// console.log(iter.next()); // { value: 8, done: false }
+// console.log(iter.next()); // { value: 7, done: false }
+// console.log(iter.next()); // { value: 6, done: false }
+// console.log(iter.next()); // { value: 5, done: false }
+// console.log(iter.next()); // { value: 4, done: false }
+// console.log(iter.next()); // { value: 3, done: false }
+// console.log(iter.next()); // { value: 2, done: false }
+// console.log(iter.next()); // { value: 1, done: false }
+// console.log(iter.next()); // { value: 0, done: false }
+// console.log(iter.next()); // { value: undefined, done: true }
+
+// function *func(num) {
+// 	for(let i = num; i >= 0; i-=2){
+// 		yield i;
+// 		if(i === 0){
+// 			return;
+// 		}
+// 	}	
+// }
+// let iter = func(5);
+// console.log(iter.next()); // { value: 5, done: false }
+// console.log(iter.next()); // { value: 4, done: false }
+// console.log(iter.next()); // { value: 3, done: false }
+// console.log(iter.next()); // { value: 2, done: false }
+// console.log(iter.next()); // { value: 1, done: false }
+// console.log(iter.next()); // { value: 0, done: false }
+// console.log(iter.next()); // { value: undefined, done: true }
+
+function *func() {
+	for (let i = 1; i <= 3; i++) {
+		yield i;
 	}
-]`;
+}
+
+let elems1 = func();
 
 
-
-let arr = JSON.parse(json);
-arr.push({
-	"name": "user4", 
-	"age": 28, 
-	"salary": 4000
-});
-
-// Проверяем результат
-console.log(arr);
+for (let elem of elems1) {
+	console.log(elem);
+}
+let elems2 = func();
+for (let elem of elems2) {
+	console.log(elem);
+}
