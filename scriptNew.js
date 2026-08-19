@@ -1935,19 +1935,43 @@
 // console.log(iter.next()); // { value: 0, done: false }
 // console.log(iter.next()); // { value: undefined, done: true }
 
-function *func() {
-	for (let i = 1; i <= 3; i++) {
-		yield i;
+// function *func() {
+// 	for (let i = 1; i <= 3; i++) {
+// 		yield i;
+// 	}
+// }
+
+// let elems1 = func();
+
+
+// for (let elem of elems1) {
+// 	console.log(elem);
+// }
+// let elems2 = func();
+// for (let elem of elems2) {
+// 	console.log(elem);
+// }
+
+// function *func(obj) {
+// 	for (let key in obj) {
+// 		yield  [key, obj[key]]
+// 	}
+// }
+// let iter = func({a: 1, b: 2, c: 3});
+// for (let elem of iter) {
+// 	console.log(elem); // 'a: 1', 'b: 2', 'c: 3'
+// }
+
+let obj = {a: 1, b: 2, c: 3,[Symbol.iterator]: function *() {
+	for (let key in this) {
+		yield {key: key, value: this[key]};
 	}
-}
-
-let elems1 = func();
+}}
 
 
-for (let elem of elems1) {
-	console.log(elem);
-}
-let elems2 = func();
-for (let elem of elems2) {
+
+
+
+for (let elem of obj) {
 	console.log(elem);
 }
