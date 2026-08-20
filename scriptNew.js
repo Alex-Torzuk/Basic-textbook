@@ -1962,16 +1962,50 @@
 // 	console.log(elem); // 'a: 1', 'b: 2', 'c: 3'
 // }
 
-let obj = {a: 1, b: 2, c: 3,[Symbol.iterator]: function *() {
-	for (let key in this) {
-		yield {key: key, value: this[key]};
-	}
-}}
+// let obj = {a: 1, b: 2, c: 3,[Symbol.iterator]: function *() {
+// 	for (let key in this) {
+// 		yield {key: key, value: this[key]};
+// 	}
+// }}
 
 
 
 
 
-for (let elem of obj) {
-	console.log(elem);
-}
+// for (let elem of obj) {
+// 	console.log(elem);
+// }
+// let arr = [1, 2, 3, 4, 5];
+// let map = new Map;
+//  map.set(arr, 'array');
+// // map.set('a', 1);
+// // map.set('b', 2);
+// // map.set('c', 3)
+
+// let iter = map.values();
+
+// for (let elem of iter) {
+// 	console.log(elem); // 'array'
+// }
+
+//Пусть даны 3 объекта и 3 массива. Создайте коллекцию Map, 
+// сделайте ключами коллекции объекты, а значениями - соответствующие массивы.
+
+
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+let arr3 = [5, 6];
+let obj1 = {a: 1};
+let obj2 = {b: 2};
+let obj3 = {c: 3};
+
+let map = new Map();
+map.set(obj1, arr1);
+map.set(obj2, arr2);
+map.set(obj3, arr3);
+
+for(let elems of map)(
+	console.log(elems)
+)
+
+
