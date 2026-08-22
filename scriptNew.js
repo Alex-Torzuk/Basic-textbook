@@ -1995,6 +1995,7 @@
 let arr1 = [1, 2];
 let arr2 = [3, 4];
 let arr3 = [5, 6];
+
 let obj1 = {a: 1};
 let obj2 = {b: 2};
 let obj3 = {c: 3};
@@ -2003,10 +2004,21 @@ let map = new Map();
 map.set(obj1, arr1);
 map.set(obj2, arr2);
 map.set(obj3, arr3);
-let iter = map.keys()
+// let iter = map.keys()
 
-for(let elems of iter)(
-	console.log(elems)
-)
+// for(let elems of iter)(
+// 	console.log(elems)
+// )
+
+// let arr = ['a', 'b', 'c'];
+let iter = map.entries();
+for (let entry of iter) {
+	console.log(entry); // [0, 'a'], [1, 'b'], [2, 'c']
+}
+for(let [key, value] of iter){
+	console.log(key)
+	console.log(value)
+	
+}
 
 
