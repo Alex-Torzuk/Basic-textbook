@@ -2003,8 +2003,9 @@ let map = new Map();
 map.set(obj1, arr1);
 map.set(obj2, arr2);
 map.set(obj3, arr3);
+let iter = map.keys()
 
-for(let elems of map)(
+for(let elems of iter)(
 	console.log(elems)
 )
 
