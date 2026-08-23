@@ -2010,15 +2010,15 @@ map.set(obj3, arr3);
 // 	console.log(elems)
 // )
 
-// let arr = ['a', 'b', 'c'];
-let iter = map.entries();
-for (let entry of iter) {
-	console.log(entry); // [0, 'a'], [1, 'b'], [2, 'c']
-}
-for(let [key, value] of iter){
-	console.log(key)
-	console.log(value)
+// // let arr = ['a', 'b', 'c'];
+// let iter = map.entries();
+// for (let entry of iter) {
+// 	console.log(entry); // [0, 'a'], [1, 'b'], [2, 'c']
+// }
+// for(let [key, value] of iter){
+// 	console.log(key)
+// 	console.log(value)
 	
-}
+// }
 
 
