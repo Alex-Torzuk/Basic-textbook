@@ -1992,18 +1992,18 @@
 // сделайте ключами коллекции объекты, а значениями - соответствующие массивы.
 
 
-let arr1 = [1, 2];
-let arr2 = [3, 4];
-let arr3 = [5, 6];
+// let arr1 = [1, 2];
+// let arr2 = [3, 4];
+// let arr3 = [5, 6];
 
-let obj1 = {a: 1};
-let obj2 = {b: 2};
-let obj3 = {c: 3};
+// let obj1 = {a: 1};
+// let obj2 = {b: 2};
+// let obj3 = {c: 3};
 
-let map = new Map();
-map.set(obj1, arr1);
-map.set(obj2, arr2);
-map.set(obj3, arr3);
+// let map = new Map();
+// map.set(obj1, arr1);
+// map.set(obj2, arr2);
+// map.set(obj3, arr3);
 // let iter = map.keys()
 
 // for(let elems of iter)(
@@ -2021,4 +2021,18 @@ map.set(obj3, arr3);
 	
 // }
 
+
+let obj = {
+	a: 1,
+	b: 2,
+	c: 3,
+	[Symbol.iterator]: function *(){
+		for (let key in this){
+			yield this[key];
+		}
+	}
+};
+
+let newObj = {...obj};
+console.log(newObj)
 
