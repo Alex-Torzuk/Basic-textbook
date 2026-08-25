@@ -2022,17 +2022,32 @@
 // }
 
 
-let obj = {
-	a: 1,
-	b: 2,
-	c: 3,
-	[Symbol.iterator]: function *(){
-		for (let key in this){
-			yield this[key];
-		}
-	}
-};
+// let obj = {
+// 	a: 1,
+// 	b: 2,
+// 	c: 3,
+// 	[Symbol.iterator]: function *(){
+// 		for (let key in this){
+// 			yield this[key];
+// 		}
+// 	}
+// };
 
-let newObj = {...obj};
-console.log(newObj)
+// let newObj = {...obj};
+// console.log(newObj)
+
+// let str = '12345';
+
+// for(let elem of str){
+// 	console.log(elem)
+// }
+
+let num = 12
+let arr = [...String(num)]
+let sum = 0
+for(let elem of arr){
+	sum+= +elem
+}
+console.log(sum)
+
 
