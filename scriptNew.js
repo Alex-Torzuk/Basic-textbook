@@ -2042,12 +2042,26 @@
 // 	console.log(elem)
 // }
 
-let num = 12
-let arr = [...String(num)]
-let sum = 0
-for(let elem of arr){
-	sum+= +elem
+// let num = 12
+// let arr = [...String(num)]
+// let sum = 0
+// for(let elem of arr){
+// 	sum+= +elem
+// }
+// console.log(sum)
+
+let elems = document.querySelectorAll('p');
+
+// for (let entry of elems.entries()) {
+// 	console.log(entry);
+// }
+
+// for (let [num, elem] of elems.entries()) {
+// 	console.log(num, elem);
+// }
+
+for (let [num, elem] of elems.entries()) {
+	elem.textContent += num;
 }
-console.log(sum)
 
 
