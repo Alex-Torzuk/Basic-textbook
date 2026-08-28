@@ -2050,7 +2050,7 @@
 // }
 // console.log(sum)
 
-let elems = document.querySelectorAll('p');
+// let elems = document.querySelectorAll('p');
 
 // for (let entry of elems.entries()) {
 // 	console.log(entry);
@@ -2060,8 +2060,19 @@ let elems = document.querySelectorAll('p');
 // 	console.log(num, elem);
 // }
 
-for (let [num, elem] of elems.entries()) {
-	elem.textContent += num;
-}
+// for (let [num, elem] of elems.entries()) {
+// 	elem.textContent += num;
+// }
 
+// let elems = document.querySelectorAll('input');
+// // for (let [key, elem] of elems.entries()) {
+// // 	console.log(key, elem);
+// // }
+
+// for (let [key, {id, value}] of elems.entries()){
+// 	console.log(key, id, value);
+// }
+
+
+//</input>Получите номера, id и value инпутов.
 
