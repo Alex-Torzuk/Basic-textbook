@@ -2074,5 +2074,24 @@
 // }
 
 
-//</input>Получите номера, id и value инпутов.
+localStorage.setItem('num1', '15');
+localStorage.setItem('num2', '25');
+localStorage.setItem('num3', '42');
+// Получаем строки из localStorage
+const str1 = localStorage.getItem('num1');
+const str2 = localStorage.getItem('num2');
+const str3 = localStorage.getItem('num3');
+
+// Преобразуем строки в числа
+const n1 = Number(str1);
+const n2 = Number(str2);
+const n3 = Number(str3);
+
+// Находим сумму
+const sum = n1 + n2 + n3;
+
+// Выводим результат для проверки
+console.log(`Числа из хранилища: ${n1}, ${n2}, ${n3}`);
+console.log(`Их сумма равна: ${sum}`); // Ожидаемый результат: 82
+
 
