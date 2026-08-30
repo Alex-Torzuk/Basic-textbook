@@ -2074,24 +2074,44 @@
 // }
 
 
-localStorage.setItem('num1', '15');
-localStorage.setItem('num2', '25');
-localStorage.setItem('num3', '42');
-// Получаем строки из localStorage
-const str1 = localStorage.getItem('num1');
-const str2 = localStorage.getItem('num2');
-const str3 = localStorage.getItem('num3');
+// localStorage.setItem('num1', '15');
+// localStorage.setItem('num2', '25');
+// localStorage.setItem('num3', '42');
+// // Получаем строки из localStorage
+// const str1 = localStorage.getItem('num1');
+// const str2 = localStorage.getItem('num2');
+// const str3 = localStorage.getItem('num3');
 
-// Преобразуем строки в числа
-const n1 = Number(str1);
-const n2 = Number(str2);
-const n3 = Number(str3);
+// // Преобразуем строки в числа
+// const n1 = Number(str1);
+// const n2 = Number(str2);
+// const n3 = Number(str3);
 
-// Находим сумму
-const sum = n1 + n2 + n3;
+// // Находим сумму
+// const sum = n1 + n2 + n3;
 
-// Выводим результат для проверки
-console.log(`Числа из хранилища: ${n1}, ${n2}, ${n3}`);
-console.log(`Их сумма равна: ${sum}`); // Ожидаемый результат: 82
+// // Выводим результат для проверки
+// console.log(`Числа из хранилища: ${n1}, ${n2}, ${n3}`);
+// console.log(`Их сумма равна: ${sum}`); // Ожидаемый результат: 82
 
+let time = localStorage.getItem('time');
 
+if (time === null) {
+    let now = Date.now();
+    localStorage.setItem('time', now);
+    time = now; // Сразу обновляем переменную для текущего первого запуска
+}
+
+// 2. Узнаем текущее время прямо сейчас
+let currentTime = Date.now();
+
+// 3. Находим разницу в миллисекундах
+let diffInMs = currentTime - Number(time);
+
+// 4. Переводим разницу в нужные единицы измерения
+let diffInSeconds = Math.floor(diffInMs / 1000);
+let diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+// 5. Выводим результат пользователю
+console.log(`Вы впервые зашли на сайт ${diffInSeconds} сек. назад.`);
+console.log(`В днях это примерно: ${diffInDays} дн.`);
