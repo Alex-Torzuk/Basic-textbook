@@ -2094,24 +2094,44 @@
 // console.log(`Числа из хранилища: ${n1}, ${n2}, ${n3}`);
 // console.log(`Их сумма равна: ${sum}`); // Ожидаемый результат: 82
 
-let time = localStorage.getItem('time');
+// let time = localStorage.getItem('time');
 
-if (time === null) {
-    let now = Date.now();
-    localStorage.setItem('time', now);
-    time = now; // Сразу обновляем переменную для текущего первого запуска
+// if (time === null) {
+//     let now = Date.now();
+//     localStorage.setItem('time', now);
+//     time = now; // Сразу обновляем переменную для текущего первого запуска
+// }
+
+// // 2. Узнаем текущее время прямо сейчас
+// let currentTime = Date.now();
+
+// // 3. Находим разницу в миллисекундах
+// let diffInMs = currentTime - Number(time);
+
+// // 4. Переводим разницу в нужные единицы измерения
+// let diffInSeconds = Math.floor(diffInMs / 1000);
+// let diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+// // 5. Выводим результат пользователю
+// console.log(`Вы впервые зашли на сайт ${diffInSeconds} сек. назад.`);
+// console.log(`В днях это примерно: ${diffInDays} дн.`);
+
+
+// 1. Получаем текущее значение счетчика из localStorage
+let count = localStorage.getItem('page_renews');
+
+// 2. Если пользователь зашел впервые, счетчика еще нет (null). 
+// В таком случае устанавливаем его в 0.
+if (count === null) {
+    count = 0;
 }
 
-// 2. Узнаем текущее время прямо сейчас
-let currentTime = Date.now();
+// 3. Увеличиваем счетчик на 1 (превращая строку в число с помощью Number)
+count = Number(count) + 1;
 
-// 3. Находим разницу в миллисекундах
-let diffInMs = currentTime - Number(time);
+// 4. Сохраняем новое значение обратно в localStorage
+localStorage.setItem('page_renews', count);
 
-// 4. Переводим разницу в нужные единицы измерения
-let diffInSeconds = Math.floor(diffInMs / 1000);
-let diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-
-// 5. Выводим результат пользователю
-console.log(`Вы впервые зашли на сайт ${diffInSeconds} сек. назад.`);
-console.log(`В днях это примерно: ${diffInDays} дн.`);
+// 5. Выводим результат на экран (в тело страницы)
+document.body.insertAdjacentHTML('beforeend', `<h2>Вы обновили страницу: ${count} раз(а)</h2>`);
+//localStorage.removeItem('page_renews')
