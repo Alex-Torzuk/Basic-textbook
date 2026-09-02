@@ -2135,4 +2135,6 @@ localStorage.setItem('page_renews', count);
 // 5. Выводим результат на экран (в тело страницы)
 document.body.insertAdjacentHTML('beforeend', `<h2>Вы обновили страницу: ${count} раз(а)</h2>`);
 
-localStorage.removeItem('page_renews')
+// localStorage.removeItem('page_renews')
+// localStorage.clear()
+
