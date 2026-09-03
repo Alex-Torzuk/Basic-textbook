@@ -2117,24 +2117,34 @@
 // console.log(`В днях это примерно: ${diffInDays} дн.`);
 
 
-// 1. Получаем текущее значение счетчика из localStorage
-let count = localStorage.getItem('page_renews');
+// // 1. Получаем текущее значение счетчика из localStorage
+// let count = localStorage.getItem('page_renews');
 
-// 2. Если пользователь зашел впервые, счетчика еще нет (null). 
-// В таком случае устанавливаем его в 0.
-if (count === null) {
-    count = 0;
-}
+// // 2. Если пользователь зашел впервые, счетчика еще нет (null). 
+// // В таком случае устанавливаем его в 0.
+// if (count === null) {
+//     count = 0;
+// }
 
-// 3. Увеличиваем счетчик на 1 (превращая строку в число с помощью Number)
-count = Number(count) + 1;
+// // 3. Увеличиваем счетчик на 1 (превращая строку в число с помощью Number)
+// count = Number(count) + 1;
 
-// 4. Сохраняем новое значение обратно в localStorage
-localStorage.setItem('page_renews', count);
+// // 4. Сохраняем новое значение обратно в localStorage
+// localStorage.setItem('page_renews', count);
 
-// 5. Выводим результат на экран (в тело страницы)
-document.body.insertAdjacentHTML('beforeend', `<h2>Вы обновили страницу: ${count} раз(а)</h2>`);
+// // 5. Выводим результат на экран (в тело страницы)
+// document.body.insertAdjacentHTML('beforeend', `<h2>Вы обновили страницу: ${count} раз(а)</h2>`);
 
-// localStorage.removeItem('page_renews')
-// localStorage.clear()
-
+// // localStorage.removeItem('page_renews')
+// // localStorage.clear()
+let btn = document.querySelector('button')
+let num = localStorage.length;
+let count = document.querySelector('#count')
+btn.addEventListener('click', () => {
+	count.textContent+= Number(num)
+	if(count.textContent >= 10){
+		localStorage.clear()
+		//count.textContent = 1
+	}
+	
+})
