@@ -2137,14 +2137,26 @@
 
 // // localStorage.removeItem('page_renews')
 // // localStorage.clear()
-let btn = document.querySelector('button')
-let num = localStorage.length;
-let count = document.querySelector('#count')
-btn.addEventListener('click', () => {
-	count.textContent+= Number(num)
-	if(count.textContent >= 10){
-		localStorage.clear()
-		//count.textContent = 1
-	}
+
+// let btn = document.querySelector('button')
+// let num = localStorage.length;
+// let count = document.querySelector('#count')
+// btn.addEventListener('click', () => {
+// 	count.textContent+= Number(num)
+// 	if(count.textContent >= 10){
+// 		localStorage.clear()
+// 		count.textContent = 1
+// 	}
 	
-})
+// })
+// let key = localStorage.key(0)
+// console.log(key)
+// let val = localStorage.getItem(key);
+
+// console.log(val);
+for (let i = 0; i < localStorage.length; i++) {
+	let key = localStorage.key(i);
+	let val = localStorage.getItem(key);
+	
+	console.log(val);
+}
