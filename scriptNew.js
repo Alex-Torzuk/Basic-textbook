@@ -2152,7 +2152,8 @@
 // let key = localStorage.key(0)
 // console.log(key)
 // let val = localStorage.getItem(key);
-
+ localStorage.setItem('num1', '15');
+ localStorage.setItem('num2', '25');
 // console.log(val);
 for (let i = 0; i < localStorage.length; i++) {
 	let key = localStorage.key(i);
