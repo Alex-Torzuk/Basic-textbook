@@ -2155,9 +2155,13 @@
  localStorage.setItem('num1', '15');
  localStorage.setItem('num2', '25');
 // console.log(val);
-for (let i = 0; i < localStorage.length; i++) {
-	let key = localStorage.key(i);
-	let val = localStorage.getItem(key);
+// for (let i = 0; i < localStorage.length; i++) {
+// 	let key = localStorage.key(i);
+// 	let val = localStorage.getItem(key);
 	
-	console.log(val);
-}
+// 	console.log(val);
+// }
+let keys = Object.keys(localStorage)
+let val = Object.values(localStorage)
+console.log(keys)
+console.log(val)
