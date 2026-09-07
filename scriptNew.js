@@ -2152,8 +2152,8 @@
 // let key = localStorage.key(0)
 // console.log(key)
 // let val = localStorage.getItem(key);
- localStorage.setItem('num1', '15');
- localStorage.setItem('num2', '25');
+//  localStorage.setItem('num1', '15');
+//  localStorage.setItem('num2', '25');
 // console.log(val);
 // for (let i = 0; i < localStorage.length; i++) {
 // 	let key = localStorage.key(i);
@@ -2161,7 +2161,29 @@
 	
 // 	console.log(val);
 // }
-let keys = Object.keys(localStorage)
-let val = Object.values(localStorage)
-console.log(keys)
-console.log(val)
+// let keys = Object.keys(localStorage)
+// let val = Object.values(localStorage)
+// console.log(keys)
+// console.log(val)
+
+
+// let arr = [1, 2, 3, 4, 5];
+// localStorage.setItem('arr', JSON.stringify(arr));
+// let str = localStorage.getItem('arr');
+// let res = JSON.parse(str);
+
+// console.log();
+
+
+let input = document.querySelector('#input');
+let btn = document.querySelector('button');
+
+btn.addEventListener('click', function(){
+	let arr = []
+	arr.push(input.value)
+	input.value = ''
+	localStorage.setItem('arr', JSON.stringify(arr));
+let str = localStorage.getItem('arr');
+let res = JSON.parse(str);
+console.log(res);
+})
