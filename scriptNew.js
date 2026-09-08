@@ -2175,15 +2175,50 @@
 // console.log();
 
 
-let input = document.querySelector('#input');
-let btn = document.querySelector('button');
+// let input = document.querySelector('#input');
+// let btn = document.querySelector('button');
 
+// btn.addEventListener('click', function(){
+// 	let arr = []
+// 	arr.push(input.value)
+// 	input.value = ''
+// 	localStorage.setItem('arr', JSON.stringify(arr));
+// let str = localStorage.getItem('arr');
+// let res = JSON.parse(str);
+// console.log(res);
+// })
+
+let users = [
+	{
+		surn: 'surn1',
+		name: 'name1',
+		age: 31,
+	},
+	{
+		surn: 'surn2',
+		name: 'name2',
+		age: 32,
+	},
+	{
+		surn: 'surn',
+		name: 'name3',
+		age: 33,
+	},
+];
+
+localStorage.setItem('users', JSON.stringify(users));
+let data = JSON.parse(localStorage.getItem('users'));
+let inputs = document.querySelectorAll('input');
+let btn = document.querySelector('button');
 btn.addEventListener('click', function(){
-	let arr = []
-	arr.push(input.value)
-	input.value = ''
-	localStorage.setItem('arr', JSON.stringify(arr));
-let str = localStorage.getItem('arr');
-let res = JSON.parse(str);
-console.log(res);
+	let newUser = {
+		surn: inputs[0].value,
+		name: inputs[1].value,
+		age: Number(inputs[2].value),
+	}
+	data.push(newUser)
+	localStorage.setItem('users', JSON.stringify(data));
+	let str = localStorage.getItem('users');
+	let res = JSON.parse(str);
+	console.log(res);
 })
