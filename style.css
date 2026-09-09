@@ -11,3 +11,51 @@ div{
           height: 500px;
           background: linear-gradient(45deg, lightblue, lightpink);
 } */
+
+.todo-app {
+    max-width: 400px;
+    margin: 50px auto;
+    font-family: Arial, sans-serif;
+}
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.input-group input {
+    flex: 1;
+    padding: 8px;
+}
+#todo-list {
+    list-style: none;
+    padding: 0;
+}
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+.todo-text {
+    flex: 1;
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 5px;
+    font-size: 16px;
+}
+.todo-text:focus {
+    border-color: #ccc;
+    background: #fff;
+}
+/* Стили для выполненной задачи */
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #888;
+}
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}

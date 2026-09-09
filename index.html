@@ -8,10 +8,18 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <input type="text" placeholder="Surname" />
-    <input type="text" placeholder="Name" />
-    <input type="text" placeholder="Age" />
-    <button>Click me</button>
+    <div class="todo-app">
+      <h2>📋 Мой список дел</h2>
+
+      <!-- Форма добавления -->
+      <div class="input-group">
+        <input type="text" id="todo-input" placeholder="Что нужно сделать?" />
+        <button id="add-btn">Добавить</button>
+      </div>
+
+      <!-- Список задач -->
+      <ul id="todo-list"></ul>
+    </div>
 
     <script src="scriptNew.js?v=1" width="200"></script>
   </body>

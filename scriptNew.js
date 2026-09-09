@@ -2188,37 +2188,144 @@
 // console.log(res);
 // })
 
-let users = [
-	{
-		surn: 'surn1',
-		name: 'name1',
-		age: 31,
-	},
-	{
-		surn: 'surn2',
-		name: 'name2',
-		age: 32,
-	},
-	{
-		surn: 'surn',
-		name: 'name3',
-		age: 33,
-	},
-];
+// let users = [
+// 	{
+// 		surn: 'surn1',
+// 		name: 'name1',
+// 		age: 31,
+// 	},
+// 	{
+// 		surn: 'surn2',
+// 		name: 'name2',
+// 		age: 32,
+// 	},
+// 	{
+// 		surn: 'surn',
+// 		name: 'name3',
+// 		age: 33,
+// 	},
+// ];
 
-localStorage.setItem('users', JSON.stringify(users));
-let data = JSON.parse(localStorage.getItem('users'));
-let inputs = document.querySelectorAll('input');
-let btn = document.querySelector('button');
-btn.addEventListener('click', function(){
-	let newUser = {
-		surn: inputs[0].value,
-		name: inputs[1].value,
-		age: Number(inputs[2].value),
-	}
-	data.push(newUser)
-	localStorage.setItem('users', JSON.stringify(data));
-	let str = localStorage.getItem('users');
-	let res = JSON.parse(str);
-	console.log(res);
-})
+// localStorage.setItem('users', JSON.stringify(users));
+// let data = JSON.parse(localStorage.getItem('users'));
+// let inputs = document.querySelectorAll('input');
+// let btn = document.querySelector('button');
+// btn.addEventListener('click', function(){
+// 	let newUser = {
+// 		surn: inputs[0].value,
+// 		name: inputs[1].value,
+// 		age: Number(inputs[2].value),
+// 	}
+// 	data.push(newUser)
+// 	localStorage.setItem('users', JSON.stringify(data));
+// 	let str = localStorage.getItem('users');
+// 	let res = JSON.parse(str);
+// 	console.log(res);
+// })
+// Находим элементы UI
+const todoInput = document.querySelector('#todo-input');
+const addBtn = document.querySelector('#add-btn');
+const todoList = document.querySelector('#todo-list');
+
+// Инициализируем массив задач: берем из localStorage или создаем пустой
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+// Функция для сохранения массива в localStorage
+function saveToStorage() {
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+// Функция для отрисовки (рендеринга) списка на экране
+function renderTodos() {
+    todoList.innerHTML = ''; // Полностью очищаем список перед перерисовкой
+
+    todos.forEach((todo, index) => {
+        const li = document.createElement('li');
+        li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+
+        // 1. Чекбокс для отметки выполнения
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = todo.completed;
+        checkbox.addEventListener('change', () => toggleTodo(index));
+
+        // 2. Текст задачи (инпут, чтобы его можно было изменять)
+        const textInput = document.createElement('input');
+        textInput.type = 'text';
+        textInput.value = todo.text;
+        textInput.className = 'todo-text';
+        // Сохраняем изменения при потере фокуса (blur) или нажатии Enter
+        textInput.addEventListener('blur', () => editTodo(index, textInput.value));
+        textInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') textInput.blur();
+        });
+
+        // 3. Кнопка удаления
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '❌';
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.addEventListener('click', () => deleteTodo(index));
+
+        // Собираем элемент li воедино
+        li.appendChild(checkbox);
+        li.appendChild(textInput);
+        li.appendChild(deleteBtn);
+        
+        // Добавляем li в общий список ul
+        todoList.appendChild(li);
+    });
+}
+
+// МЕТОД: Добавление новой задачи
+function addTodo() {
+    const text = todoInput.value.trim();
+    if (text === '') return; // Если инпут пустой — ничего не делаем
+
+    todos.push({
+        text: text,
+        completed: false
+    });
+
+    todoInput.value = ''; // Очищаем поле ввода
+    saveToStorage();
+    renderTodos();
+}
+
+// МЕТОД: Переключение статуса "Сделано / Не сделано"
+function toggleTodo(index) {
+    todos[index].completed = !todos[index].completed;
+    saveToStorage();
+    renderTodos(); // Перерисовываем, чтобы применился визуальный класс выполненной задачи
+}
+
+// МЕТОД: Редактирование текста
+function editTodo(index, newText) {
+    const text = newText.trim();
+    if (text === '') {
+        deleteTodo(index); // Если текст стерли полностью — удаляем задачу
+    } else {
+        todos[index].text = text;
+        saveToStorage();
+    }
+}
+
+// МЕТОД: Удаление задачи
+function deleteTodo(index) {
+    todos.splice(index, 1); // Удаляем 1 элемент по индексу
+    saveToStorage();
+    renderTodos();
+}
+
+// --- Слушатели событий событий ---
+
+// Клик по кнопке "Добавить"
+addBtn.addEventListener('click', addTodo);
+
+// Нажатие Enter в поле ввода
+todoInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') addTodo();
+});
+
+// Первичный рендеринг при загрузке страницы
+renderTodos();
+
