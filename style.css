@@ -12,50 +12,91 @@ div{
           background: linear-gradient(45deg, lightblue, lightpink);
 } */
 
-.todo-app {
-    max-width: 400px;
-    margin: 50px auto;
+/* Общие настройки для всей страницы */
+body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
-}
-.input-group {
+    background-color: #f4f7f6;
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Стиль для главного контейнера-карточки */
+.todo-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Центрируем заголовок */
+.todo-container h1 {
+    text-align: center;
+    color: #333333;
+    margin-top: 0;
     margin-bottom: 20px;
 }
-.input-group input {
-    flex: 1;
-    padding: 8px;
-}
-#todo-list {
-    list-style: none;
-    padding: 0;
-}
-.todo-item {
+
+/* Контейнер для поля ввода и кнопки */
+.todo-input-section {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border-bottom: 1px solid #eee;
+    gap: 10px; /* Отступ между полем и кнопкой */
+    margin-bottom: 20px;
 }
-.todo-text {
-    flex: 1;
-    border: 1px solid transparent;
-    background: transparent;
-    padding: 5px;
+
+/* Поле ввода */
+#todo-input {
+    flex-grow: 1; /* Поле займет все свободное место */
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
     font-size: 16px;
+    outline: none; /* Убираем стандартную обводку */
 }
-.todo-text:focus {
-    border-color: #ccc;
-    background: #fff;
-}
-/* Стили для выполненной задачи */
-.todo-item.completed .todo-text {
-    text-decoration: line-through;
-    color: #888;
-}
-.delete-btn {
-    background: none;
+
+/* Кнопка Добавить */
+#add-btn {
+    padding: 10px 15px;
+    background-color: #28a745; /* Красивый зеленый цвет */
+    color: white;
     border: none;
-    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer; /* Меняем курсор при наведении */
+    transition: background-color 0.2s; /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении на кнопку */
+#add-btn:hover {
+    background-color: #218838; /* Чуть более темный зеленый */
+}
+
+/* Сам список задач */
+#todo-list {
+    list-style: none; /* Убираем стандартные черные точки-маркеры */
+    padding: 0;
+    margin: 0;
+}
+
+/* Каждый отдельный элемент списка (задача) */
+#todo-list li {
+    display: flex;
+    justify-content: space-between; /* Текст слева, кнопки справа */
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+/* Стиль для текста выполненной задачи */
+#todo-list li.completed span {
+    text-decoration: line-through; /* Зачеркивание текста */
+    color: #888888; /* Делаем текст блеклым */
 }

@@ -2223,109 +2223,62 @@
 // 	console.log(res);
 // })
 // Находим элементы UI
-const todoInput = document.querySelector('#todo-input');
-const addBtn = document.querySelector('#add-btn');
-const todoList = document.querySelector('#todo-list');
 
-// Инициализируем массив задач: берем из localStorage или создаем пустой
-let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
-// Функция для сохранения массива в localStorage
-function saveToStorage() {
-    localStorage.setItem('todos', JSON.stringify(todos));
-}
+//++++++
+// Список задач
 
-// Функция для отрисовки (рендеринга) списка на экране
-function renderTodos() {
-    todoList.innerHTML = ''; // Полностью очищаем список перед перерисовкой
 
-    todos.forEach((todo, index) => {
-        const li = document.createElement('li');
-        li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+// Находим нужные элементы на HTML-странице
+const todoInput = document.getElementById('todo-input');
+const addBtn = document.getElementById('add-btn');
+const todoList = document.getElementById('todo-list');
 
-        // 1. Чекбокс для отметки выполнения
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = todo.completed;
-        checkbox.addEventListener('change', () => toggleTodo(index));
+// Слушаем клик на кнопке «Добавить»
+addBtn.addEventListener('click', function() {
+    // Получаем текст из поля ввода и убираем лишние пробелы по краям
+    const taskText = todoInput.value.trim();
 
-        // 2. Текст задачи (инпут, чтобы его можно было изменять)
-        const textInput = document.createElement('input');
-        textInput.type = 'text';
-        textInput.value = todo.text;
-        textInput.className = 'todo-text';
-        // Сохраняем изменения при потере фокуса (blur) или нажатии Enter
-        textInput.addEventListener('blur', () => editTodo(index, textInput.value));
-        textInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') textInput.blur();
+    // Проверяем, не пустое ли поле
+    if (taskText !== '') {
+        // Сюда мы сейчас добавим логику создания задачи
+        
+        // 1. Создаем новый элемент списка (строку <li>)
+        const listItem = document.createElement('li');
+
+        // 2. Создаем тег <span> для текста задачи
+        const taskSpan = document.createElement('span');
+        taskSpan.textContent = taskText; // Записываем текст в span
+
+        // Навешиваем событие клика на текст
+        taskSpan.addEventListener('click', function() {
+            listItem.classList.toggle('completed');
         });
 
-        // 3. Кнопка удаления
+        // 3. Кладем текст внутрь нашей строки списка
+        listItem.appendChild(taskSpan);
+
+        // 3.5. Создаем кнопку удаления для этой конкретной задачи
         const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = '❌';
-        deleteBtn.className = 'delete-btn';
-        deleteBtn.addEventListener('click', () => deleteTodo(index));
+        deleteBtn.textContent = '❌'; // Сюда можно вставить крестик или текст "Удалить"
+        deleteBtn.classList.add('delete-btn'); // Добавим класс для будущих стилей
 
-        // Собираем элемент li воедино
-        li.appendChild(checkbox);
-        li.appendChild(textInput);
-        li.appendChild(deleteBtn);
-        
-        // Добавляем li в общий список ul
-        todoList.appendChild(li);
-    });
-}
+        // Слушаем клик по кнопке удаления
+        deleteBtn.addEventListener('click', function() {
+            listItem.remove(); // Этот метод полностью удаляет элемент <li> со страницы
+        });
 
-// МЕТОД: Добавление новой задачи
-function addTodo() {
-    const text = todoInput.value.trim();
-    if (text === '') return; // Если инпут пустой — ничего не делаем
+        // Теперь кладем в listItem и текст, и кнопку удаления
+        listItem.appendChild(taskSpan);
+        listItem.appendChild(deleteBtn);
 
-    todos.push({
-        text: text,
-        completed: false
-    });
 
-    todoInput.value = ''; // Очищаем поле ввода
-    saveToStorage();
-    renderTodos();
-}
+        // 4. Добавляем всю готовую строчку в наш большой список <ul>
+        todoList.appendChild(listItem);
 
-// МЕТОД: Переключение статуса "Сделано / Не сделано"
-function toggleTodo(index) {
-    todos[index].completed = !todos[index].completed;
-    saveToStorage();
-    renderTodos(); // Перерисовываем, чтобы применился визуальный класс выполненной задачи
-}
-
-// МЕТОД: Редактирование текста
-function editTodo(index, newText) {
-    const text = newText.trim();
-    if (text === '') {
-        deleteTodo(index); // Если текст стерли полностью — удаляем задачу
-    } else {
-        todos[index].text = text;
-        saveToStorage();
+        // Очищаем поле ввода после добавления
+        todoInput.value = '';
     }
-}
-
-// МЕТОД: Удаление задачи
-function deleteTodo(index) {
-    todos.splice(index, 1); // Удаляем 1 элемент по индексу
-    saveToStorage();
-    renderTodos();
-}
-
-// --- Слушатели событий событий ---
-
-// Клик по кнопке "Добавить"
-addBtn.addEventListener('click', addTodo);
-
-// Нажатие Enter в поле ввода
-todoInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') addTodo();
 });
 
-// Первичный рендеринг при загрузке страницы
-renderTodos();
 

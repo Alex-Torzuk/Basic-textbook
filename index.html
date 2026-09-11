@@ -8,17 +8,20 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="todo-app">
-      <h2>📋 Мой список дел</h2>
+    <!-- Это главный контейнер, где будет жить весь наш список дел -->
+    <div class="todo-container">
+      <h1>Мой список дел на сегодня</h1>
 
-      <!-- Форма добавления -->
-      <div class="input-group">
+      <!-- Сюда мы сейчас будем добавлять элементы ввода -->
+      <!-- Блок для ввода нового дела -->
+      <div class="todo-input-section">
         <input type="text" id="todo-input" placeholder="Что нужно сделать?" />
         <button id="add-btn">Добавить</button>
       </div>
 
-      <!-- Список задач -->
-      <ul id="todo-list"></ul>
+      <ul id="todo-list">
+        <!-- Здесь JavaScript будет создавать элементы списка <li> -->
+      </ul>
     </div>
 
     <script src="scriptNew.js?v=1" width="200"></script>
