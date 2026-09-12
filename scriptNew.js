@@ -2253,7 +2253,21 @@ addBtn.addEventListener('click', function() {
         // Навешиваем событие клика на текст
         taskSpan.addEventListener('click', function() {
             listItem.classList.toggle('completed');
+            saveTasks(); 
         });
+
+            // Слушаем двойной клик (dblclick) по тексту, чтобы изменить его
+        taskSpan.addEventListener('dblclick', function() {
+            // Открываем встроенное окно ввода с текущим текстом задачи
+            const newText = prompt('Редактировать задачу:', taskSpan.textContent);
+            
+            // Если пользователь что-то ввел и не нажал "Отмена"
+            if (newText !== null && newText.trim() !== '') {
+                taskSpan.textContent = newText.trim(); // Обновляем текст в span
+                saveTasks(); 
+            }
+        });
+
 
         // 3. Кладем текст внутрь нашей строки списка
         listItem.appendChild(taskSpan);
@@ -2266,6 +2280,7 @@ addBtn.addEventListener('click', function() {
         // Слушаем клик по кнопке удаления
         deleteBtn.addEventListener('click', function() {
             listItem.remove(); // Этот метод полностью удаляет элемент <li> со страницы
+            saveTasks(); 
         });
 
         // Теперь кладем в listItem и текст, и кнопку удаления
@@ -2275,10 +2290,91 @@ addBtn.addEventListener('click', function() {
 
         // 4. Добавляем всю готовую строчку в наш большой список <ul>
         todoList.appendChild(listItem);
-
+        saveTasks(); // 👈 Добавь сюда! Сохраняем после добавления
         // Очищаем поле ввода после добавления
         todoInput.value = '';
+
+        
+
     }
 });
 
+// Функция для сохранения всех задач в LocalStorage
+function saveTasks() {
+    const tasks = [];
+    
+    // Находим все строчки <li> в нашем списке
+    const listItems = todoList.querySelectorAll('li');
+    
+    listItems.forEach(function(listItem) {
+        const taskSpan = listItem.querySelector('span');
+        
+        // Создаем объект для каждой задачи: текст и статус (выполнено или нет)
+        const task = {
+            text: taskSpan.textContent,
+            completed: listItem.classList.contains('completed')
+        };
+        
+        tasks.push(task); // Добавляем в наш массив
+    });
+
+    // Превращаем массив в строку и сохраняем в память браузера
+    localStorage.setItem('myTodoList', JSON.stringify(tasks));
+}
+
+// Функция для загрузки задач из LocalStorage при старте страницы
+function loadTasks() {
+    // Достаем строку из памяти
+    const savedData = localStorage.getItem('myTodoList');
+    
+    // Если в памяти ничего нет, просто выходим из функции
+    if (!savedData) return;
+
+    // Превращаем текстовую строку обратно в массив объектов JavaScript
+    const tasks = JSON.parse(savedData);
+
+    // Пробегаемся по каждой задаче из памяти и создаем её на экране
+    tasks.forEach(function(task) {
+        const listItem = document.createElement('li');
+        
+        const taskSpan = document.createElement('span');
+        taskSpan.textContent = task.text;
+        
+        // Восстанавливаем статус выполнения (если было выполнено, добавляем класс)
+        if (task.completed) {
+            listItem.classList.add('completed');
+        }
+
+        // Кнопка удаления для загруженной задачи
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '❌';
+        deleteBtn.classList.add('delete-btn');
+
+        // Вешаем те же самые слушатели событий на загруженные элементы
+        taskSpan.addEventListener('click', function() {
+            listItem.classList.toggle('completed');
+            saveTasks();
+        });
+
+        taskSpan.addEventListener('dblclick', function() {
+            const newText = prompt('Редактировать задачу:', taskSpan.textContent);
+            if (newText !== null && newText.trim() !== '') {
+                taskSpan.textContent = newText.trim();
+                saveTasks();
+            }
+        });
+
+        deleteBtn.addEventListener('click', function() {
+            listItem.remove();
+            saveTasks();
+        });
+
+        listItem.appendChild(taskSpan);
+        listItem.appendChild(deleteBtn);
+        todoList.appendChild(listItem);
+    });
+}
+
+// Запускаем загрузку сразу при открытии страницы!
+loadTasks();
 
