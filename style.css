@@ -1,102 +1,100 @@
-/* #myBox{
-	width: 200px;
-        height: 200px;
-        overflow: auto;
-        border: 1px solid black;
-        margin-top: 10px;
+/* 1. Сбрасываем стандартные отступы браузера */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-div{
-	width: 500px;
-          height: 500px;
-          background: linear-gradient(45deg, lightblue, lightpink);
-} */
-
-/* Общие настройки для всей страницы */
+/* 2. Настраиваем фон всей страницы */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f7f6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background-color: #f5f7fb; /* Приятный светло-серый фон */
+    height: 100vh;             /* Растягиваем фон на 100% высоты экрана */
 }
 
-/* Стиль для главного контейнера-карточки */
-.todo-container {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* 3. Стили для контейнера блокнота */
+.notepad-container {
+    width: 90vw;        /* Ширина: 90% от ширины экрана */
+    height: 85vh;       /* Высота: 85% от высоты экрана */
+    background: #ffffff;/* Белый цвет самого блокнота */
+    border-radius: 12px;/* Скругление углов */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Мягкая тень */
+
+    /* Добавляем эту строчку: */
+    display: flex; 
+}
+
+/* 5. Настройка левой панели (сайдбара) */
+.sidebar {
+    width: 250px;             /* Фиксированная ширина левой панели */
+    background-color: #fcfdfe;/* Чуть другой оттенок белого для контраста */
+    border-right: 1px solid #eef2f7; /* Тонкая линия-разделитель справа */
+}
+
+/* 6. Настройка правой панели (редактора) */
+.editor-area {
+    flex: 1;                  /* Занимает всё оставшееся пространство справа */
+    background-color: #ffffff;/* Чистый белый цвет */
+}
+
+/* 7. Настройка внутренних отступов для левой панели */
+.sidebar {
+    padding: 20px;            /* Добавляем свободное пространство вокруг элементов */
+    display: flex;
+    flex-direction: column;   /* Элементы внутри панели будут строиться сверху вниз */
+    gap: 15px;                /* Расстояние между кнопкой и будущим списком */
+}
+
+/* 8. Стили для кнопки создания заметки */
+.btn-add {
+    width: 100%;              /* Кнопка растянется на всю доступную ширину */
+    padding: 12px;            /* Внутренние отступы, чтобы кнопка стала объемной */
+    background-color: #4a90e2;/* Приятный синий цвет */
+    color: white;             /* Белый цвет текста */
+    border: none;             /* Убираем стандартную черную рамку */
+    border-radius: 8px;       /* Скругляем углы кнопки */
+    font-size: 14px;          /* Размер шрифта */
+    font-weight: 600;         /* Делаем текст чуть жирнее */
+    cursor: pointer;          /* Меняем курсор на "пальчик" при наведении */
+    transition: background 0.2s; /* Плавное изменение цвета при наведении */
+}
+
+/* Эффект при наведении мышки на кнопку */
+.btn-add:hover {
+    background-color: #357abd;/* Синий цвет станет чуть темнее */
+}
+
+
+/* 9. Настройка внутренней структуры редактора */
+.editor-area {
+    padding: 30px;            /* Большие комфортные отступы вокруг текста */
+    display: flex;
+    flex-direction: column;   /* Заголовок и текст строятся строго друг под другом */
+    gap: 20px;                /* Расстояние между заголовком и текстовым полем */
+}
+
+/* 10. Стили для поля заголовка */
+.editor-title {
     width: 100%;
-    max-width: 500px;
+    font-size: 24px;          /* Крупный шрифт для названия */
+    font-weight: 700;         /* Жирный шрифт */
+    border: none;             /* Убираем все рамки */
+    outline: none;            /* Убираем контур при клике */
+    color: #333333;           /* Темный цвет текста */
+    background: transparent;  /* Прозрачный фон */
 }
 
-/* Центрируем заголовок */
-.todo-container h1 {
-    text-align: center;
-    color: #333333;
-    margin-top: 0;
-    margin-bottom: 20px;
+/* Стиль подсказки (placeholder) для заголовка */
+.editor-title::placeholder {
+    color: #b0bac9;           /* Нежный серый цвет для подсказки */
 }
 
-/* Контейнер для поля ввода и кнопки */
-.todo-input-section {
-    display: flex;
-    gap: 10px; /* Отступ между полем и кнопкой */
-    margin-bottom: 20px;
-}
 
-/* Поле ввода */
-#todo-input {
-    flex-grow: 1; /* Поле займет все свободное место */
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none; /* Убираем стандартную обводку */
-}
-
-/* Кнопка Добавить */
-#add-btn {
-    padding: 10px 15px;
-    background-color: #28a745; /* Красивый зеленый цвет */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer; /* Меняем курсор при наведении */
-    transition: background-color 0.2s; /* Плавное изменение цвета */
-}
-
-/* Эффект при наведении на кнопку */
-#add-btn:hover {
-    background-color: #218838; /* Чуть более темный зеленый */
-}
-
-/* Сам список задач */
-#todo-list {
-    list-style: none; /* Убираем стандартные черные точки-маркеры */
-    padding: 0;
-    margin: 0;
-}
-
-/* Каждый отдельный элемент списка (задача) */
-#todo-list li {
-    display: flex;
-    justify-content: space-between; /* Текст слева, кнопки справа */
-    align-items: center;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #eeeeee;
-    margin-bottom: 5px;
-    border-radius: 5px;
-}
-
-/* Стиль для текста выполненной задачи */
-#todo-list li.completed span {
-    text-decoration: line-through; /* Зачеркивание текста */
-    color: #888888; /* Делаем текст блеклым */
+body {
+    background-color: #f5f7fb;
+    height: 100vh;
+    
+    /* Добавляем эти три строки: */
+    display: flex;             /* Включаем режим Flexbox */
+    justify-content: center;   /* Выравниваем по центру горизонтально */
+    align-items: center;       /* Выравниваем по центру вертикально */
 }

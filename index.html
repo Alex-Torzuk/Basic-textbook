@@ -8,20 +8,38 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- Это главный контейнер, где будет жить весь наш список дел -->
-    <div class="todo-container">
-      <h1>Мой список дел на сегодня</h1>
+    <!-- Главный контейнер всего блокнота -->
+    <div class="notepad-container">
+      <!-- Левая панель: Боковое меню для списка заметок -->
+      <aside class="sidebar">
+        <!-- Сюда позже добавим кнопку и список -->
+        <!-- Кнопка для создания новой заметки -->
+        <button id="add-note-btn" class="btn-add">➕ Новая заметка</button>
 
-      <!-- Сюда мы сейчас будем добавлять элементы ввода -->
-      <!-- Блок для ввода нового дела -->
-      <div class="todo-input-section">
-        <input type="text" id="todo-input" placeholder="Что нужно сделать?" />
-        <button id="add-btn">Добавить</button>
-      </div>
+        <!-- Сюда в будущем JavaScript будет добавлять ссылки на заметки -->
+        <div id="notes-list" class="notes-list"></div>
+      </aside>
 
-      <ul id="todo-list">
-        <!-- Здесь JavaScript будет создавать элементы списка <li> -->
-      </ul>
+      <!-- Правая панель: Зона редактора текста -->
+      <main class="editor-area">
+        <!-- Сюда позже добавим поле ввода текста -->
+        <!-- Поле для ввода заголовка заметки -->
+        <input
+          type="text"
+          id="note-title"
+          class="editor-title"
+          placeholder="Название заметки..."
+          disabled
+        />
+
+        <!-- Поле для ввода основного текста -->
+        <textarea
+          id="note-text"
+          class="editor-text"
+          placeholder="Начните писать здесь..."
+          disabled
+        ></textarea>
+      </main>
     </div>
 
     <script src="scriptNew.js?v=1" width="200"></script>
