@@ -88,6 +88,68 @@ body {
     color: #b0bac9;           /* Нежный серый цвет для подсказки */
 }
 
+/* 11. Стили для большого текстового поля */
+.editor-text {
+    width: 100%;
+    flex: 1;                  /* Растягиваем поле на всю оставшуюся высоту */
+    font-size: 16px;          /* Комфортный размер шрифта для чтения */
+    line-height: 1.6;         /* Увеличиваем расстояние между строками текста */
+    border: none;             /* Убираем рамки */
+    outline: none;            /* Убираем контур при клике */
+    resize: none;             /* Запрещаем пользователю вручную растягивать поле за уголок */
+    color: #4a4a4a;           /* Слегка мягкий черный цвет текста */
+    background: transparent;  /* Прозрачный фон */
+}
+
+/* Стиль подсказки для текста */
+.editor-text::placeholder {
+    color: #b0bac9;
+}
+
+/* 12. Контейнер для кнопок: выстраиваем их в ряд и сдвигаем вправо */
+.editor-actions {
+    display: flex;
+    justify-content: flex-end; /* Сдвигает кнопки к правому краю */
+    gap: 10px;                 /* Расстояние между кнопками */
+}
+
+/* 13. Общие стили для обеих кнопок */
+.btn {
+    padding: 10px 20px;       /* Внутренние отступы (высота и ширина) */
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+}
+
+/* 14. Стиль для кнопки «Сохранить» (зеленая) */
+.btn-save {
+    background-color: #2ecc71; /* Зеленый цвет */
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #27ae60; /* Темно-зеленый при наведении */
+}
+
+/* 15. Стиль для кнопки «Удалить» (красная) */
+.btn-delete {
+    background-color: #e74c3c; /* Красный цвет */
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b; /* Темно-красный при наведении */
+}
+
+/* 16. Стиль для заблокированных элементов (когда они disabled) */
+input:disabled, textarea:disabled, button:disabled {
+    opacity: 0.5;              /* Делаем их полупрозрачными */
+    cursor: not-allowed;       /* Курсор меняется на знак "запрещено" */
+}
+
 
 body {
     background-color: #f5f7fb;
