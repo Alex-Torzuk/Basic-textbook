@@ -2229,3 +2229,78 @@
 // Список задач
 
 
+
+//+++++++++
+
+// 0. Хранилище данных в памяти программы
+let notes = [];         /* Массив, где будут лежать все наши объекты-заметки */
+let currentNoteId = null;/* Переменная, чтобы помнить ID открытой сейчас заметки */
+
+// 1. Находим все нужные элементы интерфейса
+const addBtn = document.getElementById('add-note-btn');
+const noteTitleInput = document.getElementById('note-title');
+const noteTextArea = document.getElementById('note-text');
+const saveBtn = document.getElementById('save-note-btn');
+const deleteBtn = document.getElementById('delete-note-btn');
+
+// 2. Слушаем клик по кнопке «Новая заметка»
+addBtn.addEventListener('click', function() {
+    // Создаем уникальный ID для новой заметки (используем текущее время в миллисекундах)
+    const newId = Date.now();
+
+    // Создаем сам объект заметки
+    const newNote = {
+        id: newId,
+        title: 'Без названия', // Заголовок по умолчанию
+        text: ''               /* Текст пока пустой */
+    };
+
+    // Добавляем созданную заметку в наш общий массив (в конец списка)
+    notes.push(newNote);
+
+    // Запоминаем, что прямо сейчас у нас открыта именно эта новая заметка
+    currentNoteId = newId;
+
+    // Включаем поля ввода и кнопки (этот код мы уже писали)
+    noteTitleInput.disabled = false;
+    noteTextArea.disabled = false;
+    saveBtn.disabled = false;
+    deleteBtn.disabled = false;
+
+    // Выводим данные новой заметки в поля на экране
+    noteTitleInput.value = newNote.title;
+    noteTextArea.value = newNote.text;
+    
+    noteTitleInput.focus(); // Ставим курсор в заголовок
+    noteTitleInput.select(); // Сразу выделяем текст "Без названия", чтобы его было легко стереть
+	noteTitleInput.focus();
+    noteTitleInput.select();
+
+    renderNotesList(); // ВЫЗЫВАЕМ функцию отрисовки списка заметок!
+});
+
+
+// Нам понадобится ссылка на сам контейнер списка (находим его по ID)
+const notesListContainer = document.getElementById('notes-list');
+
+// 3. Функция для отрисовки списка заметок в левой панели
+function renderNotesList() {
+    // Сначала полностью очищаем список на экране, чтобы заметки не дублировались
+    notesListContainer.innerHTML = '';
+
+    // Перебираем каждую заметку из нашего массива памяти
+    notes.forEach(function(note) {
+        // Создаем новый HTML-элемент (кнопку-ссылку) для текущей заметки
+        const noteItem = document.createElement('button');
+        noteItem.classList.add('sidebar-note-item'); // Дадим класс для стилизации в будущем
+        noteItem.innerText = note.title;             // Текст кнопки — это заголовок заметки
+
+        // Если эта заметка открыта прямо сейчас, сделаем кнопку визуально активной
+        if (note.id === currentNoteId) {
+            noteItem.classList.add('active');
+        }
+
+        // Добавляем созданную кнопку внутрь контейнера на страницу
+        notesListContainer.appendChild(noteItem);
+    });
+}

@@ -151,6 +151,47 @@ input:disabled, textarea:disabled, button:disabled {
 }
 
 
+/* 17. Контейнер для списка заметок */
+.notes-list {
+    display: flex;
+    flex-direction: column;   /* Заметки выстраиваются вертикально */
+    gap: 8px;                 /* Небольшой отступ между заметками */
+    overflow-y: auto;         /* Если заметок будет много, появится прокрутка */
+    flex: 1;                  /* Список займет все оставшееся место в сайдбаре */
+}
+
+/* 18. Стили для каждой отдельной заметки-ссылки в списке */
+.sidebar-note-item {
+    width: 100%;
+    padding: 12px 15px;       /* Удобные внутренние отступы */
+    background: transparent;  /* По умолчанию фон прозрачный */
+    border: none;             /* Убираем рамки */
+    border-radius: 8px;       /* Скругляем углы */
+    text-align: left;         /* Выравниваем название по левому краю */
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;           /* Спокойный цвет текста */
+    cursor: pointer;
+    white-space: nowrap;      /* Запрещаем перенос длинного заголовка на новую строку */
+    overflow: hidden;         /* Прячем то, что не поместилось в ширину */
+    text-overflow: ellipsis;  /* Если название слишком длинное, в конце появится «...» */
+    transition: all 0.2s;
+}
+
+/* Эффект при наведении мышки на заметку в списке */
+.sidebar-note-item:hover {
+    background-color: #edf2f7;/* Легкий серый фон */
+    color: #2d3748;           /* Текст становится чуть темнее */
+}
+
+/* Стили для активной (открытой прямо сейчас) заметки */
+.sidebar-note-item.active {
+    background-color: #e2e8f0;/* Более заметный серый фон */
+    color: #1a202c;           /* Темный контрастный текст */
+    font-weight: 600;         /* Слегка жирный шрифт */
+}
+
+
 body {
     background-color: #f5f7fb;
     height: 100vh;
