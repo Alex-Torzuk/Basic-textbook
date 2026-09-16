@@ -2236,6 +2236,16 @@
 let notes = [];         /* Массив, где будут лежать все наши объекты-заметки */
 let currentNoteId = null;/* Переменная, чтобы помнить ID открытой сейчас заметки */
 
+// ПРОВЕРКА LOCALSTORAGE ПРИ ЗАПУСКЕ:
+// Пытаемся достать строку с заметками из памяти браузера
+const savedNotes = localStorage.getItem('myNotepadNotes');
+
+// Если в памяти что-то нашлось (savedNotes не пустой)
+if (savedNotes) {
+    // Превращаем сохраненную строку обратно в JavaScript-массив объектов
+    notes = JSON.parse(savedNotes);
+}
+
 // 1. Находим все нужные элементы интерфейса
 const addBtn = document.getElementById('add-note-btn');
 const noteTitleInput = document.getElementById('note-title');
@@ -2300,7 +2310,97 @@ function renderNotesList() {
             noteItem.classList.add('active');
         }
 
+        // --- НОВЫЙ КОД: Слушаем клик по ссылке на заметку ---
+        noteItem.addEventListener('click', function() {
+            // 1. Запоминаем, что теперь активна именно эта заметка
+            currentNoteId = note.id;
+
+            // 2. Разблокируем поля ввода (на случай, если они были закрыты)
+            noteTitleInput.disabled = false;
+            noteTextArea.disabled = false;
+            saveBtn.disabled = false;
+            deleteBtn.disabled = false;
+
+            // 3. Подставляем данные этой заметки в поля редактора
+            noteTitleInput.value = note.title;
+            noteTextArea.value = note.text;
+
+            // 4. Перерисовываем список, чтобы класс 'active' перешел на эту кнопку
+            renderNotesList();
+        });
+        // --- КОНЕЦ НОВОГО КОДА ---
+
         // Добавляем созданную кнопку внутрь контейнера на страницу
         notesListContainer.appendChild(noteItem);
     });
 }
+
+// 4. Слушаем клик по кнопке «Сохранить»
+saveBtn.addEventListener('click', function() {
+    // Если ни одна заметка сейчас не открыта (currentNoteId пустой), ничего не делаем
+    if (currentNoteId === null) return;
+
+    // Ищем в нашем массиве notes заметку с тем ID, который сейчас открыт
+    const activeNote = notes.find(function(note) {
+        return note.id === currentNoteId;
+    });
+
+    // Если нашли такую заметку, обновляем её данные тем, что ввёл пользователь
+    if (activeNote) {
+        activeNote.title = noteTitleInput.value.trim() || 'Без названия'; // trim() убирает лишние пробелы в начале/конце
+        activeNote.text = noteTextArea.value;
+        
+        // Перерисовываем список заметок слева, чтобы обновить заголовок на экране
+        renderNotesList();
+        // --- ВОТ ЭТУ СТРОЧКУ НУЖНО ДОБАВИТЬ: ---
+        saveToLocalStorage(); 
+        // Выведем сообщение в консоль, чтобы убедиться, что сохранение прошло успешно
+        console.log('Заметка успешно сохранена:', activeNote);
+    }
+});
+
+// 5. Слушаем клик по кнопке «Удалить»
+deleteBtn.addEventListener('click', function() {
+    // Если ни одна заметка не открыта, ничего не делаем
+    if (currentNoteId === null) return;
+
+    // Спрашиваем подтверждение у пользователя (на всякий случай)
+    const confirmDelete = confirm('Вы уверены, что хотите удалить эту заметку?');
+    
+    if (confirmDelete) {
+        // Фильтруем массив: оставляем только те заметки, ID которых НЕ равен текущему
+        notes = notes.filter(function(note) {
+            return note.id !== currentNoteId;
+        });
+
+        // Сбрасываем ID активной заметки, так как мы её только что удалили
+        currentNoteId = null;
+
+        // Очищаем поля ввода на экране
+        noteTitleInput.value = '';
+        noteTextArea.value = '';
+
+        // Снова блокируем поля ввода и кнопки управления
+        noteTitleInput.disabled = true;
+        noteTextArea.disabled = true;
+        saveBtn.disabled = true;
+        deleteBtn.disabled = true;
+
+        // Перерисовываем список заметок слева, чтобы удаленная строка исчезла
+        renderNotesList();
+        
+        console.log('Заметка удалена. Текущий список:', notes);
+    }
+});
+
+// 6. Функция для сохранения всего массива заметок в LocalStorage браузера
+function saveToLocalStorage() {
+    // Превращаем массив объектов в одну длинную строку формата JSON и сохраняем
+    localStorage.setItem('myNotepadNotes', JSON.stringify(notes));
+}
+
+// Запускаем отрисовку списка сразу при загрузке страницы, 
+// чтобы показать сохраненные ранее заметки
+renderNotesList();
+
+
