@@ -8,46 +8,19 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- Главный контейнер всего блокнота -->
-    <div class="notepad-container">
-      <!-- Левая панель: Боковое меню для списка заметок -->
-      <aside class="sidebar">
-        <!-- Сюда позже добавим кнопку и список -->
-        <!-- Кнопка для создания новой заметки -->
-        <button id="add-note-btn" class="btn-add">➕ Новая заметка</button>
-
-        <!-- Сюда в будущем JavaScript будет добавлять ссылки на заметки -->
-        <div id="notes-list" class="notes-list"></div>
-      </aside>
-
-      <!-- Правая панель: Зона редактора текста -->
-      <main class="editor-area">
-        <!-- Сюда позже добавим поле ввода текста -->
-        <!-- Поле для ввода заголовка заметки -->
-        <input
-          type="text"
-          id="note-title"
-          class="editor-title"
-          placeholder="Название заметки..."
-          disabled
-        />
-
-        <!-- Поле для ввода основного текста -->
+    <div class="app-container">
+      <!-- Зона создания нового стикера -->
+      <header class="creator-area">
         <textarea
-          id="note-text"
-          class="editor-text"
-          placeholder="Начните писать здесь..."
-          disabled
+          id="new-sticker-text"
+          placeholder="Напишите что-нибудь на новом стикере..."
         ></textarea>
-        <!-- НОВЫЙ БЛОК: Кнопки управления заметкой -->
-        <div class="editor-actions">
-          <button id="save-note-btn" class="btn btn-save" disabled>
-            Сохранить
-          </button>
-          <button id="delete-note-btn" class="btn btn-delete" disabled>
-            Удалить
-          </button>
-        </div>
+        <button id="add-sticker-btn">📌 Добавить стикер</button>
+      </header>
+
+      <!-- Доска, где будут плиткой располагаться стикеры -->
+      <main id="stickers-board" class="stickers-board">
+        <!-- Сюда JavaScript будет добавлять новые стикеры -->
       </main>
     </div>
 

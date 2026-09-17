@@ -1,203 +1,132 @@
-/* 1. Сбрасываем стандартные отступы браузера */
+/* 1. Базовые настройки страницы */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* 2. Настраиваем фон всей страницы */
 body {
-    background-color: #f5f7fb; /* Приятный светло-серый фон */
-    height: 100vh;             /* Растягиваем фон на 100% высоты экрана */
+    background-color: #f0f4f8; /* Спокойный светлый фон, на котором желтые стикеры будут выделяться */
+    color: #333;
+    padding: 30px;
 }
 
-/* 3. Стили для контейнера блокнота */
-.notepad-container {
-    width: 90vw;        /* Ширина: 90% от ширины экрана */
-    height: 85vh;       /* Высота: 85% от высоты экрана */
-    background: #ffffff;/* Белый цвет самого блокнота */
-    border-radius: 12px;/* Скругление углов */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Мягкая тень */
-
-    /* Добавляем эту строчку: */
-    display: flex; 
-}
-
-/* 5. Настройка левой панели (сайдбара) */
-.sidebar {
-    width: 250px;             /* Фиксированная ширина левой панели */
-    background-color: #fcfdfe;/* Чуть другой оттенок белого для контраста */
-    border-right: 1px solid #eef2f7; /* Тонкая линия-разделитель справа */
-}
-
-/* 6. Настройка правой панели (редактора) */
-.editor-area {
-    flex: 1;                  /* Занимает всё оставшееся пространство справа */
-    background-color: #ffffff;/* Чистый белый цвет */
-}
-
-/* 7. Настройка внутренних отступов для левой панели */
-.sidebar {
-    padding: 20px;            /* Добавляем свободное пространство вокруг элементов */
+/* 2. Контейнер приложения */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto; /* Центрируем всё приложение по горизонтали */
     display: flex;
-    flex-direction: column;   /* Элементы внутри панели будут строиться сверху вниз */
-    gap: 15px;                /* Расстояние между кнопкой и будущим списком */
+    flex-direction: column;
+    gap: 40px; /* Отступ между зоной создания и самой доской */
 }
 
-/* 8. Стили для кнопки создания заметки */
-.btn-add {
-    width: 100%;              /* Кнопка растянется на всю доступную ширину */
-    padding: 12px;            /* Внутренние отступы, чтобы кнопка стала объемной */
-    background-color: #4a90e2;/* Приятный синий цвет */
-    color: white;             /* Белый цвет текста */
-    border: none;             /* Убираем стандартную черную рамку */
-    border-radius: 8px;       /* Скругляем углы кнопки */
-    font-size: 14px;          /* Размер шрифта */
-    font-weight: 600;         /* Делаем текст чуть жирнее */
-    cursor: pointer;          /* Меняем курсор на "пальчик" при наведении */
-    transition: background 0.2s; /* Плавное изменение цвета при наведении */
+/* 3. Плиточная доска для стикеров */
+.stickers-board {
+    display: grid;
+    /* Магия Grid: создаем колонки шириной не меньше 250px, которые автоматически заполняют ряд */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px; /* Расстояние между стикерами-плитками */
 }
 
-/* Эффект при наведении мышки на кнопку */
-.btn-add:hover {
-    background-color: #357abd;/* Синий цвет станет чуть темнее */
-}
-
-
-/* 9. Настройка внутренней структуры редактора */
-.editor-area {
-    padding: 30px;            /* Большие комфортные отступы вокруг текста */
+/* 4. Панель создания нового стикера */
+.creator-area {
     display: flex;
-    flex-direction: column;   /* Заголовок и текст строятся строго друг под другом */
-    gap: 20px;                /* Расстояние между заголовком и текстовым полем */
-}
-
-/* 10. Стили для поля заголовка */
-.editor-title {
+    flex-direction: column;
+    align-items: center;      /* Центрируем поле и кнопку */
+    gap: 15px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 500px;         /* Ограничиваем ширину формы */
+    margin: 0 auto;           /* Центрируем саму форму на странице */
     width: 100%;
-    font-size: 24px;          /* Крупный шрифт для названия */
-    font-weight: 700;         /* Жирный шрифт */
-    border: none;             /* Убираем все рамки */
-    outline: none;            /* Убираем контур при клике */
-    color: #333333;           /* Темный цвет текста */
-    background: transparent;  /* Прозрачный фон */
 }
 
-/* Стиль подсказки (placeholder) для заголовка */
-.editor-title::placeholder {
-    color: #b0bac9;           /* Нежный серый цвет для подсказки */
-}
-
-/* 11. Стили для большого текстового поля */
-.editor-text {
+/* 5. Поле ввода текста */
+#new-sticker-text {
     width: 100%;
-    flex: 1;                  /* Растягиваем поле на всю оставшуюся высоту */
-    font-size: 16px;          /* Комфортный размер шрифта для чтения */
-    line-height: 1.6;         /* Увеличиваем расстояние между строками текста */
-    border: none;             /* Убираем рамки */
-    outline: none;            /* Убираем контур при клике */
-    resize: none;             /* Запрещаем пользователю вручную растягивать поле за уголок */
-    color: #4a4a4a;           /* Слегка мягкий черный цвет текста */
-    background: transparent;  /* Прозрачный фон */
+    height: 100px;
+    padding: 12px;
+    font-size: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    resize: none;             /* Запрещаем растягивать вручную */
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-/* Стиль подсказки для текста */
-.editor-text::placeholder {
-    color: #b0bac9;
+/* Эффект при клике в текстовое поле */
+#new-sticker-text:focus {
+    border-color: #4a90e2;    /* Подсвечиваем рамку синим */
 }
 
-/* 12. Контейнер для кнопок: выстраиваем их в ряд и сдвигаем вправо */
-.editor-actions {
-    display: flex;
-    justify-content: flex-end; /* Сдвигает кнопки к правому краю */
-    gap: 10px;                 /* Расстояние между кнопками */
-}
-
-/* 13. Общие стили для обеих кнопок */
-.btn {
-    padding: 10px 20px;       /* Внутренние отступы (высота и ширина) */
-    font-size: 14px;
+/* 6. Кнопка добавления */
+#add-sticker-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 15px;
     font-weight: 600;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background 0.2s, opacity 0.2s;
+    transition: background 0.2s;
 }
 
-/* 14. Стиль для кнопки «Сохранить» (зеленая) */
-.btn-save {
-    background-color: #2ecc71; /* Зеленый цвет */
-    color: white;
+#add-sticker-btn:hover {
+    background-color: #357abd;/* Делаем синий чуть темнее при наведении */
 }
 
-.btn-save:hover {
-    background-color: #27ae60; /* Темно-зеленый при наведении */
-}
-
-/* 15. Стиль для кнопки «Удалить» (красная) */
-.btn-delete {
-    background-color: #e74c3c; /* Красный цвет */
-    color: white;
-}
-
-.btn-delete:hover {
-    background-color: #c0392b; /* Темно-красный при наведении */
-}
-
-/* 16. Стиль для заблокированных элементов (когда они disabled) */
-input:disabled, textarea:disabled, button:disabled {
-    opacity: 0.5;              /* Делаем их полупрозрачными */
-    cursor: not-allowed;       /* Курсор меняется на знак "запрещено" */
-}
-
-
-/* 17. Контейнер для списка заметок */
-.notes-list {
+/* 7. Стиль одного стикера-карточки */
+.sticker {
+    background-color: #fff9c4; /* Классический нежно-желтый цвет бумажного стикера */
+    padding: 20px;
+    height: 200px;             /* Фиксированная высота, чтобы они были квадратными */
     display: flex;
-    flex-direction: column;   /* Заметки выстраиваются вертикально */
-    gap: 8px;                 /* Небольшой отступ между заметками */
-    overflow-y: auto;         /* Если заметок будет много, появится прокрутка */
-    flex: 1;                  /* Список займет все оставшееся место в сайдбаре */
+    flex-direction: column;
+    justify-content: space-between; /* Текст будет сверху, а кнопка удаления — снизу */
+    border-radius: 4px;        /* Легкое скругление углов, как у стопки бумаги */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); /* Мягкая тень под стикером */
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* 18. Стили для каждой отдельной заметки-ссылки в списке */
-.sidebar-note-item {
+/* Эффект легкого «парения» при наведении на стикер */
+.sticker:hover {
+    transform: translateY(-4px); /* Стикер слегка приподнимается вверх */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Тень становится глубже */
+}
+
+/* 8. Текстовая область внутри стикера */
+.sticker-text {
     width: 100%;
-    padding: 12px 15px;       /* Удобные внутренние отступы */
-    background: transparent;  /* По умолчанию фон прозрачный */
-    border: none;             /* Убираем рамки */
-    border-radius: 8px;       /* Скругляем углы */
-    text-align: left;         /* Выравниваем название по левому краю */
-    font-size: 14px;
-    font-weight: 500;
-    color: #4a5568;           /* Спокойный цвет текста */
+    height: 130px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #424242;
+    border: none;
+    background: transparent;   /* Прячем фон textarea, чтобы был виден желтый цвет */
+    resize: none;
+    outline: none;
+}
+
+/* 9. Кнопка удаления стикера (крестик внизу справа) */
+.delete-sticker-btn {
+    align-self: flex-end;      /* Сдвигаем кнопку в правый нижний угол */
+    background: none;
+    border: none;
+    color: #ef5350;            /* Нежно-красный цвет */
+    font-size: 13px;
+    font-weight: 600;
     cursor: pointer;
-    white-space: nowrap;      /* Запрещаем перенос длинного заголовка на новую строку */
-    overflow: hidden;         /* Прячем то, что не поместилось в ширину */
-    text-overflow: ellipsis;  /* Если название слишком длинное, в конце появится «...» */
-    transition: all 0.2s;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
 }
 
-/* Эффект при наведении мышки на заметку в списке */
-.sidebar-note-item:hover {
-    background-color: #edf2f7;/* Легкий серый фон */
-    color: #2d3748;           /* Текст становится чуть темнее */
-}
-
-/* Стили для активной (открытой прямо сейчас) заметки */
-.sidebar-note-item.active {
-    background-color: #e2e8f0;/* Более заметный серый фон */
-    color: #1a202c;           /* Темный контрастный текст */
-    font-weight: 600;         /* Слегка жирный шрифт */
-}
-
-
-body {
-    background-color: #f5f7fb;
-    height: 100vh;
-    
-    /* Добавляем эти три строки: */
-    display: flex;             /* Включаем режим Flexbox */
-    justify-content: center;   /* Выравниваем по центру горизонтально */
-    align-items: center;       /* Выравниваем по центру вертикально */
+.delete-sticker-btn:hover {
+    background-color: rgba(239, 83, 80, 0.1); /* Легкая красная подсветка при наведении */
 }

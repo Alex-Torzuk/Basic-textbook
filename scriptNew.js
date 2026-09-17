@@ -2233,174 +2233,274 @@
 //+++++++++
 
 // 0. Хранилище данных в памяти программы
-let notes = [];         /* Массив, где будут лежать все наши объекты-заметки */
-let currentNoteId = null;/* Переменная, чтобы помнить ID открытой сейчас заметки */
+// let notes = [];         /* Массив, где будут лежать все наши объекты-заметки */
+// let currentNoteId = null;/* Переменная, чтобы помнить ID открытой сейчас заметки */
 
-// ПРОВЕРКА LOCALSTORAGE ПРИ ЗАПУСКЕ:
-// Пытаемся достать строку с заметками из памяти браузера
-const savedNotes = localStorage.getItem('myNotepadNotes');
+// // ПРОВЕРКА LOCALSTORAGE ПРИ ЗАПУСКЕ:
+// // Пытаемся достать строку с заметками из памяти браузера
+// const savedNotes = localStorage.getItem('myNotepadNotes');
 
-// Если в памяти что-то нашлось (savedNotes не пустой)
-if (savedNotes) {
-    // Превращаем сохраненную строку обратно в JavaScript-массив объектов
-    notes = JSON.parse(savedNotes);
+// // Если в памяти что-то нашлось (savedNotes не пустой)
+// if (savedNotes) {
+//     // Превращаем сохраненную строку обратно в JavaScript-массив объектов
+//     notes = JSON.parse(savedNotes);
+// }
+
+// // 1. Находим все нужные элементы интерфейса
+// const addBtn = document.getElementById('add-note-btn');
+// const noteTitleInput = document.getElementById('note-title');
+// const noteTextArea = document.getElementById('note-text');
+// const saveBtn = document.getElementById('save-note-btn');
+// const deleteBtn = document.getElementById('delete-note-btn');
+
+// // 2. Слушаем клик по кнопке «Новая заметка»
+// addBtn.addEventListener('click', function() {
+//     // Создаем уникальный ID для новой заметки (используем текущее время в миллисекундах)
+//     const newId = Date.now();
+
+//     // Создаем сам объект заметки
+//     const newNote = {
+//         id: newId,
+//         title: 'Без названия', // Заголовок по умолчанию
+//         text: ''               /* Текст пока пустой */
+//     };
+
+//     // Добавляем созданную заметку в наш общий массив (в конец списка)
+//     notes.push(newNote);
+
+//     // Запоминаем, что прямо сейчас у нас открыта именно эта новая заметка
+//     currentNoteId = newId;
+
+//     // Включаем поля ввода и кнопки (этот код мы уже писали)
+//     noteTitleInput.disabled = false;
+//     noteTextArea.disabled = false;
+//     saveBtn.disabled = false;
+//     deleteBtn.disabled = false;
+
+//     // Выводим данные новой заметки в поля на экране
+//     noteTitleInput.value = newNote.title;
+//     noteTextArea.value = newNote.text;
+    
+//     noteTitleInput.focus(); // Ставим курсор в заголовок
+//     noteTitleInput.select(); // Сразу выделяем текст "Без названия", чтобы его было легко стереть
+// 	noteTitleInput.focus();
+//     noteTitleInput.select();
+
+//     renderNotesList(); // ВЫЗЫВАЕМ функцию отрисовки списка заметок!
+// });
+
+
+// // Нам понадобится ссылка на сам контейнер списка (находим его по ID)
+// const notesListContainer = document.getElementById('notes-list');
+
+// // 3. Функция для отрисовки списка заметок в левой панели
+// function renderNotesList() {
+//     // Сначала полностью очищаем список на экране, чтобы заметки не дублировались
+//     notesListContainer.innerHTML = '';
+
+//     // Перебираем каждую заметку из нашего массива памяти
+//     notes.forEach(function(note) {
+//         // Создаем новый HTML-элемент (кнопку-ссылку) для текущей заметки
+//         const noteItem = document.createElement('button');
+//         noteItem.classList.add('sidebar-note-item'); // Дадим класс для стилизации в будущем
+//         noteItem.innerText = note.title;             // Текст кнопки — это заголовок заметки
+
+//         // Если эта заметка открыта прямо сейчас, сделаем кнопку визуально активной
+//         if (note.id === currentNoteId) {
+//             noteItem.classList.add('active');
+//         }
+
+//         // --- НОВЫЙ КОД: Слушаем клик по ссылке на заметку ---
+//         noteItem.addEventListener('click', function() {
+//             // 1. Запоминаем, что теперь активна именно эта заметка
+//             currentNoteId = note.id;
+
+//             // 2. Разблокируем поля ввода (на случай, если они были закрыты)
+//             noteTitleInput.disabled = false;
+//             noteTextArea.disabled = false;
+//             saveBtn.disabled = false;
+//             deleteBtn.disabled = false;
+
+//             // 3. Подставляем данные этой заметки в поля редактора
+//             noteTitleInput.value = note.title;
+//             noteTextArea.value = note.text;
+
+//             // 4. Перерисовываем список, чтобы класс 'active' перешел на эту кнопку
+//             renderNotesList();
+//         });
+//         // --- КОНЕЦ НОВОГО КОДА ---
+
+//         // Добавляем созданную кнопку внутрь контейнера на страницу
+//         notesListContainer.appendChild(noteItem);
+//     });
+// }
+
+// // 4. Слушаем клик по кнопке «Сохранить»
+// saveBtn.addEventListener('click', function() {
+//     // Если ни одна заметка сейчас не открыта (currentNoteId пустой), ничего не делаем
+//     if (currentNoteId === null) return;
+
+//     // Ищем в нашем массиве notes заметку с тем ID, который сейчас открыт
+//     const activeNote = notes.find(function(note) {
+//         return note.id === currentNoteId;
+//     });
+
+//     // Если нашли такую заметку, обновляем её данные тем, что ввёл пользователь
+//     if (activeNote) {
+//         activeNote.title = noteTitleInput.value.trim() || 'Без названия'; // trim() убирает лишние пробелы в начале/конце
+//         activeNote.text = noteTextArea.value;
+        
+//         // Перерисовываем список заметок слева, чтобы обновить заголовок на экране
+//         renderNotesList();
+//         // --- ВОТ ЭТУ СТРОЧКУ НУЖНО ДОБАВИТЬ: ---
+//         saveToLocalStorage(); 
+//         // Выведем сообщение в консоль, чтобы убедиться, что сохранение прошло успешно
+//         console.log('Заметка успешно сохранена:', activeNote);
+//     }
+// });
+
+// // 5. Слушаем клик по кнопке «Удалить»
+// deleteBtn.addEventListener('click', function() {
+//     // Если ни одна заметка не открыта, ничего не делаем
+//     if (currentNoteId === null) return;
+
+//     // Спрашиваем подтверждение у пользователя (на всякий случай)
+//     const confirmDelete = confirm('Вы уверены, что хотите удалить эту заметку?');
+    
+//     if (confirmDelete) {
+//         // Фильтруем массив: оставляем только те заметки, ID которых НЕ равен текущему
+//         notes = notes.filter(function(note) {
+//             return note.id !== currentNoteId;
+//         });
+
+//         // Сбрасываем ID активной заметки, так как мы её только что удалили
+//         currentNoteId = null;
+
+//         // Очищаем поля ввода на экране
+//         noteTitleInput.value = '';
+//         noteTextArea.value = '';
+
+//         // Снова блокируем поля ввода и кнопки управления
+//         noteTitleInput.disabled = true;
+//         noteTextArea.disabled = true;
+//         saveBtn.disabled = true;
+//         deleteBtn.disabled = true;
+
+//         // Перерисовываем список заметок слева, чтобы удаленная строка исчезла
+//         renderNotesList();
+        
+//         console.log('Заметка удалена. Текущий список:', notes);
+//     }
+// });
+
+// // 6. Функция для сохранения всего массива заметок в LocalStorage браузера
+// function saveToLocalStorage() {
+//     // Превращаем массив объектов в одну длинную строку формата JSON и сохраняем
+//     localStorage.setItem('myNotepadNotes', JSON.stringify(notes));
+// }
+
+// // Запускаем отрисовку списка сразу при загрузке страницы, 
+// // чтобы показать сохраненные ранее заметки
+// renderNotesList();
+
+
+// 1. Хранилище данных в памяти программы
+let stickers = []; // Массив, где будут лежать объекты-стикеры
+const savedStickers = localStorage.getItem('myStickersData');
+
+if (savedStickers) {
+    stickers = JSON.parse(savedStickers);
 }
 
-// 1. Находим все нужные элементы интерфейса
-const addBtn = document.getElementById('add-note-btn');
-const noteTitleInput = document.getElementById('note-title');
-const noteTextArea = document.getElementById('note-text');
-const saveBtn = document.getElementById('save-note-btn');
-const deleteBtn = document.getElementById('delete-note-btn');
 
-// 2. Слушаем клик по кнопке «Новая заметка»
-addBtn.addEventListener('click', function() {
-    // Создаем уникальный ID для новой заметки (используем текущее время в миллисекундах)
-    const newId = Date.now();
+// 2. Находим основные элементы интерфейса
+const newStickerTextArea = document.getElementById('new-sticker-text');
+const addStickerBtn = document.getElementById('add-sticker-btn');
+const stickersBoard = document.getElementById('stickers-board');
 
-    // Создаем сам объект заметки
-    const newNote = {
-        id: newId,
-        title: 'Без названия', // Заголовок по умолчанию
-        text: ''               /* Текст пока пустой */
+// 3. Слушаем клик по кнопке «Добавить стикер»
+addStickerBtn.addEventListener('click', function() {
+    // Получаем текст из верхнего поля и убираем лишние пробелы по краям
+    const textValue = newStickerTextArea.value.trim();
+
+    // Если пользователь ничего не написал, просто выходим (не создаем пустой стикер)
+    if (textValue === '') {
+        alert('Пожалуйста, напишите какой-нибудь текст для стикера!');
+        return;
+    }
+
+    // Создаем объект для нового стикера с уникальным ID на основе текущего времени
+    const newSticker = {
+        id: Date.now(),
+        text: textValue
     };
 
-    // Добавляем созданную заметку в наш общий массив (в конец списка)
-    notes.push(newNote);
+    // Добавляем новый стикер в конец нашего массива-хранилища
+    stickers.push(newSticker);
 
-    // Запоминаем, что прямо сейчас у нас открыта именно эта новая заметка
-    currentNoteId = newId;
+    // Очищаем верхнее поле ввода, чтобы оно снова было готово к новой записи
+    newStickerTextArea.value = '';
+      renderStickers(); 
+      saveToLocalStorage(); // Сохраняем новый список в память браузера
 
-    // Включаем поля ввода и кнопки (этот код мы уже писали)
-    noteTitleInput.disabled = false;
-    noteTextArea.disabled = false;
-    saveBtn.disabled = false;
-    deleteBtn.disabled = false;
-
-    // Выводим данные новой заметки в поля на экране
-    noteTitleInput.value = newNote.title;
-    noteTextArea.value = newNote.text;
-    
-    noteTitleInput.focus(); // Ставим курсор в заголовок
-    noteTitleInput.select(); // Сразу выделяем текст "Без названия", чтобы его было легко стереть
-	noteTitleInput.focus();
-    noteTitleInput.select();
-
-    renderNotesList(); // ВЫЗЫВАЕМ функцию отрисовки списка заметок!
+    // Выведем массив в консоль, чтобы убедиться, что данные успешно добавились
+    console.log('Стикер добавлен в массив:', stickers);
 });
 
+// 4. Функция для отрисовки всех стикеров на доске
+function renderStickers() {
+    // Очищаем доску перед перерисовкой, чтобы плитки не дублировались
+    stickersBoard.innerHTML = '';
 
-// Нам понадобится ссылка на сам контейнер списка (находим его по ID)
-const notesListContainer = document.getElementById('notes-list');
+    // Перебираем массив стикеров и для каждого создаем HTML-элементы
+    stickers.forEach(function(sticker) {
+        // Создаем главный контейнер для одного стикера
+        const stickerCard = document.createElement('div');
+        stickerCard.classList.add('sticker');
 
-// 3. Функция для отрисовки списка заметок в левой панели
-function renderNotesList() {
-    // Сначала полностью очищаем список на экране, чтобы заметки не дублировались
-    notesListContainer.innerHTML = '';
+        // Создаем поле textarea внутри стикера для отображения и редактирования текста
+        const stickerText = document.createElement('textarea');
+        stickerText.classList.add('sticker-text');
+        stickerText.value = sticker.text; // Вставляем текст из памяти
 
-    // Перебираем каждую заметку из нашего массива памяти
-    notes.forEach(function(note) {
-        // Создаем новый HTML-элемент (кнопку-ссылку) для текущей заметки
-        const noteItem = document.createElement('button');
-        noteItem.classList.add('sidebar-note-item'); // Дадим класс для стилизации в будущем
-        noteItem.innerText = note.title;             // Текст кнопки — это заголовок заметки
+        // Создаем кнопку удаления (крестик или текст "Удалить")
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('delete-sticker-btn');
+        deleteBtn.innerText = '❌ Удалить';
 
-        // Если эта заметка открыта прямо сейчас, сделаем кнопку визуально активной
-        if (note.id === currentNoteId) {
-            noteItem.classList.add('active');
-        }
+        // --- НОВЫЙ КОД: Слушаем клик по кнопке удаления этого стикера ---
+        deleteBtn.addEventListener('click', function() {
+            // Фильтруем массив: оставляем все стикеры, кроме того, у которого совпал ID
+            stickers = stickers.filter(function(item) {
+                return item.id !== sticker.id;
+            });
 
-        // --- НОВЫЙ КОД: Слушаем клик по ссылке на заметку ---
-        noteItem.addEventListener('click', function() {
-            // 1. Запоминаем, что теперь активна именно эта заметка
-            currentNoteId = note.id;
-
-            // 2. Разблокируем поля ввода (на случай, если они были закрыты)
-            noteTitleInput.disabled = false;
-            noteTextArea.disabled = false;
-            saveBtn.disabled = false;
-            deleteBtn.disabled = false;
-
-            // 3. Подставляем данные этой заметки в поля редактора
-            noteTitleInput.value = note.title;
-            noteTextArea.value = note.text;
-
-            // 4. Перерисовываем список, чтобы класс 'active' перешел на эту кнопку
-            renderNotesList();
+            // Перерисовываем доску, чтобы удаленная плиточка пропала с экрана
+            renderStickers();
+            saveToLocalStorage(); // Сохраняем изменения после удаления
         });
         // --- КОНЕЦ НОВОГО КОДА ---
 
-        // Добавляем созданную кнопку внутрь контейнера на страницу
-        notesListContainer.appendChild(noteItem);
-    });
-}
-
-// 4. Слушаем клик по кнопке «Сохранить»
-saveBtn.addEventListener('click', function() {
-    // Если ни одна заметка сейчас не открыта (currentNoteId пустой), ничего не делаем
-    if (currentNoteId === null) return;
-
-    // Ищем в нашем массиве notes заметку с тем ID, который сейчас открыт
-    const activeNote = notes.find(function(note) {
-        return note.id === currentNoteId;
-    });
-
-    // Если нашли такую заметку, обновляем её данные тем, что ввёл пользователь
-    if (activeNote) {
-        activeNote.title = noteTitleInput.value.trim() || 'Без названия'; // trim() убирает лишние пробелы в начале/конце
-        activeNote.text = noteTextArea.value;
-        
-        // Перерисовываем список заметок слева, чтобы обновить заголовок на экране
-        renderNotesList();
-        // --- ВОТ ЭТУ СТРОЧКУ НУЖНО ДОБАВИТЬ: ---
-        saveToLocalStorage(); 
-        // Выведем сообщение в консоль, чтобы убедиться, что сохранение прошло успешно
-        console.log('Заметка успешно сохранена:', activeNote);
-    }
-});
-
-// 5. Слушаем клик по кнопке «Удалить»
-deleteBtn.addEventListener('click', function() {
-    // Если ни одна заметка не открыта, ничего не делаем
-    if (currentNoteId === null) return;
-
-    // Спрашиваем подтверждение у пользователя (на всякий случай)
-    const confirmDelete = confirm('Вы уверены, что хотите удалить эту заметку?');
-    
-    if (confirmDelete) {
-        // Фильтруем массив: оставляем только те заметки, ID которых НЕ равен текущему
-        notes = notes.filter(function(note) {
-            return note.id !== currentNoteId;
+        // --- НОВЫЙ КОД: Слушаем ввод текста внутри стикера ---
+        stickerText.addEventListener('input', function() {
+            // Обновляем текст этого стикера прямо в массиве памяти
+            sticker.text = stickerText.value;
+            saveToLocalStorage(); // Автосохранение в LocalStorage при каждом изменении текста!
         });
+        // --- КОНЕЦ НОВОГО КОДА ---
 
-        // Сбрасываем ID активной заметки, так как мы её только что удалили
-        currentNoteId = null;
+        // Собираем стикер: кладем внутрь него текст и кнопку
+        stickerCard.appendChild(stickerText);
+        stickerCard.appendChild(deleteBtn);
 
-        // Очищаем поля ввода на экране
-        noteTitleInput.value = '';
-        noteTextArea.value = '';
-
-        // Снова блокируем поля ввода и кнопки управления
-        noteTitleInput.disabled = true;
-        noteTextArea.disabled = true;
-        saveBtn.disabled = true;
-        deleteBtn.disabled = true;
-
-        // Перерисовываем список заметок слева, чтобы удаленная строка исчезла
-        renderNotesList();
-        
-        console.log('Заметка удалена. Текущий список:', notes);
-    }
-});
-
-// 6. Функция для сохранения всего массива заметок в LocalStorage браузера
+        // Добавляем готовый стикер в конец нашей плиточной доски
+        stickersBoard.appendChild(stickerCard);
+    });
+}
+// 5. Функция для записи массива в LocalStorage
 function saveToLocalStorage() {
-    // Превращаем массив объектов в одну длинную строку формата JSON и сохраняем
-    localStorage.setItem('myNotepadNotes', JSON.stringify(notes));
+    localStorage.setItem('myStickersData', JSON.stringify(stickers));
 }
 
-// Запускаем отрисовку списка сразу при загрузке страницы, 
-// чтобы показать сохраненные ранее заметки
-renderNotesList();
-
-
+// Запускаем отрисовку списка сразу при загрузке страницы, чтобы показать старые стикеры
+renderNotesList = renderStickers(); 
