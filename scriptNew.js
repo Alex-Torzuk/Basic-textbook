@@ -2404,103 +2404,128 @@
 // renderNotesList();
 
 
-// 1. Хранилище данных в памяти программы
-let stickers = []; // Массив, где будут лежать объекты-стикеры
-const savedStickers = localStorage.getItem('myStickersData');
+// // 1. Хранилище данных в памяти программы
+// let stickers = []; // Массив, где будут лежать объекты-стикеры
+// const savedStickers = localStorage.getItem('myStickersData');
 
-if (savedStickers) {
-    stickers = JSON.parse(savedStickers);
-}
+// if (savedStickers) {
+//     stickers = JSON.parse(savedStickers);
+// }
 
 
-// 2. Находим основные элементы интерфейса
-const newStickerTextArea = document.getElementById('new-sticker-text');
-const addStickerBtn = document.getElementById('add-sticker-btn');
-const stickersBoard = document.getElementById('stickers-board');
+// // 2. Находим основные элементы интерфейса
+// const newStickerTextArea = document.getElementById('new-sticker-text');
+// const addStickerBtn = document.getElementById('add-sticker-btn');
+// const stickersBoard = document.getElementById('stickers-board');
 
-// 3. Слушаем клик по кнопке «Добавить стикер»
-addStickerBtn.addEventListener('click', function() {
-    // Получаем текст из верхнего поля и убираем лишние пробелы по краям
-    const textValue = newStickerTextArea.value.trim();
+// // 3. Слушаем клик по кнопке «Добавить стикер»
+// addStickerBtn.addEventListener('click', function() {
+//     // Получаем текст из верхнего поля и убираем лишние пробелы по краям
+//     const textValue = newStickerTextArea.value.trim();
 
-    // Если пользователь ничего не написал, просто выходим (не создаем пустой стикер)
-    if (textValue === '') {
-        alert('Пожалуйста, напишите какой-нибудь текст для стикера!');
-        return;
-    }
+//     // Если пользователь ничего не написал, просто выходим (не создаем пустой стикер)
+//     if (textValue === '') {
+//         alert('Пожалуйста, напишите какой-нибудь текст для стикера!');
+//         return;
+//     }
 
-    // Создаем объект для нового стикера с уникальным ID на основе текущего времени
-    const newSticker = {
-        id: Date.now(),
-        text: textValue
-    };
+//     // Создаем объект для нового стикера с уникальным ID на основе текущего времени
+//     const newSticker = {
+//         id: Date.now(),
+//         text: textValue
+//     };
 
-    // Добавляем новый стикер в конец нашего массива-хранилища
-    stickers.push(newSticker);
+//     // Добавляем новый стикер в конец нашего массива-хранилища
+//     stickers.push(newSticker);
 
-    // Очищаем верхнее поле ввода, чтобы оно снова было готово к новой записи
-    newStickerTextArea.value = '';
-      renderStickers(); 
-      saveToLocalStorage(); // Сохраняем новый список в память браузера
+//     // Очищаем верхнее поле ввода, чтобы оно снова было готово к новой записи
+//     newStickerTextArea.value = '';
+//       renderStickers(); 
+//       saveToLocalStorage(); // Сохраняем новый список в память браузера
 
-    // Выведем массив в консоль, чтобы убедиться, что данные успешно добавились
-    console.log('Стикер добавлен в массив:', stickers);
-});
+//     // Выведем массив в консоль, чтобы убедиться, что данные успешно добавились
+//     console.log('Стикер добавлен в массив:', stickers);
+// });
 
-// 4. Функция для отрисовки всех стикеров на доске
-function renderStickers() {
-    // Очищаем доску перед перерисовкой, чтобы плитки не дублировались
-    stickersBoard.innerHTML = '';
+// // 4. Функция для отрисовки всех стикеров на доске
+// function renderStickers() {
+//     // Очищаем доску перед перерисовкой, чтобы плитки не дублировались
+//     stickersBoard.innerHTML = '';
 
-    // Перебираем массив стикеров и для каждого создаем HTML-элементы
-    stickers.forEach(function(sticker) {
-        // Создаем главный контейнер для одного стикера
-        const stickerCard = document.createElement('div');
-        stickerCard.classList.add('sticker');
+//     // Перебираем массив стикеров и для каждого создаем HTML-элементы
+//     stickers.forEach(function(sticker) {
+//         // Создаем главный контейнер для одного стикера
+//         const stickerCard = document.createElement('div');
+//         stickerCard.classList.add('sticker');
 
-        // Создаем поле textarea внутри стикера для отображения и редактирования текста
-        const stickerText = document.createElement('textarea');
-        stickerText.classList.add('sticker-text');
-        stickerText.value = sticker.text; // Вставляем текст из памяти
+//         // Создаем поле textarea внутри стикера для отображения и редактирования текста
+//         const stickerText = document.createElement('textarea');
+//         stickerText.classList.add('sticker-text');
+//         stickerText.value = sticker.text; // Вставляем текст из памяти
 
-        // Создаем кнопку удаления (крестик или текст "Удалить")
-        const deleteBtn = document.createElement('button');
-        deleteBtn.classList.add('delete-sticker-btn');
-        deleteBtn.innerText = '❌ Удалить';
+//         // Создаем кнопку удаления (крестик или текст "Удалить")
+//         const deleteBtn = document.createElement('button');
+//         deleteBtn.classList.add('delete-sticker-btn');
+//         deleteBtn.innerText = '❌ Удалить';
 
-        // --- НОВЫЙ КОД: Слушаем клик по кнопке удаления этого стикера ---
-        deleteBtn.addEventListener('click', function() {
-            // Фильтруем массив: оставляем все стикеры, кроме того, у которого совпал ID
-            stickers = stickers.filter(function(item) {
-                return item.id !== sticker.id;
-            });
+//         // --- НОВЫЙ КОД: Слушаем клик по кнопке удаления этого стикера ---
+//         deleteBtn.addEventListener('click', function() {
+//             // Фильтруем массив: оставляем все стикеры, кроме того, у которого совпал ID
+//             stickers = stickers.filter(function(item) {
+//                 return item.id !== sticker.id;
+//             });
 
-            // Перерисовываем доску, чтобы удаленная плиточка пропала с экрана
-            renderStickers();
-            saveToLocalStorage(); // Сохраняем изменения после удаления
-        });
-        // --- КОНЕЦ НОВОГО КОДА ---
+//             // Перерисовываем доску, чтобы удаленная плиточка пропала с экрана
+//             renderStickers();
+//             saveToLocalStorage(); // Сохраняем изменения после удаления
+//         });
+//         // --- КОНЕЦ НОВОГО КОДА ---
 
-        // --- НОВЫЙ КОД: Слушаем ввод текста внутри стикера ---
-        stickerText.addEventListener('input', function() {
-            // Обновляем текст этого стикера прямо в массиве памяти
-            sticker.text = stickerText.value;
-            saveToLocalStorage(); // Автосохранение в LocalStorage при каждом изменении текста!
-        });
-        // --- КОНЕЦ НОВОГО КОДА ---
+//         // --- НОВЫЙ КОД: Слушаем ввод текста внутри стикера ---
+//         stickerText.addEventListener('input', function() {
+//             // Обновляем текст этого стикера прямо в массиве памяти
+//             sticker.text = stickerText.value;
+//             saveToLocalStorage(); // Автосохранение в LocalStorage при каждом изменении текста!
+//         });
+//         // --- КОНЕЦ НОВОГО КОДА ---
 
-        // Собираем стикер: кладем внутрь него текст и кнопку
-        stickerCard.appendChild(stickerText);
-        stickerCard.appendChild(deleteBtn);
+//         // Собираем стикер: кладем внутрь него текст и кнопку
+//         stickerCard.appendChild(stickerText);
+//         stickerCard.appendChild(deleteBtn);
 
-        // Добавляем готовый стикер в конец нашей плиточной доски
-        stickersBoard.appendChild(stickerCard);
-    });
-}
-// 5. Функция для записи массива в LocalStorage
-function saveToLocalStorage() {
-    localStorage.setItem('myStickersData', JSON.stringify(stickers));
-}
+//         // Добавляем готовый стикер в конец нашей плиточной доски
+//         stickersBoard.appendChild(stickerCard);
+//     });
+// }
+// // 5. Функция для записи массива в LocalStorage
+// function saveToLocalStorage() {
+//     localStorage.setItem('myStickersData', JSON.stringify(stickers));
+// }
 
-// Запускаем отрисовку списка сразу при загрузке страницы, чтобы показать старые стикеры
-renderNotesList = renderStickers(); 
+// // Запускаем отрисовку списка сразу при загрузке страницы, чтобы показать старые стикеры
+// renderNotesList = renderStickers(); 
+
+
+// let str = 'ahb acb aeb aeeb adcb axeb';
+// let regex = /a.b/g
+// let result = str.match(regex)
+// console.log(result) 
+
+
+//Напишите регулярку, которая найдет строки 
+// 'abba', 'adca', 'abea' по шаблону: 
+// буква 'a', 2 любых символа, буква 'a'.
+
+// let str = 'aba aca aea abba adca abea';
+// let regex = /a..a/g
+// let result = str.match(regex)
+// console.log(result)
+
+
+//Напишите регулярку, которая найдет строки 
+// 'abba' и 'abea', не захватив 'adca'.
+
+let str = 'aba aca aea abba adca abea';
+let regex = /ab.a/g
+let res = str.match(regex)
+console.log(res)
