@@ -2525,7 +2525,45 @@
 //Напишите регулярку, которая найдет строки 
 // 'abba' и 'abea', не захватив 'adca'.
 
-let str = 'aba aca aea abba adca abea';
-let regex = /ab.a/g
+// let str = 'aba aca aea abba adca abea';
+// let regex = /ab.a/g
+// let res = str.match(regex)
+// console.log(res)
+
+
+//Напишите регулярку, которая найдет строки 'aba', 'abba', 
+// 'abbba' по шаблону: буква 'a', буква 'b' любое количество раз, 
+// буква 'a'.
+
+// let str = 'aa aba abba abbba abca abea'
+// let regex = /ab+a/g
+// let res = str.match(regex)
+// console.log(res)
+
+
+//Напишите регулярку, которая найдет строки 
+// 'aa', 'aba', 'abba', 'abbba' по шаблону: 
+// буква 'a', буква 'b' любое количество раз 
+// (в том числе ниодного раза), буква 'a'.
+
+// let str = 'aa aba abba abbba abca abea';
+// let regex = /ab*a/g
+// let res = str.match(regex)
+// console.log(res)
+
+
+//Напишите регулярку, которая найдет строки 'aa', 'aba' 
+// по шаблону: буква 'a', буква 'b' один раз или ниодного, буква 'a'.
+
+// let str = 'aa aba abba abbba abca abea';
+// let regex = /ab?a/g
+// let res = str.match(regex)
+// console.log(res)
+
+//Напишите регулярку, которая найдет строки 
+// 'aa', 'aba', 'abba', 'abbba', не захватив 'abca' и 'abea'.
+
+let str = 'aa aba abba abbba abca abea';
+let regex = /ab{0,}a/g
 let res = str.match(regex)
 console.log(res)
