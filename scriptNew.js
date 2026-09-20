@@ -2563,7 +2563,14 @@
 //Напишите регулярку, которая найдет строки 
 // 'aa', 'aba', 'abba', 'abbba', не захватив 'abca' и 'abea'.
 
-let str = 'aa aba abba abbba abca abea';
-let regex = /ab{0,}a/g
+// let str = 'aa aba abba abbba abca abea';
+// let regex = /ab{0,}a/g
+// let res = str.match(regex)
+// console.log(res)
+
+//Напишите регулярку, которая найдет строки по шаблону: 
+// строка 'ab' повторяется 1 или более раз.
+let str = 'ab abab abab abababab abea';
+let regex = /(ab)+/g
 let res = str.match(regex)
 console.log(res)
