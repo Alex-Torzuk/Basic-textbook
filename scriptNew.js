@@ -2570,7 +2570,55 @@
 
 //Напишите регулярку, которая найдет строки по шаблону: 
 // строка 'ab' повторяется 1 или более раз.
-let str = 'ab abab abab abababab abea';
-let regex = /(ab)+/g
-let res = str.match(regex)
+// let str = 'ab abab abab abababab abea';
+// let regex = /(ab)+/g
+// let res = str.match(regex)
+// console.log(res)
+
+//Напишите регулярку, которая найдет строку 'a.a', 
+// не захватив остальные.
+
+// let str = 'a.a aba aea';
+// let regex = /a\.a/g
+// let res = str.match(regex)
+// console.log(res)
+
+//Напишите регулярку, которая найдет строку '2+3', 
+// не захватив остальные.
+
+// let str = '2+3 223 2223';
+// let regex = /2\+3/g
+// let res = str.match(regex)
+// console.log(res)
+
+//Напишите регулярку, которая найдет строки 
+// '2+3', '2++3', '2+++3', не захватив остальные 
+// (+ может быть любое количество).
+
+// let str = '23 2+3 2++3 2+++3 345 567';
+// let regex = /2\++3/g
+// let res = str.match(regex)
+// console.log(res)
+
+//Напишите регулярку, которая найдет строки 
+// '23', '2+3', '2++3', '2+++3', не захватив остальные.
+
+// let str = '23 2+3 2++3 2+++3 445 677';
+// let regex = /2\+*3/g
+// let res = str.match(regex)
+// console.log(res)
+
+//Напишите регулярку, которая найдет строки 
+// '*q+', '*qq+', '*qqq+', не захватив остальные.
+
+// let str = '*+ *q+ *qq+ *qqq+ *qqq qqq+';
+// let regex = /\*q+\+/g
+// let res = str.match(regex)
+// console.log(res)
+
+//Напишите регулярку, которая найдет строки в квадратных скобках и заменит их на '!'.
+
+let str = '[abc] {abc} abc (abc) [abc]';
+let regex = /\[.*?\]/g
+let res = str.replace(regex, '!')
 console.log(res)
