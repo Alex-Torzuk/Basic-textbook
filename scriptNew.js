@@ -2618,7 +2618,15 @@
 
 //Напишите регулярку, которая найдет строки в квадратных скобках и заменит их на '!'.
 
-let str = '[abc] {abc} abc (abc) [abc]';
-let regex = /\[.*?\]/g
-let res = str.replace(regex, '!')
+// let str = '[abc] {abc} abc (abc) [abc]';
+// let regex = /\[.*?\]/g
+// let res = str.replace(regex, '!')
+// console.log(res)
+
+// Напишите регулярку, которая найдет строки вида 
+// 'aba', в которых 'b' встречается более 4-х раз (включительно).
+
+let str = 'aa aba abba abbba abbbba abbbbba';
+let regex = /ab{5}a/g
+let res = str.match(regex)
 console.log(res)
