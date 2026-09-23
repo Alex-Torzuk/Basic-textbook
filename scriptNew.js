@@ -2626,7 +2626,16 @@
 // Напишите регулярку, которая найдет строки вида 
 // 'aba', в которых 'b' встречается более 4-х раз (включительно).
 
-let str = 'aa aba abba abbba abbbba abbbbba';
-let regex = /ab{5}a/g
-let res = str.match(regex)
+// let str = 'aa aba abba abbba abbbba abbbbba';
+// let regex = /ab{5}a/g
+// let res = str.match(regex)
+// console.log(res)
+
+//Напишите регулярку, которая найдет все строки по 
+// краям которых стоят буквы 'a', и заменит каждую из 
+// них на '!'. Между буквами 'a' может быть любой символ (кроме 'a').
+
+let str = 'aba accca azzza wwwwa';
+let regex = /a[^a]+a/g
+let res = str.replace(regex, '!')
 console.log(res)
