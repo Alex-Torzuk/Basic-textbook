@@ -2631,11 +2631,8 @@
 // let res = str.match(regex)
 // console.log(res)
 
-//Напишите регулярку, которая найдет все строки по 
-// краям которых стоят буквы 'a', и заменит каждую из 
-// них на '!'. Между буквами 'a' может быть любой символ (кроме 'a').
-
-let str = 'aba accca azzza wwwwa';
-let regex = /a[^a]+a/g
+//Напишите регулярку, которая заменит все пробелы на '!'.
+let str = 'ave a#a a2a a$a a4a a5a a-a aca';
+let regex = /\s/g
 let res = str.replace(regex, '!')
 console.log(res)
