@@ -2631,8 +2631,13 @@
 // let res = str.match(regex)
 // console.log(res)
 
-//Напишите регулярку, которая заменит все пробелы на '!'.
-let str = 'ave a#a a2a a$a a4a a5a a-a aca';
-let regex = /\s/g
-let res = str.replace(regex, '!')
-console.log(res)
+//Напишите регулярку, которая найдет строки следующего вида: по краям стоят 
+// буквы 'a' и 'b', а между ними - не число и не пробел.
+let str = 'avb a1b a2b a3b a4b a5b abb acb';
+// Регулярное выражение с флагом global
+let regexp = /\ba[^0-9\s]*b\b/g; 
+
+let result = str.match(regexp);
+
+console.log(result); 
+// Выведет: ['aa', 'a1a', 'a22a', 'a333a', 'a4444a', 'a55555a']
